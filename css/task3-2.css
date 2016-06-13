@@ -1,0 +1,46 @@
+body{
+	font-family: "微软雅黑";
+	font-size: 15px;
+}
+div#main{
+	background-color: #eee;
+	border:solid 1px #999;
+	padding: 20px;
+	overflow: auto;
+}
+img{
+	width: 80px;
+	height: 80px;
+	border:solid 1px #999;
+	margin: 5px;
+}
+div#center{
+	background-color: white;
+	border:solid 1px #999;
+	margin-left: 220px;
+	margin-right: 140px;
+	float: left;
+}
+img.logo{
+	float: left;
+}
+div#left {
+	background-color: white;
+	float: left;
+	width:200px;
+	border:solid 1px #999;
+	margin-left: -100%;
+}
+div.name{ 
+	text-align: center;
+	font-weight: bold;
+}
+div#right{
+	background-color: white;
+	width:120px;
+	border:solid 1px #999;
+	padding: 0px;
+	float: left;
+	margin-left: -122px;
+}
+

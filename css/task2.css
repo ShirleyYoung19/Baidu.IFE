@@ -1,0 +1,165 @@
+*{
+    margin:0;padding:0;
+    font-family: 'Microsoft YaHei';
+}
+header ul{
+	position: absolute;
+	top: 0px;
+	right: 10px;
+}
+nav ul li{
+
+	float: left;
+	text-align: center;
+	display: block;
+	padding: 20px 10px;
+
+}
+body{
+	background-color: rgb(180,180,180);
+	font-size: 0.8em;
+}
+header{
+	background-color: rgb(80,80,80);
+
+	margin: 0px;
+	padding: 0px 10px;
+	height: 60px;
+}
+.inline{
+	display: inline;
+}
+div.header1{
+	float: left;
+	text-align: right;
+}
+div.header2{
+	float: right;
+	text-align: right;
+	padding-top: 20px;
+}
+ul.header{
+	list-style-type: disc;
+}
+.clear{
+	clear: left;
+}
+.clear2{
+	clear: right;
+}
+a.header{
+	color:white;
+	text-decoration: none;
+}
+a:visited {color:blue;}
+a:hover   {color:red;}
+a:active  {color:yellow;}
+
+h2{
+	font-family: 'Microsoft YaHei'；
+}
+h3{
+	color: gray;
+	font-size: 1.2em;
+}
+h4{
+	color: gray;
+	font-size: 0.8em;
+}
+p{
+	text-indent: 2em;
+	line-height: 2em;
+}
+article{
+
+	background-color: white;
+	padding:20px;
+	margin: 20px;
+	border: solid gray 1px;
+	box-shadow: 0px 3px 1px gray;
+
+}
+div.picture{
+	width: 300px;
+	height: 280px;
+	text-align: center;
+	border-style: solid;
+	border-width: 1px;
+	border-color: gray;
+	margin: 20px;
+}
+.jpg{
+	width: 250px;
+	height:200px;
+	padding: 15px 0px;
+}
+table{
+	font-size: 0.9em;
+	width: 100%;
+	border:solid gray 1px;
+	border-collapse: collapse;
+	margin: 0px auto 0px auto;
+	text-align: left;
+}
+tr.head{
+	font-weight: bold;
+	color: white;
+	background-color: black;
+}
+tr.foot{
+	font-weight: bold;
+	color: black;
+	background-color: rgb(200,200,200);
+}
+th,td{
+	border: solid gray 1px;
+
+}
+
+div#side{
+	background-color: white;
+	padding:10px;
+	margin: 20px 0px 40px 0px;
+	border: solid gray 1px;
+	box-shadow: 0px 3px 1px gray;
+	min-height: 400px;
+}
+h2.side{
+	border-left-style: solid;
+	border-left-color: rgb(200,200,200);
+	border-left-width:3px; 
+	padding-left: 1em;
+}
+footer{
+	background-color: black;
+	color: white;
+	text-align: center;
+	font-size: 0.8em;
+	padding:20px 0px 40px 0px;
+}
+form{
+	text-align: center;
+}
+.title{
+	width: 300px;
+	float: left;
+	text-align: right;
+	margin: 5px 0px 5px 40px;
+}
+.title1{
+	width: 200px;
+	float: left;
+	text-align: left;
+	clear: right;
+	margin: 5px 0px 5px 40px;
+
+}
+.submit{
+	background-color: blue;
+	width: 800px;
+	color: white;
+	font-size: 1.5em;
+	text-align: center;
+	border-radius: 5px;
+}
+
