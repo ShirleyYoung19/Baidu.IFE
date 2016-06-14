@@ -1,10 +1,20 @@
 body{
 	min-width: 1280px;
+<<<<<<< HEAD
+	display: block;
 	margin:0px auto;
+
+=======
+	margin:0px auto;
+>>>>>>> master
 }
 /*导航栏样式*/
 header{
 	height:56px;
+<<<<<<< HEAD
+	position: relative;
+=======
+>>>>>>> master
 }
 header img{
 	margin-top:13px;
@@ -18,6 +28,10 @@ header span{
 	line-height: 56px;
 	float: left;
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 header div ul{
 	list-style: none;
 	text-align: right;
@@ -26,7 +40,90 @@ header div ul{
 }
 header div ul li{
 	display: inline;
+<<<<<<< HEAD
+	height: 56px;
+}
+a.nav{
+	color: #787b83;
+	font-family: '微软雅黑';
+	font-size: 14px;
+	text-decoration: none;
+	padding-left: 22px;
+	padding-right: 22px;
+	padding-bottom: 17px;
+}
+
+a.nav:hover{
+	color: #e9605e;
+	border-bottom: solid 4px #e9605e;
+}
+
+div.login{
+	position: absolute;
+	right: 67px;
+}
+div.login img{
+	padding-top: 6px;
+}
+div.login span{
+	color: #e74f4d;
+	font-family: '微软雅黑';
+	font-size: 14px;
+	height: 38px;
+	padding-bottom:17px;
+}
+
+/*开始体验部分*/
+div.parta{
+	position: relative;
+}
+div.plane{
+	margin:0px auto;
+	height: 854px;
+	width: 1280px;
+	position: relative;
+
+}
+img.plane_gray{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	opacity: 0.5;
+
+}
+div.begin{
+	position: absolute;
+	top: 190px;
+	left: 116px;
+	z-index: 10;
+}
+div.begin h1{
+	font-family: '微软雅黑';
+	font-size: 60px;
+	color: #ffffff;
+}
+div.begin p{
+	font-family: '微软雅黑';
+	font-size: 21px;
+	color: #ffffff;
+	line-height: 16px;
+}
+div.begin button{
+	width: 331px;
+	height: 65px;
+	background-color: #e74f4d;
+	color: #ffffff;
+	font-family: '微软雅黑';
+	font-size: 30px;
+	text-align: center;
+	margin-left: 10px;
+	margin-top: 45px;
+	border:none;
+}
+
+=======
 	margin-left: 22px;
 	margin-right: 22px;
 
 }
+>>>>>>> master
