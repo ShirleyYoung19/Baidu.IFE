@@ -1,0 +1,32 @@
+body{
+	min-width: 1280px;
+	margin:0px auto;
+}
+/*导航栏样式*/
+header{
+	height:56px;
+}
+header img{
+	margin-top:13px;
+	margin-left: 59px;
+	margin-right: 10px;
+	float: left;
+}
+header span{
+	font-family: '黑体';
+	font-size: 21px;
+	line-height: 56px;
+	float: left;
+}
+header div ul{
+	list-style: none;
+	text-align: right;
+	float: right;
+	margin-right: 122px;
+}
+header div ul li{
+	display: inline;
+	margin-left: 22px;
+	margin-right: 22px;
+
+}
