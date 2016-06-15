@@ -65,6 +65,7 @@ div.login span{
 /*开始体验部分*/
 div.parta{
 	position: relative;
+	height: 939px;
 }
 div.plane{
 	margin:0px auto;
@@ -109,3 +110,66 @@ div.begin button{
 	margin-top: 45px;
 	border:none;
 }
+
+div.parta div.introduce{
+	width: 100%;
+	height: 250px;
+	position: absolute;
+	top: 691px;
+	background-color: #ffffff;
+}
+div.parta div.introduce div{
+	width:25%;
+	float: left;
+	margin-top: 45px;
+	margin-bottom: 66px;
+}
+div.introduce div img{
+	display: block;
+	margin:0px auto;
+}
+div.introduce div p{
+	font-family: '黑体';
+	font-size: 14px;
+	color: #767777;
+	text-align: center;
+	line-height: 18px;
+	margin-top: 42px;
+	height: 60px;
+	border-right:solid 2px #bbbbbb ;
+}
+
+div.introduce div.part1 p{
+	margin-top: 40px;
+}
+
+div.introduce div.part4 p{
+	border-style: none;
+}
+/*第二部分*/
+/*关于新世界,你不知道的还有什么*/
+div.partb{
+	height: 1305px;
+	position: relative;
+}
+img.aboutnw {
+	display: block;
+	margin:0px auto;
+}
+div.aboutnw{
+	position:absolute;
+	top: 89px;
+	width: 100%;
+}
+div.aboutnw img{
+	display: block;
+	margin:0px auto;
+}
+div.aboutnw p{
+	font-family: '黑体';
+	font-size: 53.59px;
+	line-height: 56.6px;
+	text-align: center;
+	color: #a1a1a1;
+}
+
