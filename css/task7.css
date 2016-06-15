@@ -1,20 +1,13 @@
 body{
 	min-width: 1280px;
-<<<<<<< HEAD
 	display: block;
 	margin:0px auto;
 
-=======
-	margin:0px auto;
->>>>>>> master
 }
 /*导航栏样式*/
 header{
 	height:56px;
-<<<<<<< HEAD
 	position: relative;
-=======
->>>>>>> master
 }
 header img{
 	margin-top:13px;
@@ -28,10 +21,7 @@ header span{
 	line-height: 56px;
 	float: left;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 header div ul{
 	list-style: none;
 	text-align: right;
@@ -40,7 +30,6 @@ header div ul{
 }
 header div ul li{
 	display: inline;
-<<<<<<< HEAD
 	height: 56px;
 }
 a.nav{
@@ -120,10 +109,3 @@ div.begin button{
 	margin-top: 45px;
 	border:none;
 }
-
-=======
-	margin-left: 22px;
-	margin-right: 22px;
-
-}
->>>>>>> master
