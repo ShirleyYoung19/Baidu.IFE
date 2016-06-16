@@ -1,7 +1,6 @@
+
 body{
 	min-width: 1280px;
-	display: block;
-	margin:0px auto;
 
 }
 /*导航栏样式*/
@@ -66,15 +65,19 @@ div.login span{
 div.parta{
 	position: relative;
 	height: 939px;
+	background-image: url(../image/task7/figure3.png);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 div.plane{
-	margin:0px auto;
+
 	height: 854px;
-	width: 1280px;
+
 	position: relative;
 
 }
 img.plane_gray{
+	width: 100%;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -151,15 +154,21 @@ div.introduce div.part4 p{
 div.partb{
 	height: 1305px;
 	position: relative;
+
 }
 img.aboutnw {
 	display: block;
 	margin:0px auto;
 }
 div.aboutnw{
-	position:absolute;
-	top: 89px;
 	width: 100%;
+	background-image: url(../image/task7/gray_light.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 270px;
+	padding-top: 90px;
+	font-size: 0px;
+	margin:0px 0px;
 }
 div.aboutnw img{
 	display: block;
@@ -172,4 +181,29 @@ div.aboutnw p{
 	text-align: center;
 	color: #a1a1a1;
 }
+/*查找新世界城市活动信息*/
+div.findcity{
+	position: relative;
+	height: 340px;
+	margin:0px auto;
+	background-image: url(../image/task7/figure10.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 
+div.findcity h3{
+	font-family: 'Microsoft Yahei';
+	font-size: 21px;
+	line-height: 42px;
+	color: #ffffff;
+	display: block;
+	text-align: center;
+	margin:0px 0px;
+	padding-top: 50px;
+	font-weight: normal;
+}
+div.findcity hr{
+	width:30px;
+	border-top:1px #ffffff solid;
+	margin:0px auto; 
+}
