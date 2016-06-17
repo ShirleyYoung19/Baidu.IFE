@@ -207,3 +207,86 @@ div.findcity hr{
 	border-top:1px #ffffff solid;
 	margin:0px auto; 
 }
+.findcity p{
+	font-family: 'Microsoft Yahei';
+	font-size: 12px;
+	line-height: 31px;
+	color: #ffffff;
+	text-align: center;
+}
+.findcity form{
+	margin:30px 125px 0px 125px;
+}
+.findcity form select{
+	width: 236px;
+	height: 36px;
+	font-size: 12px;
+	line-height: 27px;
+	font-family: 'Microsoft Yahei';
+	color: #a8aaaa;
+	padding-left: 12px;
+	appearance:none;
+	-moz-appearance:none; /* Firefox */
+	-webkit-appearance:none; /* Safari 和 Chrome */
+	background-image: url(../image/task7/droplist.png);
+	background-repeat: no-repeat;
+	background-position: center right 10px;
+	cursor: pointer;
+	margin-right: 30px;
+}
+.findcity form button{
+	width: 236px;
+	height: 36px;
+	font-family: 'Microsoft Yahei';
+	font-size: 14px;
+	line-height: 27px;
+	color: #ffffff;
+	background-color: #bf4f49;
+	border-style: none;
+}
+
+/*城市活动*/
+div.cityactivity {
+	background-color: #f7f7f7;
+	height: 390px;
+	padding:100px 148px 115px 148px;
+}
+div.cityactivity div.city{
+	width:219px;
+	margin-right: 36px;
+	float:left;
+}
+div.city p{
+	font-size:13px;
+	font-family: 'Microsoft Yahei';
+	color: #a2a2a2;
+	text-align: center;
+}
+div.city p.cityname{
+	font-size:15px;
+	font-family: 'Microsoft Yahei';
+	text-align: center;
+	color: #000000;
+	font-weight: bold;
+}
+div.city p#shanghai{
+	font-size:25px;
+	font-family: 'Microsoft Yahei';
+	text-align: justify;
+	text-align-last:justify;
+	color: #000000;
+	font-weight: 200;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+div.cityactivity div.img{
+	width: 219px;
+	height: 337px;
+	background-color: #ffffff;
+	box-shadow: 1px 1px 1px #777777;
+}
+div.img img{
+	display: block;
+	margin:auto;
+}
