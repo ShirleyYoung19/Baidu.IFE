@@ -102,30 +102,23 @@
 		</div>
 		<div class="cityactivity">
 			<div  class="city">
-				<div class="img">
-					<img src="../image/task7/beijing.jpg" alt="a photo of a picture">
-				</div>
+				<img src="../image/task7/beijing.jpg" alt="a photo of a picture">
+				
 				<p class="cityname">北京活动</p>
 				<p>新社区大联盟</p>
 			</div>
 			<div class="city" >
 				<p class="cityname" id="shanghai">上海活动</p>
 				<p>夜上海新景观探索</p>
-				<div class="img">
-					<img src="../image/task7/shanghai.jpg" alt="a photo of a picture">
-				</div>
+				<img src="../image/task7/shanghai.jpg" alt="a photo of a picture">
 			</div>
 			<div  class="city">
-				<div class="img">
-					<img src="../image/task7/shenzhen.jpg" alt="a photo of a picture">
-				</div>
+				<img src="../image/task7/shenzhen.jpg" alt="a photo of a picture">
 				<p class="cityname">深圳活动</p>
 				<p>全新海岸线观点站</p>
 			</div>
 			<div  class="city">
-				<div class="img">
-					<img src="../image/task7/hongkong.jpg" alt="a photo of a picture">
-				</div>
+				<img src="../image/task7/hongkong.jpg" alt="a photo of a picture">
 				<p class="cityname">香港活动</p>
 				<p>奢侈消费大派送</p>
 			</div>
@@ -136,54 +129,63 @@
 
 	<div class="partc">
 		<div class="part1">
-			<img src="../image/task7/figure12.png" alt="many people's legs">
-			<p>新世界</p>
-			<p>TIME</p>
+			<h3>新世界</h3>
+			<h1>TIME</h1>
 			<p>@新世界-北京</p>
 			<p>2016.04.01</p>
 		</div>
 		<div class="part2">
-			<p>新世界/01</p>
+			<h3>新世界/<span>01</span></h3>
 			<p>新世界是个新世界新世界是个新世界新世界是个新世界</p>
 			<p>新世界是个新世界新世界是个新世界新世界是个新世界</p>
 			<p>新世界是个新世界新世界是个新世界新世界是个新世界</p>
 			<p>新世界是个新世界新世界是个新世界</p>
-			<p>更多详情</p>
-			<img src="../image/task7/figure13.png" alt="circles">
+			<p class="more">更多详情</p>
+			<ul>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+			</ul>
 		</div>
 		<div class="part3">
 			<p>新时代</p>
 			<p>关于爱生活的我们</p>
-			<p>查看更多</p>
+			<hr>
+			<a href="#">查看更多</a>
 		</div>
 		<div class="part4">
 			<p>新时代</p>
 			<p>关于爱生活的我们</p>
-			<p>查看更多</p>
+			<hr>
+			<a href="#">查看更多</a>
 		</div>
 		<div class="part5">
-			<img src="../image/task7/figure14.png" alt="a girl is waiting for a train">
+			<img src="../image/task7/figure13.png" alt="a girl is waiting for a train">
+			<div></div>
 		</div>
 	</div>
 <!-- 成为我们的志愿者 -->
 	<div class="partd">
-		<p>成为我们的志愿者</p>
-		<p>新世界的大家庭需要每一个爱生活的人加入,如果你够年轻,有梦想,有激情</p>
-		<p>那就不要犹豫,快来加入我们,成为改变所有人生活的人</p>
+		<div class="beingv">
+			<h3>成为我们的志愿者</h3>
+			<hr>
+			<p>新世界的大家庭需要每一个爱生活的人加入,如果你够年轻,有梦想,有激情</p>
+			<p>那就不要犹豫,快来加入我们,成为改变所有人生活的人</p>
+		</div>
 		<div class="volunteer_note">
 			<div class="volunteer_agreement">
 				<h3>新世界志愿者协议</h3>
 				<p>加入新世界志愿者的人员必须遵守中华人民共和国的相关法律法规,并且本着平等自愿的原则......</p>
-				<img src="../image/task7/more.png"><span>more</span></br>
+				<p class="more">more</p>
 			</div>
 			<div class="volunteer_right">
 				<h3>新世界志愿者权利</h3>
 				<p>新世界志愿者享受新世界内部所有资源共享的权利,并且享受所在市新世界活动的优先参与资格</p>
-				<img src="../image/task7/more.png"><span>more</span></br>
+				<p class="more">more</p>
 			</div>
 			<div class="more_clause">
 				<h3>更多条款</h3>
-				<img src="../image/task7/more.png"><span>more</span></br>
+				<p class="more">more</p>
 			</div>
 		</div>
 		<form>
@@ -191,8 +193,7 @@
 			<input type="text" name="age" placeholder="年龄:">
 			<input type="text" name="contact" placeholder="联系方式:">
 			<input type="text" name="address" placeholder="联系地址:">
-			<textarea name="dream_description">
-				请简单描述您梦想的生活:
+			<textarea id="dd" name="dream" placeholder="顶顶顶顶">
 			</textarea>
 			<button>提交申请</button>
 		</form>
@@ -201,16 +202,22 @@
 		<h3>联系我们</h3>
 		<p>为了更好的获取我们最新的产品资讯,您可以留下您的电子邮箱快速订阅我们的产品资讯</p>
 		<p>也可以通过以下任何方式关注我们动态</p>
-		<input type="email" name="email" placeholder="someone@email.com">
-		<input type="submit" name="submit" placeholder="提交">
-		<a href="#"><img src="../image/task7/qq.png"></a>
-		<a href="#"><img src="../image/task7/weibo.png"></a>
-		<a href="#"><img src="../image/task7/twitter.png"></a>
-		<a href="#"><img src="../image/task7/earth.png"></a>
+		<div>
+			<form>
+			<input class="email" type="email" name="email" placeholder="someone@email.com">
+			<button class="submit" type="submit" name="submit" >提交
+			</button>
+		</div>
+		<div class="icon">
+			<a href="#"><img src="../image/task7/qq.png"></a>
+			<a href="#"><img src="../image/task7/weibo.png"></a>
+			<a href="#"><img src="../image/task7/twitter.png"></a>
+			<a href="#"><img src="../image/task7/earth.png"></a>
+		</div>
 	</div>
 	<footer>
-		<p>@Shirley Yang</p>
-		<p> <a href="#top">Back to top</a></p>
+		<p class="left">@Shirley Yang</p>
+		<p class="right"> <a href="#top">Back to top</a></p>
 	</footer>
 </body>
 </html>
