@@ -1,0 +1,293 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+body{
+	font-family: 'Microsoft Yahei';
+	position: relative;
+}
+
+/*导航栏*/
+header{
+	height: 56px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	background-color: #228abf;
+	z-index: 9;
+}
+
+/*左侧logo*/
+header img{
+	float: left;
+	display: block;
+	margin-top: 10px;
+	margin-left: 50px;
+}
+header div{
+	float: right;
+	margin-right: 90px;
+	padding: auto 3px;
+}
+
+/*右侧搜索登录框*/
+header div input{
+	height: 28px;
+	width: calc (313px - 28px);
+	background-image: url(../image/task9/search.png);
+	background-repeat: no-repeat;
+	background-position: left 18px center;
+	padding-left: 36px;
+	border-style: none;
+	border-radius: 14px;
+
+}
+header div a{
+	text-decoration: none;
+	font-family: '黑体';
+	font-size: 12px;
+	color: #ffffff;
+	background-image: url(../image/task9/login.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	line-height: 56px;
+	padding-left: 18px;
+	margin-left: 20px;
+}
+/*下方页面内容*/
+div.main{
+	width:1280px;
+	margin:56px auto 0px auto;
+}
+/*侧栏*/
+aside{
+	float: left;
+	width: 260px;
+	background-color: #2b2e3d;
+	height: 1210px;	
+	font-family: '黑体';
+	font-size: 12px;
+
+}
+/*用户信息*/
+aside div.user_info {
+	height:150px;
+	
+	position: relative;
+	
+}
+aside div.user_info div.user{
+	padding-top: 20px;
+	height: 57px;
+}
+aside div.user_info div.user img{
+	margin-left: 50px;
+	display: inline-block;
+}
+aside div.user_info div.user span{
+	line-height: 57px;
+	margin-left: 20px;
+	font-family: '黑体';
+	font-size: 16px;
+	color: #f6f5f5;
+	position: absolute;
+	top: 20px;
+}
+aside div.user_info div.collect{
+	float: left;
+	height: 30px;
+	border-right: solid 2px #9c9ea7;
+	margin-top: 25px;
+	width: 24px;
+	padding-right: 30px;
+	margin-left: 63px;
+}
+aside div.user_info div.collect p{
+	font-size: 16px;
+	font-family: '黑体';
+	line-height: 18px;
+	color: #6e8095;
+}
+aside div.user_info div.collect span{
+	font-size: 12px;
+}
+aside div.user_info div.fans{
+	float: left;
+	height: 30px;
+	margin-top: 25px;
+	width: 24px;
+	padding-left: 30px;
+}
+aside div.user_info div.fans p{
+	font-size: 16px;
+	font-family: '黑体';
+	line-height: 18px;
+	color: #6e8095;
+}
+aside div.user_info div.fans span{
+	font-size: 12px;
+}
+/*个人报表*/
+aside div.personal_report {
+	background-color: #383d4e;
+	height: 190px;
+}
+aside div.personal_report p{
+
+	line-height: 30px;
+}
+aside div.personal_report p.report{
+	background-image: url(../image/task9/report.png);
+	background-position: left 46px center;
+	background-repeat: no-repeat;
+	color: #dbdbde;
+	padding-left: 68px;
+}
+aside div.personal_report p.folder{
+	background-image: url(../image/task9/arrow_unfold.png),url(../image/task9/folder_unfold.png);
+	background-position: left 68px center, left 86px center;
+	background-repeat: no-repeat, no-repeat;
+	color: #6e8095;
+	padding-left: 102px;
+}
+aside div.personal_report p.folder{
+	background-image: url(../image/task9/arrow_fold.png),url(../image/task9/folder_fold.png);
+	background-position: left 68px center, left 86px center;
+	background-repeat: no-repeat, no-repeat;
+	color: #6e8095;
+	padding-left: 102px;
+}
+aside div.personal_report p.folder_unfold{
+	background-image: url(../image/task9/arrow_unfold.png),url(../image/task9/unfolder_fold.png);
+	background-position: left 68px center, left 86px center;
+	background-repeat: no-repeat, no-repeat;
+	color: #ededef;
+	padding-left: 102px;
+}
+aside div.personal_report p.document_selected{
+	background-image: url(../image/task9/document_selected.png);
+	background-position: left 102px center;
+	background-repeat: no-repeat;
+	color: #ededef;
+	padding-left: 116px;
+}
+aside div.personal_report p.document{
+	background-image: url(../image/task9/document.png);
+	background-position: left 102px center;
+	background-repeat: no-repeat;
+	color: #6e8095;
+	padding-left: 116px;
+}
+/*其他项目 图片没有扣的很仔细......*/
+aside>a{
+	height: 48px;
+	padding-left: 70px;
+	line-height: 48px;
+	color: #6e8095;
+	display: block;
+	text-decoration: none;
+}
+aside>a:hover{
+	background-color: #393e4e;
+}
+aside>a.star{
+	background-image: url(../image/task9/star.png);
+	background-position: left 46px center;
+	background-repeat: no-repeat, no-repeat;
+	background-size: 12px 12px;
+}
+aside>a.share{
+	background-image: url(../image/task9/share.png);
+	background-position: left 46px center;
+	background-repeat: no-repeat, no-repeat;
+	background-size: 12px 12px;
+}
+aside>a.account{
+	background-image: url(../image/task9/account.png);
+	background-position: left 46px center;
+	background-repeat: no-repeat, no-repeat;
+	background-size: 12px 12px;
+}
+
+/*主题部分*/
+main{
+	width: calc(1280px - 260px);
+	height: 1210px;
+	font-family: '黑体';
+	font-size: 12px;
+	background-color: #eeeeed;
+	color: #aaaaaa;
+	float: left;
+}
+main nav{
+	height: 30px;
+	padding-left: 30px;
+	background-color: #ffffff;
+}
+main nav a{
+	display: inline-block;
+	text-decoration: none;
+	height: 30px;
+	line-height: 30px;
+	color: #aaaaaa;
+}
+main nav a.active1{
+	color: #82a8cb;
+}
+main nav a.path::before{
+	content: '/';
+}
+main nav a:hover{
+	color: #82a8cb;
+}
+/*查询项*/
+main section.search{
+	width: 890px;
+	height: 86px;
+	margin-top: 20px;
+	margin-left: 60px;
+	background-color: #ffffff;
+}
+main section.search select{
+	appearance:none;
+	-moz-appearance:none; /* Firefox */
+	-webkit-appearance:none; /* Safari 和 Chrome */
+	background-image: url(../image/task9/down_arrow.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+	height: 25px;
+	font-family: '黑体';
+	font-size: 12px;
+	color: #323333;
+}
+main section.search div.search{
+	float: left;
+	margin-left:30px;
+	margin-top: 15px;
+	width: 160px;
+	height: 25px;
+}
+main section.search div.search select{
+	margin-left:15px;
+	width: 70px;
+	height: 25px;
+	padding-left: 12px;
+}
+main section.search div.seller_buyer{
+	float: left;
+	margin-top: 15px;
+	width: 217px;
+	height: 55px;
+	background-image: url(../image/task9/switch.png);
+	background-position: right 30px center;
+	background-repeat: no-repeat;
+}
+main section.search div.seller_buyer select{
+	margin-left: 8px;
+	width: 120px;
+	height:25px;
+	padding-left: 8px;
+}
+main section.search div.seller_buyer select.buyer{
+	margin-bottom: 5px;
+}
