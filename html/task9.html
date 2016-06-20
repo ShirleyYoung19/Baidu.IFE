@@ -48,7 +48,7 @@
 				<div class="search">
 					<span>查询项</span>
 					<select class="search" name="search_item">
-						<option value="first_term" check="checked">第一项</option>
+						<option value="first_term" selected="selected">第一项</option>
 						<option value="second_term">第二项</option>
 					</select>
 				</div>
@@ -56,14 +56,14 @@
 
 					<span>买方</span>
 					<select class="buyer" name="buyer">
-						<option value="buyer_a" check="checked">小A</option>
+						<option value="buyer_a" selected="selected">小A</option>
 						<option value="buyer_c">小C</option>
 					</select></br>
 
 					<span>卖方</span>
 					<select class="seller" name="seller">
 						<option value="seller_a" >小A</option>
-						<option value="seller_c" check="checked">小C</option>
+						<option value="seller_c" selected="selected">小C</option>
 					</select>
 
 				</div>
@@ -72,29 +72,59 @@
 					<input type="date" name="date">
 					<span>总耗时</span>
 					<select class="period" name="period">
-						<option value="eight" check="checked">
-							8天
-						</option>
-						<option value="eight">
-							9天
-						</option>
-						<option value="eight">
-							10天
-						</option>
+						<option value="eight" selected="selected">8天</option>
+						<option value="eight">9天</option>
+						<option value="eight">10天</option>
 					</select></br>
 					<span>人数</span>
 					<select class="population" name="population">
-						<option value="ten" check="checked">10人</option>
+						<option value="ten" selected="selected">10人</option>
 						<option value="eleven" >11人</option>
 					 </select>
 					 <span>成交项</span>
 					 <select class="number" name="number">
-						<option value="ten_items" check="checked">10项</option>
+						<option value="ten_items" selected="selected">10项</option>
 						<option value="nine_items" >9项</option>
 					 </select>
 				</div>
-				<div>
+				<div class="search_button">
 					<button>搜索</button>
+				</div>
+			</section>
+			<!-- 时间价格 -->
+			<section class="price">
+				<div class="left">
+					<img src="../image/task9/left_arrow.png">
+				</div>
+				<div class="am10 time">
+					<p class="time">10:00am</p>
+					<p><span class="rmb">&yen</span><span class="price">1200</span></p>
+				</div>
+				<div class="am11 time">
+					<p class="time">11:00am</p>
+					<p><span class="rmb">&yen</span><span class="price">1300</span></p>
+				</div>
+				<div class="am12 time">
+					<p class="time">12:00am</p>
+					<p><span class="rmb">&yen</span><span class="price">1200</span></p>
+				</div>
+				<div class="pm01 time">
+					<p class="time">01:00pm</p>
+					<p><span class="rmb">&yen</span><span class="price">1400</span></p>
+				</div>
+				<div class="pm02 time">
+					<p class="time">02:00pm</p>
+					<p><span class="rmb">&yen</span><span class="price">1500</span></p>
+				</div>
+				<div class="pm03 time">
+					<p class="time">03:00pm</p>
+					<p><span class="rmb">&yen</span><span class="price">1800</span></p>
+				</div>
+				<div class="right">
+					<img src="../image/task9/right_btn.png">
+				</div>
+				<div class="history">
+					<p>历史查询</p>
 				</div>
 			</section>
 		</main>
