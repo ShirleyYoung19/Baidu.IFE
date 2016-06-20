@@ -247,6 +247,7 @@ main section.search{
 	margin-top: 20px;
 	margin-left: 60px;
 	background-color: #ffffff;
+	border:solid 1px #dddee0;
 }
 main section.search select{
 	appearance:none;
@@ -290,4 +291,128 @@ main section.search div.seller_buyer select{
 }
 main section.search div.seller_buyer select.buyer{
 	margin-bottom: 5px;
+}
+main section.search div.item{
+	float: left;
+	margin-top: 15px;
+	width: 290px;
+	height: 55px;
+}
+main section.search div.item input{
+	width: 120px;
+	height: 25px;
+	margin-left: 5px;
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+main section.search div.item select.period{
+	width: 70px;
+	margin-bottom: 5px;
+	padding-left: 8px;
+}
+main section.search div.item select.population{
+	width: 70px;
+	height: 25px;
+	margin-left: 5px;
+	margin-right: 3px;
+	padding-left: 8px;
+}
+main section.search div.item select.number{
+	width: 120px;
+	height: 25px;
+	padding-left: 11px;
+}
+
+main section.search div.search_button{
+	float: right;
+	margin-right: 112px;
+	margin-top: 31px;
+	width: 51px;
+	height: 26px;
+}
+main section.search div.search_button button{
+	background-color: #388ac1;
+	color: #ffffff;
+		width: 51px;
+	height: 26px;
+	border-style: none;
+}
+
+/*时间价格*/
+main section.price{
+	height: 66px;
+	margin-top: 9px;
+	margin-left: 60px;
+	width: 892px;
+
+}
+main section.price div{
+	background-color:#ffffff; 
+	font-family: 'Microsoft Yahei';
+	font-size: 12px;
+	color: #000000;
+	border-top:solid 1px #cacdd1;
+	border-left:solid 1px #cacdd1;
+}
+main section.price div.left{
+	width: 30px;
+	height: 65px;
+	float: left;
+}
+main section.price div.left img{
+	
+	display: block;
+	padding-top: 24px ;
+	padding-left: 10px;
+}
+main section.price div.time{
+	float: left;
+	width:110px;
+	height: 51px;
+	margin-left: 4px;
+	padding-top: 14px;
+}
+main section.price div.time:hover{
+	border-top: solid 4px #4388c9;
+	height: 51px;
+	padding-top: 11px;
+}
+main section.price div.time p{
+	text-align: center;
+}
+main section.price div.time p span.rmb{
+	color: #aaaaaa;
+	font-size: 14px;
+}
+main section.price div.time p span.price{
+	color: #ec6500;
+	font-size: 21px;
+}
+main section.price div.am10{
+	border-top: solid 4px #4388c9;
+	height: 51px;
+	padding-top: 11px;
+}
+main section.price div.right{
+	width: 30px;
+	height: 65px;
+	float: left;
+	margin-left: 4px;
+}
+main section.price div.right img{
+	
+	display: block;
+	padding-top: 24px ;
+	padding-left: 10px;
+}
+main section.price div.history{
+	float: left;
+	height: 65px;
+	width: 69px;
+	background-image: url(../image/task9/history.png);
+	background-repeat: no-repeat;
+	background-position: left 19px center;
+	line-height: 65px;
+	margin-left: 4px;
+	padding-left: 62px;
 }
