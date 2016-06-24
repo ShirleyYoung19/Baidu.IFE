@@ -6,6 +6,11 @@ body{
 	font-family: 'Microsoft Yahei';
 	position: relative;
 }
+.clearfix:after{
+	content:'';
+	display: block;
+	clear:both;
+}
 
 /*导航栏*/
 header{
@@ -581,4 +586,120 @@ main section.project div.left div.project_tab ul li input:checked ~ div{
 	padding:28px 49px 35px 38px;
 	left: 0;
 	top: 40px;
+}
+/*第一组项目右侧*/
+.project .right{
+	width: 350px;
+	height: 357px;
+	float: left;
+	border:1px solid #cfd1d3;
+	border-radius: 5px;
+	background-color: #ffffff;
+	position: relative;
+}
+.project .right h3{
+	width: calc (100% - 20px);
+	height: 40px;
+	background-color: #f4f5f6;
+	border-radius: 5px 5px 0px 0px;
+	font-weight: normal;
+	color: #aaaaaa;
+	font-family: 'Microsoft Yahei';
+	padding-left: 20px;
+	line-height: 40px;
+}
+.project .right div{
+	padding-top: 14px;
+}
+.project .right h4{
+	padding-left: 52px;
+	padding-top: 4px;
+	color: #c7c6c6;
+	font-family: 'Microsoft Yahei';
+	font-weight: normal;
+	font-size: 12px;
+}
+.project .right h4+p{
+	color: #6a6a6a;
+	padding-left: 52px;
+	font-family: 'Microsoft Yahei';
+	padding-top: 6px;
+}
+.project .right table{
+	margin-left: 35px;
+	margin-right: 35px;
+	width: 280px;
+	margin-top: 9px;
+	height: 45px;
+	border:1px #dddddd solid;
+	border-left: none;
+	border-right: none;
+}
+.project .right table td.price{
+
+	width:99px;
+	border-right: 1px solid #dddddd;
+	padding-left: 17px;
+}
+.project .right table td.incharge{
+
+	width:180px;
+	padding-left: 10px;
+}
+.project .right table td>p{
+	color: #c7c6c6;
+	font-family: 'Microsoft Yahei';
+	font-weight: normal;
+	font-size: 12px;
+	padding-bottom: 8px;
+}
+.project .right table td>p+span{
+	color: #6a6a6a;
+	font-family: 'Microsoft Yahei';
+	padding-top: 6px;
+	font-size: 12px;
+}
+.project .right form{
+	width: 280px;
+	border-top: 1px solid #e7e7e7;
+	margin-left: 35px;
+	position:absolute;
+	bottom:44px;
+}
+.project .right form label{
+	cursor: pointer;
+}
+.project .right form input{
+	appearance:none;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	width:14px;
+	height: 14px;
+	background-color: #d6d6d6;
+	vertical-align: sub;
+	outline: none;
+	cursor: pointer;
+}
+.project .right form input:checked{
+
+	background-image: url(../image/task9/check.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.project .right form span{
+	display: inline-block;
+	margin-top: 10px;
+	font-family: 'Microsoft Yahei';
+	font-size: 12px;
+	color: #c7c6c6;
+	padding-left: 8px;
+}
+.project button{
+	float: right;
+	height: 26px;
+	width: 51px;
+	background-color: #388ac1;
+	color: #e4f0f7;
+	border:none;
+	margin-top: 4px;
 }
