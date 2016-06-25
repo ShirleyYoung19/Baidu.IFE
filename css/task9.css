@@ -703,3 +703,190 @@ main section.project div.left div.project_tab ul li input:checked ~ div{
 	border:none;
 	margin-top: 4px;
 }
+section.partd>div{
+	float: left;
+	height: 355px;
+	border:1px solid #d8d9db;
+	border-radius: 5px 5px 5px 5px;
+	margin-top: 9px;
+	background-color: #ffffff;
+}
+div.calender{
+	width: 350px;
+	margin-left: 60px;
+}
+div.car{
+	width: 529px;
+	margin-left: 9px;
+}
+section.partd>div>h3{
+	height: 41px;
+	width: 100%;
+	background-color: #f4f5f6;
+	border-bottom:solid 1px #e7e8eb ;
+	padding-left: 20px;
+	line-height: 40px;
+	color: #aaa;
+	box-sizing: border-box;
+	font-weight: normal;
+	border-radius: 5px 5px 0px 0px;
+}
+div.calender input{
+	margin-top: 9px;
+	margin-right: 5px;
+	border:1px solid #cdcece;
+	background: url(../image/task9/choose_bar.png) right center no-repeat;
+	color: #5e5e5e;
+	font-size: 12px;
+	height: 21px;
+}
+div.calender input.year{
+	margin-left: 22px;
+	width: 66px;
+	padding-left: 4px;
+}
+div.calender input.month{
+	width: 86px;
+	padding-left: 26px;
+}
+div.calender input.day{
+	width: 74px;
+	padding-left: 4px;
+}
+div.calender button{
+	width: 62px;
+	height: 21px;
+	background-color: #ffffff;
+	text-align: center;
+	border-style: none;
+	border:1px solid #cdcece;
+	color: #5e5e5e;
+}
+div.calender table{
+	width: 315px;
+	margin-left: 20px;
+	
+	margin-top: 9px;
+}
+div.calender table thead{
+	border-top: 1px solid #a9cfec;
+	border-bottom: 1px solid #e1e1e2;
+
+}
+div.calender table th{
+	border-top: 1px solid #a9cfec;
+	border-bottom: 1px solid #e1e1e2;
+	height: 30px;
+	font-size: 12px;
+	color: #535353;
+	font-family: '黑体';	
+}
+
+div.calender table tbody td {
+	height: 42px;
+	width: 42px;
+	text-align: center;
+	font-family: '黑体';
+	font-size:11px;
+	color:#404141
+}
+div.calender table tbody td p{
+	margin-top: 4px;
+}
+
+div.calender table td.weekend>span{
+	color: #cd262c;
+}
+div.calender table td.festival>p{
+	color: #cd262c;
+}
+div.calender table td.selected{
+	border:1px #fcecb9 solid;
+	width: 40px;
+}
+div.calender table td:hover{
+	border:1px #fcecb9 solid;
+	width: 40px;
+}
+div.car table{
+	width: 450px;
+	margin-top: 17px;
+	margin-left: 40px;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	font-family: '黑体';
+}
+div.car table thead th{
+	height: 27px;
+	border:#e1e1e2 1px solid;
+	font-size: 13px;
+	text-align: center;
+}
+div.car table thead th.list{
+	width: 66px;
+}
+div.car table thead th.branch{
+	width: 90px;
+}
+div.car table thead th.search{
+	text-align: left;
+	padding-left: 30px;
+}
+div.car table tbody td {
+	height: 25px;
+	border:#e1e1e2 1px solid;
+	font-size: 12px;
+	text-align: center;
+}
+div.car table tbody tr:hover{
+	background-color: #f3f5f6;
+	cursor: pointer;
+}
+div.car table tbody td>span{
+	float: left;
+	margin-left: 32px;
+}
+div.car table tbody td>div{
+	margin-left: 100px;
+	margin-top: 4px;
+	width: 170px;
+	height: 4px;
+	background-color:#dddddd;
+}
+div.car table tbody td>div p{
+	height: 4px;
+	background-color: #7fcbf0;
+}
+div.car table tbody td>div p.dazhong{
+	width: 140px;
+	background-color: #ed6e52;
+}
+div.car table tbody td>div p.fengtian{
+	width: 120px;
+	background-color: #ef8150;
+}
+div.car table tbody td>div p.audi{
+	width: 105px;
+	background-color: #f5b67b;
+}
+div.car table tbody td>div p.bentian{
+	width: 98px;
+}
+div.car table tbody td>div p.fute{
+	width: 85px;
+}
+div.car table tbody td>div p.bmw{
+	width: 80px;
+}
+div.car table tbody td>div p.xiandai{
+	width: 75px;
+}
+div.car table tbody td>div p.qiya{
+	width: 65px;
+}
+div.car table tbody td>div p.benz{
+	width: 60px;
+}
+div.car table tbody td>div p.bieke{
+	width: 55px;
+}
