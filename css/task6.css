@@ -322,7 +322,7 @@ p.p_black3{
 		position: relative;
 	}
 	ul.ctlog{
-		list-style-image: url("image/task6/icon.png");
+		list-style-image: url("../image/task6/icon.png");
 		padding-top: 1px;
 	}
 	li{
