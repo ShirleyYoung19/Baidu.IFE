@@ -1,0 +1,892 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+body{
+	font-family: 'Microsoft Yahei';
+	position: relative;
+}
+.clearfix:after{
+	content:'';
+	display: block;
+	clear:both;
+}
+
+/*导航栏*/
+header{
+	height: 56px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	background-color: #228abf;
+	z-index: 9;
+}
+
+/*左侧logo*/
+header img{
+	float: left;
+	display: block;
+	margin-top: 10px;
+	margin-left: 50px;
+}
+header div{
+	float: right;
+	margin-right: 90px;
+	padding: auto 3px;
+}
+
+/*右侧搜索登录框*/
+header div input{
+	height: 28px;
+	width: calc (313px - 28px);
+	background-image: url(../images/task9/search.png);
+	background-repeat: no-repeat;
+	background-position: left 18px center;
+	padding-left: 36px;
+	border-style: none;
+	border-radius: 14px;
+
+}
+header div a{
+	text-decoration: none;
+	font-family: '黑体';
+	font-size: 12px;
+	color: #ffffff;
+	background-image: url(../images/task9/login.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	line-height: 56px;
+	padding-left: 18px;
+	margin-left: 20px;
+}
+/*下方页面内容*/
+div.main{
+	width:1280px;
+	margin:56px auto 0px auto;
+}
+/*侧栏*/
+aside{
+	float: left;
+	width: 260px;
+	background-color: #2b2e3d;
+	height: 1210px;	
+	font-family: '黑体';
+	font-size: 12px;
+
+}
+/*用户信息*/
+aside div.user_info {
+	height:150px;
+	
+	position: relative;
+	
+}
+aside div.user_info div.user{
+	padding-top: 20px;
+	height: 57px;
+}
+aside div.user_info div.user img{
+	margin-left: 50px;
+	display: inline-block;
+}
+aside div.user_info div.user span{
+	line-height: 57px;
+	margin-left: 20px;
+	font-family: '黑体';
+	font-size: 16px;
+	color: #f6f5f5;
+	position: absolute;
+	top: 20px;
+}
+aside div.user_info div.collect{
+	float: left;
+	height: 30px;
+	border-right: solid 2px #9c9ea7;
+	margin-top: 25px;
+	width: 24px;
+	padding-right: 30px;
+	margin-left: 63px;
+}
+aside div.user_info div.collect p{
+	font-size: 16px;
+	font-family: '黑体';
+	line-height: 18px;
+	color: #6e8095;
+}
+aside div.user_info div.collect span{
+	font-size: 12px;
+}
+aside div.user_info div.fans{
+	float: left;
+	height: 30px;
+	margin-top: 25px;
+	width: 24px;
+	padding-left: 30px;
+}
+aside div.user_info div.fans p{
+	font-size: 16px;
+	font-family: '黑体';
+	line-height: 18px;
+	color: #6e8095;
+}
+aside div.user_info div.fans span{
+	font-size: 12px;
+}
+/*个人报表*/
+aside div.personal_report {
+	background-color: #383d4e;
+	height: 190px;
+}
+aside div.personal_report p{
+
+	line-height: 30px;
+}
+aside div.personal_report p.report{
+	background-image: url(../images/task9/report.png);
+	background-position: left 46px center;
+	background-repeat: no-repeat;
+	color: #dbdbde;
+	padding-left: 68px;
+}
+aside div.personal_report p.folder{
+	background-image: url(../images/task9/arrow_unfold.png),url(../images/task9/folder_unfold.png);
+	background-position: left 68px center, left 86px center;
+	background-repeat: no-repeat, no-repeat;
+	color: #6e8095;
+	padding-left: 102px;
+}
+aside div.personal_report p.folder{
+	background-image: url(../images/task9/arrow_fold.png),url(../images/task9/folder_fold.png);
+	background-position: left 68px center, left 86px center;
+	background-repeat: no-repeat, no-repeat;
+	color: #6e8095;
+	padding-left: 102px;
+}
+aside div.personal_report p.folder_unfold{
+	background-image: url(../images/task9/arrow_unfold.png),url(../images/task9/unfolder_fold.png);
+	background-position: left 68px center, left 86px center;
+	background-repeat: no-repeat, no-repeat;
+	color: #ededef;
+	padding-left: 102px;
+}
+aside div.personal_report p.document_selected{
+	background-image: url(../images/task9/document_selected.png);
+	background-position: left 102px center;
+	background-repeat: no-repeat;
+	color: #ededef;
+	padding-left: 116px;
+}
+aside div.personal_report p.document{
+	background-image: url(../images/task9/document.png);
+	background-position: left 102px center;
+	background-repeat: no-repeat;
+	color: #6e8095;
+	padding-left: 116px;
+}
+/*其他项目 图片没有扣的很仔细......*/
+aside>a{
+	height: 48px;
+	padding-left: 70px;
+	line-height: 48px;
+	color: #6e8095;
+	display: block;
+	text-decoration: none;
+}
+aside>a:hover{
+	background-color: #393e4e;
+}
+aside>a.star{
+	background-image: url(../images/task9/star.png);
+	background-position: left 46px center;
+	background-repeat: no-repeat, no-repeat;
+	background-size: 12px 12px;
+}
+aside>a.share{
+	background-image: url(../images/task9/share.png);
+	background-position: left 46px center;
+	background-repeat: no-repeat, no-repeat;
+	background-size: 12px 12px;
+}
+aside>a.account{
+	background-image: url(../images/task9/account.png);
+	background-position: left 46px center;
+	background-repeat: no-repeat, no-repeat;
+	background-size: 12px 12px;
+}
+
+/*主题部分*/
+main{
+	width: calc(1280px - 260px);
+	height: 1210px;
+	font-family: '黑体';
+	font-size: 12px;
+	background-color: #eeeeed;
+	color: #aaaaaa;
+	float: left;
+}
+main nav{
+	height: 30px;
+	padding-left: 30px;
+	background-color: #ffffff;
+}
+main nav a{
+	display: inline-block;
+	text-decoration: none;
+	height: 30px;
+	line-height: 30px;
+	color: #aaaaaa;
+}
+main nav a.active1{
+	color: #82a8cb;
+}
+main nav a.path::before{
+	content: '/';
+}
+main nav a:hover{
+	color: #82a8cb;
+}
+/*查询项*/
+main section.search{
+	width: 890px;
+	height: 86px;
+	margin-top: 20px;
+	margin-left: 60px;
+	background-color: #ffffff;
+	border:solid 1px #dddee0;
+}
+main section.search select{
+	appearance:none;
+	-moz-appearance:none; /* Firefox */
+	-webkit-appearance:none; /* Safari 和 Chrome */
+	background-image: url(../images/task9/down_arrow.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+	height: 25px;
+	font-family: '黑体';
+	font-size: 12px;
+	color: #323333;
+}
+main section.search div.search{
+	float: left;
+	margin-left:30px;
+	margin-top: 15px;
+	width: 160px;
+	height: 25px;
+}
+main section.search div.search select{
+	margin-left:15px;
+	width: 70px;
+	height: 25px;
+	padding-left: 12px;
+}
+main section.search div.seller_buyer{
+	float: left;
+	margin-top: 15px;
+	width: 217px;
+	height: 55px;
+	background-image: url(../images/task9/switch.png);
+	background-position: right 30px center;
+	background-repeat: no-repeat;
+}
+main section.search div.seller_buyer select{
+	margin-left: 8px;
+	width: 120px;
+	height:25px;
+	padding-left: 8px;
+}
+main section.search div.seller_buyer select.buyer{
+	margin-bottom: 5px;
+}
+main section.search div.item{
+	float: left;
+	margin-top: 15px;
+	width: 290px;
+	height: 55px;
+}
+main section.search div.item input{
+	width: 120px;
+	height: 25px;
+	margin-left: 5px;
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+main section.search div.item select.period{
+	width: 70px;
+	margin-bottom: 5px;
+	padding-left: 8px;
+}
+main section.search div.item select.population{
+	width: 70px;
+	height: 25px;
+	margin-left: 5px;
+	margin-right: 3px;
+	padding-left: 8px;
+}
+main section.search div.item select.number{
+	width: 120px;
+	height: 25px;
+	padding-left: 11px;
+}
+
+main section.search div.search_button{
+	float: right;
+	margin-right: 112px;
+	margin-top: 31px;
+	width: 51px;
+	height: 26px;
+}
+main section.search div.search_button button{
+	background-color: #388ac1;
+	color: #ffffff;
+		width: 51px;
+	height: 26px;
+	border-style: none;
+}
+
+/*时间价格*/
+main section.price{
+	height: 66px;
+	margin-top: 9px;
+	margin-left: 60px;
+	width: 892px;
+
+}
+main section.price div{
+	background-color:#ffffff; 
+	font-family: 'Microsoft Yahei';
+	font-size: 12px;
+	color: #000000;
+	border-top:solid 1px #cacdd1;
+	border-left:solid 1px #cacdd1;
+}
+main section.price div.left{
+	width: 30px;
+	height: 65px;
+	float: left;
+}
+main section.price div.left img{
+	
+	display: block;
+	padding-top: 24px ;
+	padding-left: 10px;
+}
+main section.price div.time{
+	float: left;
+	width:110px;
+	height: 51px;
+	margin-left: 4px;
+	padding-top: 14px;
+}
+main section.price div.time:hover{
+	border-top: solid 4px #4388c9;
+	height: 51px;
+	padding-top: 11px;
+}
+main section.price div.time p{
+	text-align: center;
+	padding-bottom: 10px;
+}
+main section.price div.time p span.rmb{
+	color: #aaaaaa;
+	font-size: 14px;
+}
+main section.price div.time p span.price{
+	color: #ec6500;
+	font-size: 21px;
+}
+main section.price div.am10{
+	border-top: solid 4px #4388c9;
+	height: 51px;
+	padding-top: 11px;
+}
+main section.price div.right{
+	width: 30px;
+	height: 65px;
+	float: left;
+	margin-left: 4px;
+}
+main section.price div.right img{
+	
+	display: block;
+	padding-top: 24px ;
+	padding-left: 10px;
+}
+main section.price div.history{
+	float: left;
+	height: 65px;
+	width: 69px;
+	background-image: url(../images/task9/history.png);
+	background-repeat: no-repeat;
+	background-position: left 19px center;
+	line-height: 65px;
+	margin-left: 4px;
+	padding-left: 62px;
+}
+/*2016年4月份统计数字*/
+main section.april p.title{
+	font-size: 12px;
+	padding-top: 20px;
+	padding-bottom: 5px;
+	font-family: 'Microsoft Yahei';
+	color:#000000;
+	padding-left: 60px;
+}
+
+main section.april ul{
+	height: 72px;
+	width: 892px;
+	margin-left: 60px;
+	
+	list-style: none;
+}
+main section.april ul li{
+	background-color: #ffffff;
+	width: 196px;
+	height: 70px;
+	border:1px solid #d3d4d7;
+	border-left: 4px solid;
+	margin-right: 29px;
+	float:left;
+	position: relative;
+}
+main section.april ul li p{
+	color:#000000;
+	padding:20px 0px 15px 8px;
+}
+main section.april ul li span{
+	padding-left:8px;
+	font-size: 10px;
+}
+main section.april ul li:nth-child(1){
+	border-left-color: #43b29d;
+}
+main section.april ul li:nth-child(1)::after{
+	background-color: #43b29d;
+}
+main section.april ul li:nth-child(2){
+	border-left-color: #388ac1;
+}
+main section.april ul li:nth-child(2)::after{
+	background-color: #388ac1;
+}
+main section.april ul li:nth-child(3){
+	border-left-color: #d04a36;
+}
+main section.april ul li:nth-child(3)::after{
+	background-color: #d04a36;
+}
+main section.april ul li:nth-child(4){
+	border-left-color: #e2cd46;
+	margin-right: 0px;
+}
+main section.april ul li:nth-child(4)::after{
+	background-color: #e2cd46;
+}
+main section.april ul li::after{
+	content: '';
+	width: 61px;
+	height: 47px;
+	position: absolute;
+	top: 12px;
+	right:15px;
+}
+/*第一组项目*/
+main section.project{
+	width: 892px;
+	margin-left: 60px;
+	margin-top:14px;
+	height: calc(41px + 316px);
+}
+main section.project>div{
+	float:left;
+	height: 357px;
+	background-color: #fff;
+	border: 1px solid #ced1d4;
+	border-radius: 5px;
+}
+main section.project div.left{
+	width: 530px;
+	margin-right: 8px;
+}
+main section.project div.left h3{
+	height: 41px;
+	width: 100%;
+	background-color: #f4f5f6;
+	border-bottom:solid 1px #e7e8eb ;
+	padding-left: 20px;
+	line-height: 40px;
+	color: #aaa;
+	box-sizing: border-box;
+	font-weight: normal;
+}
+
+main section.project div.left div.project_tab{
+}
+main section.project div.left div.project_tab ul{
+	padding-top: 12px;
+	position: relative;
+	height: 27px;
+	margin-left: 20px;
+	list-style: none;
+ 
+}
+main section.project div.left div.project_tab ul li{
+	float: left;
+	margin-right: 3px;
+}
+main section.project div.left div.project_tab ul li input{
+	display: none;
+}
+main section.project div.left div.project_tab ul li div{
+	display: none;
+}
+
+main section.project div.left div.project_tab ul li input:checked+label {
+ 	position: relative;
+ 	z-index: 1;
+ 	border:1px solid #cacbcb;
+ 	border-bottom: none;
+ 	background-color: #fff;
+	height: 28px;
+}
+main section.project div.left div.project_tab ul li label{
+	cursor: pointer;
+	width: 86px;
+	display: block;
+	text-align: center;
+	line-height: 27px;
+	background-color: #ededf0;
+	border: 1px solid #ededf0;
+	border-radius: 5px 5px 0px 0px;
+	color: #535353;
+}
+.project_tab table{
+	border: 1px solid #dddddd;
+	line-height: 28px;
+	text-align: center;
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+.project_tab table td{
+	font-family: '宋体';
+	font-size:12px;
+	color: #76777a;
+	border: 1px solid #dddddd;
+}
+.project_tab table td:hover{
+	background-color: #f4f5f6;
+}
+main section.project div.left div.project_tab ul li input:checked ~ div{
+	display: block;
+	position: absolute;
+	width: 403px;
+	border: 1px solid #cacbcb;
+	border-radius: 0 5px 5px;
+	padding:28px 49px 35px 38px;
+	left: 0;
+	top: 40px;
+}
+/*第一组项目右侧*/
+.project .right{
+	width: 350px;
+	height: 357px;
+	float: left;
+	border:1px solid #cfd1d3;
+	border-radius: 5px;
+	background-color: #ffffff;
+	position: relative;
+}
+.project .right h3{
+	width: calc (100% - 20px);
+	height: 40px;
+	background-color: #f4f5f6;
+	border-radius: 5px 5px 0px 0px;
+	font-weight: normal;
+	color: #aaaaaa;
+	font-family: 'Microsoft Yahei';
+	padding-left: 20px;
+	line-height: 40px;
+}
+.project .right div{
+	padding-top: 14px;
+}
+.project .right h4{
+	padding-left: 52px;
+	padding-top: 4px;
+	color: #c7c6c6;
+	font-family: 'Microsoft Yahei';
+	font-weight: normal;
+	font-size: 12px;
+}
+.project .right h4+p{
+	color: #6a6a6a;
+	padding-left: 52px;
+	font-family: 'Microsoft Yahei';
+	padding-top: 6px;
+}
+.project .right table{
+	margin-left: 35px;
+	margin-right: 35px;
+	width: 280px;
+	margin-top: 9px;
+	height: 45px;
+	border:1px #dddddd solid;
+	border-left: none;
+	border-right: none;
+}
+.project .right table td.price{
+
+	width:99px;
+	border-right: 1px solid #dddddd;
+	padding-left: 17px;
+}
+.project .right table td.incharge{
+
+	width:180px;
+	padding-left: 10px;
+}
+.project .right table td>p{
+	color: #c7c6c6;
+	font-family: 'Microsoft Yahei';
+	font-weight: normal;
+	font-size: 12px;
+	padding-bottom: 8px;
+}
+.project .right table td>p+span{
+	color: #6a6a6a;
+	font-family: 'Microsoft Yahei';
+	padding-top: 6px;
+	font-size: 12px;
+}
+.project .right form{
+	width: 280px;
+	border-top: 1px solid #e7e7e7;
+	margin-left: 35px;
+	position:absolute;
+	bottom:44px;
+}
+.project .right form label{
+	cursor: pointer;
+}
+.project .right form input{
+	appearance:none;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	width:14px;
+	height: 14px;
+	background-color: #d6d6d6;
+	vertical-align: sub;
+	outline: none;
+	cursor: pointer;
+}
+.project .right form input:checked{
+
+	background-image: url(../images/task9/check.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.project .right form span{
+	display: inline-block;
+	margin-top: 10px;
+	font-family: 'Microsoft Yahei';
+	font-size: 12px;
+	color: #c7c6c6;
+	padding-left: 8px;
+}
+.project button{
+	float: right;
+	height: 26px;
+	width: 51px;
+	background-color: #388ac1;
+	color: #e4f0f7;
+	border:none;
+	margin-top: 4px;
+}
+section.partd>div{
+	float: left;
+	height: 355px;
+	border:1px solid #d8d9db;
+	border-radius: 5px 5px 5px 5px;
+	margin-top: 9px;
+	background-color: #ffffff;
+}
+div.calender{
+	width: 350px;
+	margin-left: 60px;
+}
+div.car{
+	width: 529px;
+	margin-left: 9px;
+}
+section.partd>div>h3{
+	height: 41px;
+	width: 100%;
+	background-color: #f4f5f6;
+	border-bottom:solid 1px #e7e8eb ;
+	padding-left: 20px;
+	line-height: 40px;
+	color: #aaa;
+	box-sizing: border-box;
+	font-weight: normal;
+	border-radius: 5px 5px 0px 0px;
+}
+div.calender input{
+	margin-top: 9px;
+	margin-right: 5px;
+	border:1px solid #cdcece;
+	background: url(../images/task9/choose_bar.png) right center no-repeat;
+	color: #5e5e5e;
+	font-size: 12px;
+	height: 21px;
+}
+div.calender input.year{
+	margin-left: 22px;
+	width: 66px;
+	padding-left: 4px;
+}
+div.calender input.month{
+	width: 86px;
+	padding-left: 26px;
+}
+div.calender input.day{
+	width: 74px;
+	padding-left: 4px;
+}
+div.calender button{
+	width: 62px;
+	height: 21px;
+	background-color: #ffffff;
+	text-align: center;
+	border-style: none;
+	border:1px solid #cdcece;
+	color: #5e5e5e;
+}
+div.calender table{
+	width: 315px;
+	margin-left: 20px;
+	
+	margin-top: 9px;
+}
+div.calender table thead{
+	border-top: 1px solid #a9cfec;
+	border-bottom: 1px solid #e1e1e2;
+
+}
+div.calender table th{
+	border-top: 1px solid #a9cfec;
+	border-bottom: 1px solid #e1e1e2;
+	height: 30px;
+	font-size: 12px;
+	color: #535353;
+	font-family: '黑体';	
+}
+
+div.calender table tbody td {
+	height: 42px;
+	width: 42px;
+	text-align: center;
+	font-family: '黑体';
+	font-size:11px;
+	color:#404141
+}
+div.calender table tbody td p{
+	margin-top: 4px;
+}
+
+div.calender table td.weekend>span{
+	color: #cd262c;
+}
+div.calender table td.festival>p{
+	color: #cd262c;
+}
+div.calender table td.selected{
+	border:1px #fcecb9 solid;
+	width: 40px;
+}
+div.calender table td:hover{
+	border:1px #fcecb9 solid;
+	width: 40px;
+}
+div.car table{
+	width: 450px;
+	margin-top: 17px;
+	margin-left: 40px;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	font-family: '黑体';
+}
+div.car table thead th{
+	height: 27px;
+	border:#e1e1e2 1px solid;
+	font-size: 13px;
+	text-align: center;
+}
+div.car table thead th.list{
+	width: 66px;
+}
+div.car table thead th.branch{
+	width: 90px;
+}
+div.car table thead th.search{
+	text-align: left;
+	padding-left: 30px;
+}
+div.car table tbody td {
+	height: 25px;
+	border:#e1e1e2 1px solid;
+	font-size: 12px;
+	text-align: center;
+}
+div.car table tbody tr:hover{
+	background-color: #f3f5f6;
+	cursor: pointer;
+}
+div.car table tbody td>span{
+	float: left;
+	margin-left: 32px;
+}
+div.car table tbody td>div{
+	margin-left: 100px;
+	margin-top: 4px;
+	width: 170px;
+	height: 4px;
+	background-color:#dddddd;
+}
+div.car table tbody td>div p{
+	height: 4px;
+	background-color: #7fcbf0;
+}
+div.car table tbody td>div p.dazhong{
+	width: 140px;
+	background-color: #ed6e52;
+}
+div.car table tbody td>div p.fengtian{
+	width: 120px;
+	background-color: #ef8150;
+}
+div.car table tbody td>div p.audi{
+	width: 105px;
+	background-color: #f5b67b;
+}
+div.car table tbody td>div p.bentian{
+	width: 98px;
+}
+div.car table tbody td>div p.fute{
+	width: 85px;
+}
+div.car table tbody td>div p.bmw{
+	width: 80px;
+}
+div.car table tbody td>div p.xiandai{
+	width: 75px;
+}
+div.car table tbody td>div p.qiya{
+	width: 65px;
+}
+div.car table tbody td>div p.benz{
+	width: 60px;
+}
+div.car table tbody td>div p.bieke{
+	width: 55px;
+}

@@ -1,0 +1,671 @@
+
+body{
+	min-width: 1280px;
+	margin: 0px;
+
+}
+/*导航栏样式*/
+header{
+	height:56px;
+	position: relative;
+}
+header img{
+	margin-top:13px;
+	margin-left: 59px;
+	margin-right: 10px;
+	float: left;
+}
+header span{
+	font-family: '黑体';
+	font-size: 21px;
+	line-height: 56px;
+	float: left;
+}
+
+header div ul{
+	list-style: none;
+	text-align: right;
+	float: right;
+	margin-right: 122px;
+}
+header div ul li{
+	display: inline;
+	height: 56px;
+}
+a.nav{
+	color: #787b83;
+	font-family: '微软雅黑';
+	font-size: 14px;
+	text-decoration: none;
+	padding-left: 22px;
+	padding-right: 22px;
+	padding-bottom: 17px;
+}
+
+a.nav:hover{
+	color: #e9605e;
+	border-bottom: solid 4px #e9605e;
+}
+
+div.login{
+	position: absolute;
+	right: 67px;
+}
+div.login img{
+	padding-top: 6px;
+}
+div.login span{
+	color: #e74f4d;
+	font-family: '微软雅黑';
+	font-size: 14px;
+	height: 38px;
+	padding-bottom:17px;
+}
+
+/*开始体验部分*/
+div.parta{
+	position: relative;
+	height: 939px;
+	background-image: url(../images/task7/figure3.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+div.plane{
+
+	height: 854px;
+
+	position: relative;
+
+}
+img.plane_gray{
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	opacity: 0.5;
+
+}
+div.begin{
+	position: absolute;
+	top: 190px;
+	left: 116px;
+	z-index: 10;
+}
+div.begin h1{
+	font-family: '微软雅黑';
+	font-size: 60px;
+	color: #ffffff;
+}
+div.begin p{
+	font-family: '微软雅黑';
+	font-size: 21px;
+	color: #ffffff;
+	line-height: 16px;
+}
+div.begin button{
+	width: 331px;
+	height: 65px;
+	background-color: #e74f4d;
+	color: #ffffff;
+	font-family: '微软雅黑';
+	font-size: 30px;
+	text-align: center;
+	margin-left: 10px;
+	margin-top: 45px;
+	border:none;
+}
+
+div.parta div.introduce{
+	width: 100%;
+	height: 250px;
+	position: absolute;
+	top: 691px;
+	background-color: #ffffff;
+}
+div.parta div.introduce div{
+	width:25%;
+	float: left;
+	margin-top: 45px;
+	margin-bottom: 66px;
+}
+div.introduce div img{
+	display: block;
+	margin:0px auto;
+}
+div.introduce div p{
+	font-family: '黑体';
+	font-size: 14px;
+	color: #767777;
+	text-align: center;
+	line-height: 18px;
+	margin-top: 42px;
+	height: 60px;
+	border-right:solid 2px #bbbbbb ;
+}
+
+div.introduce div.part1 p{
+	margin-top: 40px;
+}
+
+div.introduce div.part4 p{
+	border-style: none;
+}
+/*第二部分*/
+/*关于新世界,你不知道的还有什么*/
+div.partb{
+	height: 1305px;
+	position: relative;
+
+}
+img.aboutnw {
+	display: block;
+	margin:0px auto;
+}
+div.aboutnw{
+	width: 100%;
+	background-image: url(../images/task7/gray_light.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 270px;
+	padding-top: 90px;
+	font-size: 0px;
+	margin:0px 0px;
+}
+div.aboutnw img{
+	display: block;
+	margin:0px auto;
+}
+div.aboutnw p{
+	font-family: '黑体';
+	font-size: 53.59px;
+	line-height: 56.6px;
+	text-align: center;
+	color: #a1a1a1;
+}
+/*查找新世界城市活动信息*/
+div.findcity{
+	position: relative;
+	height: 340px;
+	margin:0px auto;
+	background-image: url(../images/task7/figure10.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+div.findcity h3{
+	font-family: 'Microsoft Yahei';
+	font-size: 21px;
+	line-height: 42px;
+	color: #ffffff;
+	display: block;
+	text-align: center;
+	margin:0px 0px;
+	padding-top: 50px;
+	font-weight: normal;
+}
+div.findcity hr{
+	width:30px;
+	border-top:1px #ffffff solid;
+	margin:0px auto; 
+}
+.findcity p{
+	font-family: 'Microsoft Yahei';
+	font-size: 12px;
+	line-height: 31px;
+	color: #ffffff;
+	text-align: center;
+}
+.findcity form{
+	margin:30px 125px 0px 125px;
+}
+.findcity form select{
+	width: 236px;
+	height: 36px;
+	font-size: 12px;
+	line-height: 27px;
+	font-family: 'Microsoft Yahei';
+	color: #a8aaaa;
+	padding-left: 12px;
+	appearance:none;
+	-moz-appearance:none; /* Firefox */
+	-webkit-appearance:none; /* Safari 和 Chrome */
+	background-image: url(../images/task7/droplist.png);
+	background-repeat: no-repeat;
+	background-position: center right 10px;
+	cursor: pointer;
+	margin-right: 30px;
+}
+.findcity form button{
+	width: 236px;
+	height: 36px;
+	font-family: 'Microsoft Yahei';
+	font-size: 14px;
+	line-height: 27px;
+	color: #ffffff;
+	background-color: #bf4f49;
+	border-style: none;
+}
+
+/*城市活动*/
+div.cityactivity {
+	background-color: #f7f7f7;
+	height: 390px;
+	padding:100px 148px 115px 148px;
+	display: flex;
+	flex-flow:row;
+	justify-content:space-around;
+}
+div.cityactivity div.city{
+	
+}
+div.city p{
+	font-size:13px;
+	font-family: 'Microsoft Yahei';
+	color: #a2a2a2;
+	text-align: center;
+}
+div.city p.cityname{
+	font-size:15px;
+	font-family: 'Microsoft Yahei';
+	text-align: center;
+	color: #000000;
+	font-weight: bold;
+}
+div.city p#shanghai{
+	font-size:25px;
+	font-family: 'Microsoft Yahei';
+	letter-spacing: 20px;
+	text-align: center;
+	color: #000000;
+	font-weight: 200;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+div.cityactivity img{
+	padding:10px;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 2px #777777;
+}
+
+/*新世界介绍*/
+div.partc{
+	height: 1085px;
+}
+div.partc>div.part1{
+	height: 565px;
+	float: left;
+	width: 67%;
+	background-image: url(../images/task7/figure12.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+div.partc >div.part1>h3{
+	font-family: 'Microsoft Yahei';
+	font-size: 50px;
+	line-height: 75px;
+	margin-top: 119px;
+	margin-bottom: 0px;
+	color: #ffffff;
+	text-align: center;
+	font-weight: normal;
+}
+div.partc >div.part1>h1{
+	font-family: 'Microsoft Yahei';
+	font-size: 158px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #ffffff;
+	text-align: center;
+	font-weight: normal;
+	line-height: 158px;
+}
+div.partc >div.part1>p{
+	font-family: 'Microsoft Yahei';
+	font-size: 22px;
+	line-height: 43px;
+	color: #ffffff;
+	text-align: center;
+	font-weight: normal;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+div.partc>div.part2{
+	height: 565px;
+	float: right;
+	width: 33%;
+	background-color: #ffffff;
+}
+div.partc>div.part2>h3{
+	font-family: '宋体';
+	font-size: 20px;
+	line-height: 30px;
+	margin-top: 134px;
+	color: #000000;
+	text-align: center;
+}
+div.partc>div.part2 span{
+	font-family: '宋体';
+	font-size: 20px;
+	line-height: 30px;
+	color: #e7504d;
+	text-align: center;
+}
+div.partc>div.part2>p{
+	font-family: '宋体';
+	font-size: 12px;
+	line-height: 30px;
+	width: 70%;
+	margin:20px auto;
+	color: #aaaaaa;
+	display: left;
+	font-weight: normal;
+}
+div.partc>div.part2>p.more{
+	font-family: 'Microsoft Yahei';
+	font-size: 12px;
+	line-height: 32px;
+	margin:50px auto 24px auto;
+	color: #e25c60;
+	text-align: center;
+	font-weight: normal;
+	width: 105px;
+	height: 32px;
+	border:solid 1px #e25c60;
+}
+div.partc div.part2 ul{
+	
+	list-style: none;
+	text-align: center;
+	padding-left: 0px;}
+div.partc div.part2 ul li{
+	border:solid #aaaaaa 1px;
+	width: 12px;
+	height: 12px;
+	border-radius: 12px;
+	display: inline-block;
+}
+div.partc div.part2 ul li.active{
+	background-color: #aaaaaa;
+}
+div.partc div.part3{
+	float: left;
+	clear: left;
+	width: 33%;
+	height: 370px;
+	background-color: #e74f4d;
+	padding-top: 150px;
+}
+div.partc div.part3 p{
+	margin:0px;
+	color: #ffffff;
+	font-family: '黑体';
+	line-height: 30px;
+	text-align: center;
+	font-size: 21px;
+}
+div.partc div.part3 hr{
+	width: 30px;
+	margin:24px auto;
+	border:solid 1px #ffffff;
+	font-size: 21px;
+}
+div.partc div.part3 a {
+	line-height: 44px;
+	font-family: '黑体';
+	font-size: 21px;
+	background-color: #e74f4d;
+	border:solid 1px #ffffff;
+	display: block;
+	margin:0px auto;
+	width: 170px;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+}
+div.partc div.part3 a {
+	color: #ffffff;
+	text-decoration: none;
+}
+div.partc div.part3 a:hover{
+	background-color: #ffffff;
+	color: #e74f4d;
+}
+div.partc div.part4{
+	float: left;
+	width: 34%;
+	height: 370px;
+	background-color: #ffffff;
+	padding-top: 150px;
+}
+div.partc div.part4 p{
+	margin:0px;
+	color: #000000;
+	font-family: '黑体';
+	line-height: 30px;
+	text-align: center;
+	font-size: 21px;
+}
+div.partc div.part4 hr{
+	width: 30px;
+	margin:24px auto;
+	border:solid 1px #ababab;
+}
+div.partc div.part4 a {
+	line-height: 44px;
+	font-family: '黑体';
+	font-size: 21px;
+	background-color: #ffffff;
+	border:solid 1px #e74f4d;
+	display: block;
+	margin:0px auto;
+	width: 170px;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+}
+div.partc div.part4 a {
+	color: #e74f4d;
+	text-decoration: none;
+}
+div.partc div.part4 a:hover{
+	background-color: #e74f4d;
+	color: #ffffff;
+}
+div.partc div.part5{
+	float: left;
+	width: 33%;
+	height: 520px;
+	filter:brightness(.6);
+	-webkit-filter:brightness(.6);
+	position: relative;
+}
+div.partc div.part5 div{
+	top: 50%;
+	margin-top: -20px;
+	border-color: transparent transparent transparent #ffffff;
+	border-width: 20px 0px 20px 20px;
+	border-style: solid;
+	position: absolute;
+};
+/*成为我们的志愿者*/
+div.partd{
+	height: 690px;
+}
+div.partd div.beingv{
+	height: 305px;
+}
+div.partd div.beingv h3{
+	font-family: '黑体';
+	font-size: 21px;
+	text-align: center;
+	font-weight: normal;
+	padding-top: 118px;
+	margin:0px;
+}
+div.partd div.beingv hr{
+
+	width: 30px;
+	border:1px solid #ea6562;
+	margin:12px auto 15px auto;
+}
+div.partd div.beingv p{
+	font-family: 'Microsoft Yahei';
+	font-size: 12px;
+	color: #aaaaaa;
+	text-align: center;
+}
+
+/*志愿者协议*/
+div.partd div.volunteer_note{
+	width: 40%;
+	height:285px;
+	float: left;
+}
+div.partd div.volunteer_note div{
+	margin-left: 25%;
+	width: 60%;
+}
+div.partd div h3{
+	font-family: '黑体';
+	font-size: 14px;
+	text-align: left;
+	font-weight: normal;
+}
+div.partd  p{
+	font-family: '宋体';
+	font-size: 12px;
+	text-align: left;
+	color: #bcbbba;
+}
+div.partd p.more:before {
+	display: inline-block;
+	content: url(../images/task7/more.png);
+	vertical-align: middle;
+}
+div.partd div.volunteer_note p.more{
+	font-family: '宋体';
+	font-size: 12px;
+	color: #a5a3a2;
+	text-align: right;
+}
+div.partd form{
+	width:49%;
+	float: right;
+	display: block;
+	height: 285px;
+	margin-right: 11%;
+}
+div.partd form input{
+	width: 48%;
+	height: 40px;
+	margin-bottom: 12px;
+	background-color: #ededee;
+	border-style: none;
+	font-size: 12px;
+	font-family: '宋体';
+	padding-left: 16px;
+}
+div.partd form textarea{
+	height: 120px;
+	background-color: #ededee;
+	width: 97%;
+	font-size: 12px;
+	font-family: '宋体';
+	padding-left: 16px;
+	text-align: left;
+	color: #231815;
+	margin-bottom: 15px;
+	border-style: none;
+}
+/*不知道为什么会是不能显示placehol*/
+div.partd form button{
+	width: 97%;
+	height: 40px;
+	background-color: #ededee;
+	border-style: none;
+	font-family: '黑体';
+	font-size: 14px;
+}
+
+div.contact_us{
+	margin-top: 450px;
+	height: 360px;
+	width: 100%;
+	background-color:#32363e; 
+}
+div.contact_us h3{
+	padding-top: 90px;
+	font-family: '黑体';
+	font-size: 21px;
+	color: #ffffff;
+	text-align: center;
+}
+div.contact_us p{
+	
+	font-family: '宋体';
+	font-size: 12px;
+	color: #ffffff;
+	text-align: center;
+}
+div.contact_us form{
+	margin:0px auto;
+	width: 520px;
+}
+div.contact_us input.email{
+	width: 430px;
+	height: 40px;
+	background-color: #ffffff;
+	margin: 30px 0px 37px 0px;
+	border-style: none;
+	padding-left: 10px;
+}
+div.contact_us button{
+	width: 80px;
+	height: 40px;
+	background-color: #6f7178;
+	color: #ffffff;
+	font-family: 'Microsoft Yahei';
+	font-size: 15px;
+	margin: 30px 0px 37px 0px;
+	border-style: none;
+}
+/*提交和邮箱之间为什么有间隙*/
+div.contact_us div.icon{
+	margin:0px auto;
+	width: 260px;
+}
+div.contact_us div a{
+	margin-right: 28px;
+}
+/*脚注*/
+footer{
+	height: 56px;
+	background-color: #303039;
+}
+footer p.left{
+	padding-left:100px;
+	font-family: '宋体';
+	font-size: 12px;
+	padding-top: 30px;
+	margin-top: 0px;
+	color: #ffffff;
+	float: left;
+}
+footer p.right{
+	float: right;
+	margin-right: 40px;
+	padding-top: 30px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	height: 26px;
+
+}
+footer p.right a{
+	text-decoration: none;
+	font-family: '宋体';
+	font-size: 12px;
+	color: #ffffff;
+	height: 56px;
+	margin:;
+}
