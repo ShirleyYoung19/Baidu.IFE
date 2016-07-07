@@ -39,7 +39,7 @@ header div{
 header div input{
 	height: 28px;
 	width: calc (313px - 28px);
-	background-image: url(../image/task9/search.png);
+	background-image: url(../images/task9/search.png);
 	background-repeat: no-repeat;
 	background-position: left 18px center;
 	padding-left: 36px;
@@ -52,7 +52,7 @@ header div a{
 	font-family: '黑体';
 	font-size: 12px;
 	color: #ffffff;
-	background-image: url(../image/task9/login.png);
+	background-image: url(../images/task9/login.png);
 	background-repeat: no-repeat;
 	background-position: left center;
 	line-height: 56px;
@@ -142,42 +142,42 @@ aside div.personal_report p{
 	line-height: 30px;
 }
 aside div.personal_report p.report{
-	background-image: url(../image/task9/report.png);
+	background-image: url(../images/task9/report.png);
 	background-position: left 46px center;
 	background-repeat: no-repeat;
 	color: #dbdbde;
 	padding-left: 68px;
 }
 aside div.personal_report p.folder{
-	background-image: url(../image/task9/arrow_unfold.png),url(../image/task9/folder_unfold.png);
+	background-image: url(../images/task9/arrow_unfold.png),url(../images/task9/folder_unfold.png);
 	background-position: left 68px center, left 86px center;
 	background-repeat: no-repeat, no-repeat;
 	color: #6e8095;
 	padding-left: 102px;
 }
 aside div.personal_report p.folder{
-	background-image: url(../image/task9/arrow_fold.png),url(../image/task9/folder_fold.png);
+	background-image: url(../images/task9/arrow_fold.png),url(../images/task9/folder_fold.png);
 	background-position: left 68px center, left 86px center;
 	background-repeat: no-repeat, no-repeat;
 	color: #6e8095;
 	padding-left: 102px;
 }
 aside div.personal_report p.folder_unfold{
-	background-image: url(../image/task9/arrow_unfold.png),url(../image/task9/unfolder_fold.png);
+	background-image: url(../images/task9/arrow_unfold.png),url(../images/task9/unfolder_fold.png);
 	background-position: left 68px center, left 86px center;
 	background-repeat: no-repeat, no-repeat;
 	color: #ededef;
 	padding-left: 102px;
 }
 aside div.personal_report p.document_selected{
-	background-image: url(../image/task9/document_selected.png);
+	background-image: url(../images/task9/document_selected.png);
 	background-position: left 102px center;
 	background-repeat: no-repeat;
 	color: #ededef;
 	padding-left: 116px;
 }
 aside div.personal_report p.document{
-	background-image: url(../image/task9/document.png);
+	background-image: url(../images/task9/document.png);
 	background-position: left 102px center;
 	background-repeat: no-repeat;
 	color: #6e8095;
@@ -196,19 +196,19 @@ aside>a:hover{
 	background-color: #393e4e;
 }
 aside>a.star{
-	background-image: url(../image/task9/star.png);
+	background-image: url(../images/task9/star.png);
 	background-position: left 46px center;
 	background-repeat: no-repeat, no-repeat;
 	background-size: 12px 12px;
 }
 aside>a.share{
-	background-image: url(../image/task9/share.png);
+	background-image: url(../images/task9/share.png);
 	background-position: left 46px center;
 	background-repeat: no-repeat, no-repeat;
 	background-size: 12px 12px;
 }
 aside>a.account{
-	background-image: url(../image/task9/account.png);
+	background-image: url(../images/task9/account.png);
 	background-position: left 46px center;
 	background-repeat: no-repeat, no-repeat;
 	background-size: 12px 12px;
@@ -258,7 +258,7 @@ main section.search select{
 	appearance:none;
 	-moz-appearance:none; /* Firefox */
 	-webkit-appearance:none; /* Safari 和 Chrome */
-	background-image: url(../image/task9/down_arrow.png);
+	background-image: url(../images/task9/down_arrow.png);
 	background-position: right center;
 	background-repeat: no-repeat;
 	height: 25px;
@@ -284,7 +284,7 @@ main section.search div.seller_buyer{
 	margin-top: 15px;
 	width: 217px;
 	height: 55px;
-	background-image: url(../image/task9/switch.png);
+	background-image: url(../images/task9/switch.png);
 	background-position: right 30px center;
 	background-repeat: no-repeat;
 }
@@ -415,7 +415,7 @@ main section.price div.history{
 	float: left;
 	height: 65px;
 	width: 69px;
-	background-image: url(../image/task9/history.png);
+	background-image: url(../images/task9/history.png);
 	background-repeat: no-repeat;
 	background-position: left 19px center;
 	line-height: 65px;
@@ -682,7 +682,7 @@ main section.project div.left div.project_tab ul li input:checked ~ div{
 }
 .project .right form input:checked{
 
-	background-image: url(../image/task9/check.png);
+	background-image: url(../images/task9/check.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -735,7 +735,7 @@ div.calender input{
 	margin-top: 9px;
 	margin-right: 5px;
 	border:1px solid #cdcece;
-	background: url(../image/task9/choose_bar.png) right center no-repeat;
+	background: url(../images/task9/choose_bar.png) right center no-repeat;
 	color: #5e5e5e;
 	font-size: 12px;
 	height: 21px;

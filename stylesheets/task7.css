@@ -66,7 +66,7 @@ div.login span{
 div.parta{
 	position: relative;
 	height: 939px;
-	background-image: url(../image/task7/figure3.png);
+	background-image: url(../images/task7/figure3.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -163,7 +163,7 @@ img.aboutnw {
 }
 div.aboutnw{
 	width: 100%;
-	background-image: url(../image/task7/gray_light.jpg);
+	background-image: url(../images/task7/gray_light.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 270px;
@@ -187,7 +187,7 @@ div.findcity{
 	position: relative;
 	height: 340px;
 	margin:0px auto;
-	background-image: url(../image/task7/figure10.png);
+	background-image: url(../images/task7/figure10.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -229,7 +229,7 @@ div.findcity hr{
 	appearance:none;
 	-moz-appearance:none; /* Firefox */
 	-webkit-appearance:none; /* Safari 和 Chrome */
-	background-image: url(../image/task7/droplist.png);
+	background-image: url(../images/task7/droplist.png);
 	background-repeat: no-repeat;
 	background-position: center right 10px;
 	cursor: pointer;
@@ -296,7 +296,7 @@ div.partc>div.part1{
 	height: 565px;
 	float: left;
 	width: 67%;
-	background-image: url(../image/task7/figure12.png);
+	background-image: url(../images/task7/figure12.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -540,7 +540,7 @@ div.partd  p{
 }
 div.partd p.more:before {
 	display: inline-block;
-	content: url(../image/task7/more.png);
+	content: url(../images/task7/more.png);
 	vertical-align: middle;
 }
 div.partd div.volunteer_note p.more{
