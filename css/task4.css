@@ -1,0 +1,30 @@
+#main{
+	background-color: #ccc;
+	width: 400px;
+	height: 200px;
+	position: fixed;
+	top:50%;
+	left: 50%;
+	transform: translateY(-50%);
+	transform: translateY(-50%);
+	-webkit-transform: translate(-50%,-50%);
+}
+
+#left{
+	background-color: #fc0;
+	width: 50px;
+	height: 50px;
+	border-bottom-right-radius: 50px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+#right{
+	background-color: #fc0;
+	width: 50px;
+	height: 50px;
+	border-top-left-radius: 50px;
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+}

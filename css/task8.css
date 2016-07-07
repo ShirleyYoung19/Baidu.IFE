@@ -1,0 +1,87 @@
+*{
+	margin:0px;
+	padding: 0px;
+	box-sizing:border-box;
+}
+div.row>div{
+	height: 50px;
+	background-color: #eee;
+	border:#999 solid 1px;
+	margin:20px;
+}
+div.row{
+	width: 100%;
+}
+.row ::after{
+	content: '';
+	display: table;
+	clear: both;
+}
+.row1col1, .row1col2, .row1col3 {
+	width: calc((100% - 20px * 2 * 3 - 6px) / 3);
+	width:-webkit-calc((100% - 20px * 2 * 3 - 6px) / 3);
+	float: left;
+}
+.row2col1, .row2col3{
+	width: calc((100% - 20px * 2 * 3 - 6px) / 4);
+	width:-webkit-calc((100% - 20px * 2 * 3 - 6px) / 4);
+	float: left;
+}
+.row2col2{
+	width: calc((100% - 20px * 2 * 3 - 6px) / 2);
+	width:-webkit-calc((100% - 20px * 2 * 3 - 6px) / 2);
+	float: left;
+}
+.row3col1, .row3col2{
+	width: calc((100% - 20px * 2 * 5 - 10px) / 12);
+	width:-webkit-calc((100% - 20px * 2 * 5 - 10px) / 12);
+	float: left;
+}
+.row3col3, .row3col4{
+	width: calc((100% - 20px * 2 * 5 - 10px) / 6);
+	width:-webkit-calc((100% - 20px * 2 * 5 - 10px) / 6);
+	float: left;
+}
+.row3col5{
+	width: calc((100% - 20px * 2 * 5 - 10px) / 2);
+	width:-webkit-calc((100% - 20px * 2 * 5 - 10px) / 2);
+	float: left;
+}
+
+@media all and (max-width: 800px){
+	.row1col1, .row1col2 {
+	width: calc((100% - 20px * 2 * 2 - 4px) / 2);
+	width:-webkit-calc((100% - 20px * 2 * 2 - 4px) / 2);
+	float: left;
+	}
+	.row1col3 {
+	width: calc(100% - 20px * 2 - 2px);
+	width:-webkit-calc(100% - 20px * 2 - 2px);
+	float: left;
+	}
+	.row2col1, .row2col3{
+	width: calc((100% - 20px * 2 * 3 - 6px) / 4);
+	width:-webkit-calc((100% - 20px * 2 * 3 - 6px) / 4);
+	float: left;
+	}
+	.row2col2{
+	width: calc((100% - 20px * 2 * 3 - 6px) / 2);
+	width:-webkit-calc((100% - 20px * 2 * 3 - 6px) / 2);
+	float: left;	
+	}
+	.row3col1, .row3col2{
+	width: calc((100% - 20px * 2 * 3 - 6px) / 6);
+	width:-webkit-calc((100% - 20px * 2 * 3 - 6px) / 6);
+	float: left;
+	}
+	.row3col3 {
+	width: calc((100% - 20px * 2 * 3 - 6px) / 3 * 2);
+	width:-webkit-calc((100% - 20px * 2 * 3 - 6px) / 3 * 2);
+	float: left;
+	}
+	.row3col4,.row3col5{
+	width: calc((100% - 20px * 2 * 2 - 4px) / 4);
+	width:-webkit-calc((100% - 20px * 2 * 2 - 4px) / 4);
+	float: left;
+	}
+}

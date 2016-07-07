@@ -1,0 +1,177 @@
+body,table,div,ul,li{
+	padding:0px;
+	margin:0px;
+	font-family: 'Microsoft Yahei';
+	font-size: '12';
+	color: #000000;
+}
+ul{
+	list-style: none;
+}
+table{
+	margin:20px;
+}
+table thead th{
+	color: #ffffff;
+	background-color: #000000;
+}
+table tbody tr:nth-child(1) {
+	color: red;
+}
+table tbody tr:nth-child(2) {
+	color: red;
+}
+table tbody tr:nth-child(3) {
+	color: red;
+}
+table tbody tr:nth-child(even) {
+	background-color: gray;
+}
+input{
+	width: 200px;
+	transition:width 2s;
+	-moz-transition:width 2s;
+	-webkit-transition:width 2s;
+	-o-transition:width 2s;
+}
+ input:focus{
+	width: 400px;
+	margin:10px;
+
+}
+div.animation{
+	position: relative;
+	margin: 30px;
+	width: 400px;
+	height:200px;
+}
+.container{
+	width: 400px;
+	height:200px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	overflow: hidden;
+
+}
+ul li{
+	width: 400px;
+	height:200px;
+	position: absolute;
+	top: 0px;
+	left: -100%;
+}
+#slider-1{
+	left: 0px;
+	background-color: green;
+	animation: slider1 12s;
+	-moz-animation: slider1 12s;
+	-webkit-animation: slider1 12s;
+	-o-animation: slider1 12s;
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+#slider-2{
+	background-color: blue;
+	animation: slider2 12s;
+	-moz-animation: slider2 12s;
+	-webkit-animation: slider2 12s;
+	-o-animation: slider2 12s;
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+#slider-3{
+	background-color: red;
+	animation: slider3 12s;
+	-moz-animation: slider3 12s;
+	-webkit-animation: slider3 12s;
+	-o-animation: slider3 12s;
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+.btn{
+	position: absolute;
+	bottom:0px;
+	right: 0px;
+}
+.btn a{
+	width: 40px;
+	height: 50px;
+	display: inline-block;
+	background-color: rgba(255,255,255,0.5);
+	line-height: 50px;
+	text-align: center;
+	text-decoration: none;
+	z-index: 99;
+}
+.container li#slider-1:target{
+	left: 0px;
+	animation: slider 0s;
+	-o-animation:slider 0s;
+
+}
+.container li#slider-1:target ~ #slider-2{
+	left: -100%;
+	animation: slider 0s;
+	-o-animation:slider 0s;
+}
+.container li#slider-1:target ~ #slider-3{
+	left: -100%;
+	animation: slider 0s;
+	-o-animation:slider 0s;
+}
+.container li#slider-2:target{
+	left: 0px;
+	animation: slider 0s;
+	-o-animation:slider 0s;
+}
+.container li#slider-2:target ~ #slider-1{
+	left: -100%;
+	animation: slider 0s;
+	-o-animation:slider 0s;
+}
+.container li#slider-2:target ~ #slider-3{
+	left: -100%;
+	animation: slider 0s;
+	-o-animation:slider 0s;
+}
+.container li#slider-3:target{
+	left: 0px;
+	animation:slider 0s;
+	-o-animation:slider 0s;
+}
+.container li#slider-3:target ~ #slider-1{
+	left: -100%;
+	animation: slider 0s;
+	-o-animation:slider 0s;
+}
+.container li#slider-3:target ~ #slider-2{
+	left: -100%;
+	animation: slider 0s;
+	-o-animation:slider 0s;
+}
+
+@keyframes slider1{
+	0% {left: 0px;}
+	33.3% {left:-100%;}
+	66.7% {left:100%;}
+	100% {left:0px;}
+}
+@keyframes slider2{
+	0% {left: 100%;}
+	33.3% {left:0%;}
+	66.7% {left:-100%;}
+	100% {left:-100%;}
+}
+@keyframes slider3{
+	0% {left: 100%;}
+	33.3% {left:100%;}
+	66.7% {left:0%;}
+	100% {left:-100%;}
+}
+@keyframes slider{
+	0% {left: 0%;}
+	33.3% {left:0%;}
+	66.7% {left:0%;}
+	100% {left:0%;}
+}
