@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 14</title>
+  </head>
+<body>
+
+  <h3>污染城市列表</h3>
+  <ul id="aqi-list">
+<!--   
+    <li>第一名：福州（样例），10</li>
+  	<li>第二名：福州（样例），10</li> -->
+  </ul>
+
+<script type="text/javascript">
+
+var aqiData = [
+  ["北京", 90],
+  ["上海", 50],
+  ["福州", 10],
+  ["广州", 50],
+  ["成都", 90],
+  ["西安", 100]
+];
+//将数组中大于60的过滤出来
+  var seriousCity = aqiData.filter(function(val){
+    return val[1]>60;
+  })
+//将大于60的数组按顺序排列
+  seriousCity.sort(function(a,b){
+    return b[1]-a[1];
+  })
+  //将结果写入ul标签中，其中先createTextNode，然后在createElement，然后依次添加子节点。
+  var ul=document.getElementById('aqi-list');
+  var chineseNumber=['一','二','三','四','五','六'];
+  // for( var i = 0; i < seriousCity.length; i++){
+  //   var text="第"+(i+1)+"名:"+seriousCity[i][0]+"，"+seriousCity[i][1];
+  //   var liText = document.createTextNode(text);
+  //   var liTag = document.createElement("li");
+  //   liTag.appendChild(liText);
+  //   ul.appendChild(liTag);
+  // }
+
+  // 简单的一种做法
+  
+  // for (var i = 0; i < seriousCity.length; i++) {
+  //   ul.innerHTML += "<li>第"+chineseNumber[i]+"名:"+seriousCity[i][0]+"，"+seriousCity[i][1]+"</li>";
+  // }
+
+  //采用for each模型,注意先声明text
+  var text="";
+  seriousCity.forEach(function(element,index){
+     text += "<li>第"+chineseNumber[index]+"名:"+element[0]+"，"+element[1]+"</li>";
+  });
+  ul.innerHTML = text;
+
+
+
+</script>
+</body>
+</html>

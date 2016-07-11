@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+  </head>
+<body>
+
+  <label>请输入北京今天空气质量：<input id="aqi-input" type="text" ></label>
+  <button id="button" onclick="display()">确认填写</button>
+
+  <div>您输入的值是：<span id="aqi-display">尚无录入</span></div>
+
+<script type="text/javascript">
+  var MyId = function (id) {
+    return document.getElementById(id);
+  }
+  var aqiInput=MyId("aqi-input");
+  var aqiDisplay=MyId("aqi-display");
+  var btn=MyId("button");
+  function display(){
+    if( (!isNaN(aqiInput.value)) && aqiInput.value>0 && aqiInput.value<1000){ //判断输入的数值是不是在0和1000之间 isNaN()函数是用来判断括号内是不是一个数值，若不是数值即为真，是数值即为假。
+      aqiDisplay.innerText=aqiInput.value;
+    }else{
+      alert("Please input a number between 0 and 1000");
+    }
+  }
+  /*很多时候，输入之后会点击enter，这个命令的意思就是，当在input输入框中，按键松开的时候执行
+  下面的代码。首先是判断按键的keyCode是不是等于13，也就是enter，如果是的话直接执行display函数*/
+  aqiInput.onkeyup =function(abc){
+    if(abc.keyCode==13){
+      display();
+    }
+  }
+
+
+  
+
+</script>
+</body>
+</html>
