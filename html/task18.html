@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 18</title>
+    <style type="text/css">
+        .databox{
+            height:30px;
+            width:30px;
+            margin:2px;
+            background-color: #ff0000;
+            color: #ffffff;
+            display: inline-block;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="inputdata">
+<button id="leftinput">左侧入</button>
+<button id="rightinput">右侧入</button>
+<button id="leftdelete">左侧出</button>
+<button id="rightdelete">右侧出</button>
+<div id="datashow">
+
+</div>
+
+<script>
+    //从HTML中获取所要用的元素
+    var dataShow=document.getElementById("datashow");
+    var inputData=document.getElementById("inputdata");
+    var leftInput=document.getElementById("leftinput");
+    var rightInput=document.getElementById("rightinput");
+    var leftDelete=document.getElementById("leftdelete");
+    var rightDelete=document.getElementById("rightdelete");
+
+    //左侧进对应的操作函数
+
+    function leftAdd(){
+        if((/^[0-9]+$/).test(inputData.value)){
+            var newdiv=document.createElement("div");
+            newdiv.className="databox";
+            newdiv.textContent=inputData.value;
+            dataShow.insertBefore(newdiv,dataShow.firstElementChild);
+        }else{
+            alert("请输入一个整数");
+        }
+    }
+
+    //右侧进对应的操作函数
+
+    function rightAdd() {
+        if((/^[0-9]+$/).test(inputData.value)){
+            var newdiv=document.createElement("div");
+            newdiv.className="databox";
+            newdiv.textContent=inputData.value;
+            dataShow.appendChild(newdiv);
+        }else{
+            alert("请输入一个整数");
+        }
+    }
+
+    //左侧出对应的函数
+
+    function leftOut(){
+        if(dataShow.childElementCount>=1){
+            alert(dataShow.firstElementChild.textContent);
+            dataShow.removeChild(dataShow.firstElementChild);
+        }else{
+            alert("元素已为空");
+        }
+    }
+
+    //右侧出对应的函数
+
+    function rightOut(){
+        if(dataShow.childElementCount>=1){
+            alert(dataShow.lastElementChild.textContent);
+            dataShow.removeChild(dataShow.lastElementChild);
+        }else{
+            alert("元素已为空");
+        }
+    }
+
+    //对选中的元素进行删除
+    function selectedDelete(target){
+        dataShow.removeChild(target);
+    }
+
+    //对四个按钮指定对应的事件
+
+    function init(){
+        leftInput.addEventListener("click",function(){
+            leftAdd();
+        });
+        rightInput.addEventListener("click",function(){
+            rightAdd();
+        });
+        leftDelete.addEventListener("click",leftOut);
+        rightDelete.addEventListener("click",rightOut);
+        dataShow.addEventListener("click",function(e){
+            if(e.target && e.target.nodeName.toLowerCase()=="div"){
+                selectedDelete(e.target);
+            }
+        });
+    }
+
+    init();
+
+</script>
+</body>
+</html>
