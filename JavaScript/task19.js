@@ -25,10 +25,11 @@ window.onload = function () {
     var leftDelete=$("leftdelete");
     var rightDelete=$("rightdelete");
     var pop=$("pop");
+    var randomBtn=$("random");
     var queue ={
         str: [],
         leftPush: function(num){
-            if(this.str.length<=60){
+            if(this.str.length<60){
                 this.str.unshift(num);
                 this.render();
             }else{
@@ -38,7 +39,7 @@ window.onload = function () {
 
         },
         rightPush: function(num){
-            if(this.str.length<=60){
+            if(this.str.length<60){
                 this.str.push(num);
                 this.render();
             }else{
@@ -114,10 +115,50 @@ window.onload = function () {
         popMethod();
     });
 
+    //添加随机数组按钮
+
+    AddEvent(randomBtn,"click",function () {
+        queue.str=randomStr(queue.str);
+        queue.render();
+    })
+
     // 定义冒泡排序函数
 
     function popMethod(){
 
+        var i=0;k=0;num=0;delay=10;
+        var timer;
+        timer=setInterval(run,delay);
+        function run() {
+            if(i==queue.str.length   ){
+                clearInterval(timer);
+            }else{
+                if(queue.str[k]>queue.str[k+1]){
+                    num=queue.str[k];
+                    queue.str[k] = queue.str[k + 1];
+                    queue.str[k + 1] = num;
+                    queue.render();
+                }
+                k++;
+                if(k==queue.str.length-i-1){
+                    i++;
+                    k=0;
+                }
+            }
+
+        }
+
+    }
+
+    function randomStr(arr){
+        arr=[];
+        for (var i=0;i<60;i++){
+            arr[i]=Math.ceil(Math.random()*100);
+            if(arr[i]<10){
+                arr[i]=10;
+            }
+        }
+        return arr;
     }
 
 
