@@ -6,7 +6,7 @@ function AddEvent(element, event,listener){
         element.addEventListener(event,listener,false);
     }
     else if(element.attachEvent){
-        element.attachEvent(event,listener);
+        element.attachEvent("on"+event,listener);
     }
     else{
         element["on"+event]=listener;

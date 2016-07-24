@@ -8,7 +8,7 @@ function AddEvent(element, event, listener){
     if(element.addEventListener){
         element.addEventListener(event,listener);
     }else if(element.attachEvent){
-        element.attachEvent(event,listener);
+        element.attachEvent("on"+event,listener);
     }else{
         element["on"+event]=listener;
     }
