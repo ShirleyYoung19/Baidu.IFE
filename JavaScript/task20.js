@@ -1,5 +1,5 @@
 /**
- * Created by YangChaofan on 16/7/21.
+ * Created by Yang Chaofan on 16/7/21.
  */
 function $(id){
     return document.getElementById(id);
