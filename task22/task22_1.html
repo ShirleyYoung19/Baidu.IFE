@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task22</title>
+    <style type="text/css">
+        .layer1{
+            display: flex;
+            border:solid 2px #4388c9;
+            width: 90%;
+            margin:20px auto;
+            height: 300px;
+            justify-content: space-around;
+        }
+        .layer2{
+            display:flex;
+            border:solid 2px #72b12a;
+            width:45%;
+            margin:auto;
+            height:270px;
+            justify-content: space-around;
+
+        }
+        .layer3{
+            display:flex;
+            border:solid 2px #d2994f;
+            width:40%;
+            margin:auto;
+            height:240px;
+            justify-content: space-around;
+
+        }
+        .layer4{
+            display:flex;
+            border:solid 2px #ffcc00;
+            width:35%;
+            margin:auto;
+            height:210px;
+            justify-content: space-around;
+
+        }
+        button{
+            display: block;
+            margin:auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="layer1">
+    <div class="layer2">
+        <div class="layer3">
+            <div class="layer4"></div>
+            <div class="layer4"></div>
+        </div>
+        <div class="layer3">
+            <div class="layer4"></div>
+            <div class="layer4"></div>
+        </div>
+    </div>
+    <div class="layer2">
+        <div class="layer3">
+            <div class="layer4"></div>
+            <div class="layer4"></div>
+        </div>
+        <div class="layer3">
+            <div class="layer4"></div>
+            <div class="layer4"></div>
+        </div>
+    </div>
+</div>
+
+    <button id="preorder">前序遍历</button>
+    <button id="inorder">中序遍历</button>
+    <button id="postorder">后序遍历</button>
+
+</body>
+
+<script type="text/javascript">
+    function $(tagName) {
+        return document.getElementsByTagName(tagName);
+    }
+    function $$(id) {
+        return document.getElementById(id);
+    }
+
+    function AddEvent(element, event, listener) {
+        if (element.addEventListener) {
+            element.addEventListener(event, listener);
+        } else if (element.attachEvent) {
+            element.attachEvent('on' + event, listener);
+        } else {
+            element['on' + event] = listener;
+        }
+    }
+    function changeColor() {
+        var timer = setInterval(function () {
+            if (i == 0) {
+                resultArr[i].style.backgroundColor = '#aaa';
+            } else if (i > 0 && i < resultArr.length) {
+                resultArr[i].style.backgroundColor = '#aaa';
+                resultArr[i - 1].style.backgroundColor = '';
+            } else if (i == resultArr.length) {
+                resultArr[i - 1].style.backgroundColor = '';
+                clearInterval(timer);
+                i=-1;
+                resultArr = [];
+                console.log("Finish");
+            }
+            i++;
+        }, 1000);
+    }
+    function preOrder(ele) {
+        if (ele !== null) {
+            if (resultArr.indexOf(ele) == -1)
+                resultArr.push(ele);
+            preOrder(ele.firstElementChild);
+            preOrder(ele.lastElementChild);
+        }
+    }
+    function inOrder(ele) {
+        if (ele !== null) {
+            inOrder(ele.firstElementChild);
+            if (resultArr.indexOf(ele) == -1)
+                resultArr.push(ele);
+            inOrder(ele.lastElementChild);
+        }
+    }
+    function postOrder(ele) {
+        if (ele !== null) {
+            postOrder(ele.firstElementChild);
+            postOrder(ele.lastElementChild);
+            if (resultArr.indexOf(ele) == -1)
+                resultArr.push(ele);
+        }
+    }
+    window.onload = function () {
+        AddEvent($$("preorder"), "click", function () {
+            preOrder($("div")[0]);
+            console.log(resultArr);
+            changeColor();
+        });
+        AddEvent($$("inorder"), "click", function () {
+            inOrder($("div")[0]);
+            console.log(resultArr);
+            changeColor();
+        });
+        AddEvent($$("postorder"), "click", function () {
+            postOrder($("div")[0]);
+            console.log(resultArr);
+            changeColor();
+        });
+    }
+    var i = 0;
+    var resultArr = [];
+</script>
+</html>

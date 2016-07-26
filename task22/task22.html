@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task22</title>
+    <style type="text/css">
+        .layer1{
+            display: flex;
+            border:solid 2px #4388c9;
+            width: 90%;
+            margin:20px auto;
+            height: 300px;
+            justify-content: space-around;
+        }
+        .layer2{
+            display:flex;
+            border:solid 2px #72b12a;
+            width:45%;
+            margin:auto;
+            height:270px;
+            justify-content: space-around;
+
+        }
+        .layer3{
+            display:flex;
+            border:solid 2px #d2994f;
+            width:40%;
+            margin:auto;
+            height:240px;
+            justify-content: space-around;
+
+        }
+        .layer4{
+            display:flex;
+            border:solid 2px #ffcc00;
+            width:35%;
+            margin:auto;
+            height:210px;
+            justify-content: space-around;
+
+        }
+        button{
+            display: block;
+            margin:auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="layer1">
+        <div class="layer2">
+            <div class="layer3">
+                <div class="layer4"></div>
+                <div class="layer4"></div>
+            </div>
+            <div class="layer3">
+                <div class="layer4"></div>
+                <div class="layer4"></div>
+            </div>
+        </div>
+        <div class="layer2">
+            <div class="layer3">
+                <div class="layer4"></div>
+                <div class="layer4"></div>
+            </div>
+            <div class="layer3">
+                <div class="layer4"></div>
+                <div class="layer4"></div>
+            </div>
+        </div>
+    </div>
+
+        <button id="preorder">前序遍历</button>
+        <button id="inorder">中序遍历</button>
+        <button id="postorder">后序遍历</button>
+    <script src="task22.js"></script>
+</body>
+</html>
