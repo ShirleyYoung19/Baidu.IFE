@@ -9,6 +9,7 @@
             display: flex;
             justify-content: space-around;
             margin:10px;
+
            
         }
         div.layer1{
@@ -31,10 +32,15 @@
         *{
             font-size: 12px;
         }
+        section{
+            display:block;
+            text-align:center;
+        }
+
 
     </style>
 </head>
-<body>
+
 <div class="layer1">
     Super
     <div class="layer2">
@@ -92,5 +98,14 @@
         Fish
     </div>
 </div>
+<section>
+    <input type="button" id="depthfirstpre" value="深度前序优先遍历">
+    <input type="button" id="depthfirstpost" value="深度后序优先遍历">
+
+    <input type="button" id="breadthfirst" value="广度优先遍历">
+</section>
+
+
+<script src="task23.js"></script>
 </body>
 </html>
