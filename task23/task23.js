@@ -55,7 +55,10 @@ Tree.prototype.traverseBF=function(callback) {
         currentNode=queue.dequeue();
     }
 };
-
+//定义原型的查找函数
+Tree.prototype.contain=function (callback,traverse) {
+    traverse.call(this,callback);
+};
 //定义constructor Queue
 function Queue(){
     var item=[];
@@ -67,27 +70,44 @@ function Queue(){
     };
 }
 ongoing=false;
-//定义改变颜色的函数
-function changeColor(){
+//定义改变颜色的函数,txt为输入查询的内容
+function changeColor(txt){
     var i=0;
+    var k=0;
     var timer=setInterval(function(){
 
        if(i==0){
-           dataList[i].style.backgroundColor="#f5b67b";
+           if(dataList[i].firstChild.textContent.trim()==txt){
+               dataList[i].style.backgroundColor="#f5b67b";
+               k=1;
+           }else{
+               dataList[i].style.backgroundColor="#a9cfec";
+           }
            ongoing=true;
-       }else if(i>0&&i<dataList.length){
-           dataList[i].style.backgroundColor="#f5b67b";
-           dataList[i-1].style.backgroundColor="";
-       }else {
-           dataList[i-1].style.backgroundColor="";
+       }else if(i>0&&i<dataList.length) {
+           if (dataList[i].firstChild.textContent.trim() == txt) {
+               dataList[i].style.backgroundColor = "#f5b67b";
+               k=1;
+           } else {
+               dataList[i].style.backgroundColor = "#a9cfec";
+           }
+           if (dataList[i - 1].firstChild.textContent.trim() != txt) {
+               dataList[i - 1].style.backgroundColor = "";
+           }
        }
         if(i==dataList.length){
+            if (dataList[i - 1].firstChild.textContent.trim() != txt) {
+                dataList[i - 1].style.backgroundColor = "";
+            }
             clearInterval(timer);
             ongoing=false;
+            if(k==0&&txt){
+                alert("未找到该元素")
+            }
             dataList=[];
         }
         i++;
-    },1000);
+    },500);
 }
 
 //定义方便获取元素的两个函数
@@ -147,6 +167,57 @@ function init(){
             alert("正在遍历中,请结束后再选择遍历方法");
         }
 
+    });
+    AddEvent($$("search1"),"click",function(){
+        var tree=new Tree($("div"));
+        if(ongoing==false){
+            if($$("inputtxt").value){
+                tree.contain(function(ele){
+                    dataList.push(ele);
+                },tree.traverseDFPre);
+                changeColor($$("inputtxt").value);
+            }else{
+                alert("请输入查询内容")
+            }
+
+        }else{
+            alert("正在遍历中,请结束后再选择遍历方法");
+        }
+    });
+    AddEvent($$("search2"),"click",function(){
+        var tree=new Tree($("div"));
+        if(ongoing==false){
+            if($$("inputtxt").value){
+                tree.contain(function(ele){
+                    dataList.push(ele);
+                },tree.traverseDFPost);
+                changeColor($$("inputtxt").value);
+            }else{
+                alert("请输入查询内容")
+            }
+
+        }else{
+            alert("正在遍历中,请结束后再选择遍历方法");
+        }
+    });
+    AddEvent($$("search3"),"click",function(){
+        var tree=new Tree($("div"));
+        if(ongoing==false){
+            if($$("inputtxt").value){
+                tree.contain(function(ele){
+                    dataList.push(ele);
+                },tree.traverseBF);
+                dataList.map(function (ele) {
+                    ele.style.backgroundColor="";
+                });
+                changeColor($$("inputtxt").value);
+            }else{
+                alert("请输入查询内容")
+            }
+
+        }else{
+            alert("正在遍历中,请结束后再选择遍历方法");
+        }
     })
 
 }

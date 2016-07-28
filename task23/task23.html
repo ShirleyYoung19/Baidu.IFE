@@ -10,6 +10,7 @@
             justify-content: space-around;
             margin:10px;
 
+
            
         }
         div.layer1{
@@ -36,8 +37,6 @@
             display:block;
             text-align:center;
         }
-
-
     </style>
 </head>
 
@@ -99,10 +98,15 @@
     </div>
 </div>
 <section>
-    <input type="button" id="depthfirstpre" value="深度前序优先遍历">
-    <input type="button" id="depthfirstpost" value="深度后序优先遍历">
-
+    <input type="button" id="depthfirstpre" value="深度优先前序遍历">
+    <input type="button" id="depthfirstpost" value="深度优先后序遍历">
     <input type="button" id="breadthfirst" value="广度优先遍历">
+    <br />
+    请输入搜索内容:<input type="text" id="inputtxt"><br />
+    请选择搜索方法:<input type="radio" id="search1" name="search" vaule="depthfirstpre">深度优先前序遍历
+    <input type="radio" id="search2" name="search" vaule="depthfirstpost">深度优先后序遍历
+    <input type="radio" id="search3" name="search" vaule="breadthfirst">宽度优先遍历
+
 </section>
 
 
