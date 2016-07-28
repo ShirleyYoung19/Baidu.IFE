@@ -175,6 +175,9 @@ function init(){
                 tree.contain(function(ele){
                     dataList.push(ele);
                 },tree.traverseDFPre);
+                dataList.map(function (ele) {
+                    ele.style.backgroundColor="";
+                });
                 changeColor($$("inputtxt").value);
             }else{
                 alert("请输入查询内容")
@@ -191,6 +194,9 @@ function init(){
                 tree.contain(function(ele){
                     dataList.push(ele);
                 },tree.traverseDFPost);
+                dataList.map(function (ele) {
+                    ele.style.backgroundColor="";
+                });
                 changeColor($$("inputtxt").value);
             }else{
                 alert("请输入查询内容")
@@ -198,6 +204,7 @@ function init(){
 
         }else{
             alert("正在遍历中,请结束后再选择遍历方法");
+            $$("search2").Checked=false;
         }
     });
     AddEvent($$("search3"),"click",function(){
@@ -217,6 +224,7 @@ function init(){
 
         }else{
             alert("正在遍历中,请结束后再选择遍历方法");
+            $$("search3").Checked=false;
         }
     })
 
