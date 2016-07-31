@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task25</title>
+    <style type="text/css">
+        #tree-model{
+            width: 300px;
+            margin:30px auto;
+        }
+        .searchtxt{
+            display: inline-block;
+            margin:10px 10px 10px 30px;
+        }
+        .openmenu{
+            background-image: url(image/triangle_down.png);
+            background-repeat: no-repeat;
+            background-size: 16px;
+            background-position: 0 center;
+            padding-left:20px;
+
+        }
+        .closemenu{
+            background-image: url(image/triangle_right.png);
+            background-repeat: no-repeat;
+            background-size: 10.5px 14px;
+            background-position: 0 center;
+            padding-left:20px;
+
+        }
+        div{
+            margin:0px 18px;
+            font-size: 16px;
+            padding:30px 5px;
+        }
+        .nodeinvisible{
+            display: none;
+        }
+        .nodevisible{
+            display: block;
+        }
+        .output{
+            height:30px;
+            text-align: center;
+        }
+        .addicon{
+            background-image: url(image/plus.png);
+            background-repeat: no-repeat;
+            background-size: 14px;
+            background-position: left center;
+            padding-left:20px;
+            font-size: 14px;
+            cursor: pointer;
+            vertical-align: top;
+        }
+        .deleteicon{
+            background-image: url(image/delete.png);
+            background-repeat: no-repeat;
+            background-size: 14px;
+            background-position: left center;
+            padding-left:20px;
+            font-size: 14px;
+            cursor: pointer;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+<fieldset id="tree-model">
+    <legend>树形组件</legend>
+    <input type="text" class="searchtxt">
+    <input class="searchbtn" type="button" value="搜索">
+    <div class="output"></div>
+    <section class="catalog">
+        <div class="nodevisible">
+            <span class="openmenu"> </span>目录
+            <div class="nodevisible">
+                <sapn class="closemenu"></sapn>电影
+                <div class="nodeinvisible">完美陌生人</div>
+            </div>
+            <div class="nodevisible">
+                <sapn class="closemenu"></sapn>电视剧
+                <div class="nodeinvisible">请回答1988</div>
+                <div class="nodeinvisible">权力的游戏</div>
+            </div>
+            <div class="nodevisible">
+                <sapn class="closemenu"></sapn>动画片
+                <div class="nodeinvisible">进击的巨人</div>
+            </div>
+            <div class="nodevisible">
+                <sapn class="openmenu"></sapn>游戏
+                <div class="nodevisible">巫师三</div>
+            </div>
+        </div>
+    </section>
+
+</fieldset>
+
+<script src="task25.js"></script>
+</body>
+</html>
+
