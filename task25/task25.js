@@ -24,6 +24,9 @@ Tree.prototype.traverseBF=function(callback){
 Tree.prototype.contain=function(callback,traverse){
     traverse.call(this,callback);
 };
+Tree.prototype.add=function(){
+
+};
 
 //定义构造函数Queue
 var Queue=function () {
@@ -64,14 +67,13 @@ function init(){
         if(text){
             find=false;
             tree.contain(function(ele){
-                Array.prototype.map.call(ele.childNodes,function(node){
-                    if(node.nodeType==3&&node.nodeValue){
-                        if(node.nodeValue==text){
+                var node=ele.getElementsByClassName("title")[0];
+
+                        if(node.textContent==text){
                             find=true;
-                            var parent=node.parentNode;
-                            parent.style.color="red";
-                            parent=parent.parentNode;
-                            parent.firstElementChild.className="openmenu";
+                            node.style.color="red";
+                            var parent=node.parentNode.parentNode.parentNode;
+                            parent.firstElementChild.firstElementChild.className="openmenu";
                             Array.prototype.map.call(parent.childNodes,function(node1){
                                 if(node1.tagName=="DIV"){
                                     node1.className="nodevisible";
@@ -83,8 +85,8 @@ function init(){
                                 parent=parent.parentNode;
                             }
                         }
-                    }
-                })
+
+
             },tree.traverseBF);
             if(find==false){
                 output="没有查询到匹配的节点";
@@ -96,51 +98,31 @@ function init(){
         }
     });
 
-    //定义鼠标进入元素事件
-    AddEvent(tree.root,"mouseover",function(e){
-        var node=e.target;
-        if(node.nodeType==3&&node.getElementsByClassName("addicon")[0]==undefined){
-            var divNode=node.getElementsByTagName("div")[0];
-            var addNode=document.createElement("span");
-            addNode.className="addicon";
-            addNode.textContent="添加";
-            var deleteNode=document.createElement("span");
-            deleteNode.className="deleteicon";
-            deleteNode.textContent="删除";
-            if(node==tree.root){
-                node.insertBefore(addNode,divNode);
-            }else{
-                node.insertBefore(deleteNode,divNode);
-                node.insertBefore(addNode,deleteNode);
-            }
-        }
-
-    });
-    //定义鼠标离开元素事件
-    AddEvent(tree.root,"mouseout",function(e){
-        var node=e.target;
-        if(node.getElementsByClassName("addicon")[0]){
-            var addNode=node.getElementsByClassName("addicon")[0];
-            var deleteNode=node.getElementsByClassName("deleteicon")[0];
-            node.removeChild(addNode);
-            node.removeChild(deleteNode);
-        }
-    });
     //定义点击事件
-    AddEvent(tree.root,"click",function(e){
-        var node=e.target;
-        if(node.tagName!="DIV"){
-            node=node.parentNode;
-        }
-        if(node.firstElementChild.className=="openmenu"){
-            node.firstElementChild.className="closemenu";
-            Array.prototype.map.call(node.childNodes,function(ele){
-                if(ele.tagName=="div"){
-                    ele.className="nodeinvisible";
+    var nodes=tree.root.getElementsByTagName("label");
+    Array.prototype.map.call(nodes,function(ele){
+        AddEvent(ele,"click",function(e){
+            if(e.target.className!="addicon"&&e.target.className!="deleteicon"){
+                var parent=ele.parentNode;
+                if(parent.firstElementChild.firstElementChild.className=="openmenu"){
+                    parent.firstElementChild.firstElementChild.className="closemenu";
+                    Array.prototype.map.call(parent.children,function (ele1) {
+                        if(ele1.tagName=="DIV"){
+                            ele1.className="nodeinvisible";
+                        }
+                    })
+                }else if(parent.firstElementChild.firstElementChild.className=="closemenu"){
+                    parent.firstElementChild.firstElementChild.className="openmenu";
+                    Array.prototype.map.call(parent.children,function (ele1) {
+                        if(ele1.tagName=="DIV"){
+                            ele1.className="nodevisible";
+                        }
+                    })
                 }
-            })
-        }
-    });
+            }
+
+        })
+    })
 }
 init();
 

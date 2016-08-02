@@ -5,12 +5,12 @@
     <title>Task25</title>
     <style type="text/css">
         #tree-model{
-            width: 300px;
-            margin:30px auto;
+            width: 400px;
+            margin:10px auto;
         }
         .searchtxt{
             display: inline-block;
-            margin:10px 10px 10px 30px;
+            margin:10px 10px 10px 10px;
         }
         .openmenu{
             background-image: url(image/triangle_down.png);
@@ -28,10 +28,13 @@
             padding-left:20px;
 
         }
+        label{
+            display: block;
+            padding:5px;
+        }
         div{
             margin:0px 18px;
             font-size: 16px;
-            padding:30px 5px;
         }
         .nodeinvisible{
             display: none;
@@ -52,6 +55,7 @@
             font-size: 14px;
             cursor: pointer;
             vertical-align: top;
+            display:none;
         }
         .deleteicon{
             background-image: url(image/delete.png);
@@ -62,6 +66,10 @@
             font-size: 14px;
             cursor: pointer;
             vertical-align: top;
+            display:none;
+        }
+        label:hover>.addicon,label:hover>.deleteicon{
+            display:inline;
         }
     </style>
 </head>
@@ -73,23 +81,77 @@
     <div class="output"></div>
     <section class="catalog">
         <div class="nodevisible">
-            <span class="openmenu"> </span>目录
+            <label>
+                <span class="openmenu"> </span>
+                <span class="title">目录</span>
+                <span class="addicon">添加</span>
+            </label>
             <div class="nodevisible">
-                <sapn class="closemenu"></sapn>电影
-                <div class="nodeinvisible">完美陌生人</div>
+                <label for="">
+                    <sapn class="closemenu"></sapn>
+                    <span class="title">电影</span>
+                    <span class="addicon">添加</span>
+                    <span class="deleteicon">删除</span>
+                </label>
+                <div class="nodeinvisible">
+                    <label for="">
+                        <span class="title">完美陌生人</span>
+                        <span class="addicon">添加</span>
+                        <span class="deleteicon">删除</span>
+                    </label>
+                </div>
             </div>
             <div class="nodevisible">
-                <sapn class="closemenu"></sapn>电视剧
-                <div class="nodeinvisible">请回答1988</div>
-                <div class="nodeinvisible">权力的游戏</div>
+                <label for="">
+                    <sapn class="closemenu"></sapn>
+                    <span class="title">电视剧</span>
+                    <span class="addicon">添加</span>
+                    <span class="deleteicon">删除</span>
+                </label>
+                <div class="nodeinvisible">
+                    <label for="">
+                        <span class="title">请回答1988</span>
+                        <span class="addicon">添加</span>
+                        <span class="deleteicon">删除</span>
+                    </label>
+                </div>
+                <div class="nodeinvisible">
+                    <label for="">
+                        <span class="title">权力的游戏</span>
+                        <span class="addicon">添加</span>
+                        <span class="deleteicon">删除</span>
+                    </label>
+                </div>
             </div>
             <div class="nodevisible">
-                <sapn class="closemenu"></sapn>动画片
-                <div class="nodeinvisible">进击的巨人</div>
+                <label for="">
+                    <sapn class="closemenu"></sapn>
+                    <span class="title">动画片</span>
+                    <span class="addicon">添加</span>
+                    <span class="deleteicon">删除</span>
+                </label>
+                <div class="nodeinvisible">
+                    <label for="">
+                        <span class="title">进击的巨人</span>
+                        <span class="addicon">添加</span>
+                        <span class="deleteicon">删除</span>
+                    </label>
+                </div>
             </div>
             <div class="nodevisible">
-                <sapn class="openmenu"></sapn>游戏
-                <div class="nodevisible">巫师三</div>
+                <label for="">
+                    <sapn class="openmenu"></sapn>
+                    <span class="title">游戏</span>
+                    <span class="addicon">添加</span>
+                    <span class="deleteicon">删除</span>
+                </label>
+                <div class="nodevisible">
+                    <label for="">
+                        <span class="title">巫师三</span>
+                        <span class="addicon">添加</span>
+                        <span class="deleteicon">删除</span>
+                    </label>
+                </div>
             </div>
         </div>
     </section>
