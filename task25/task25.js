@@ -24,8 +24,59 @@ Tree.prototype.traverseBF=function(callback){
 Tree.prototype.contain=function(callback,traverse){
     traverse.call(this,callback);
 };
-Tree.prototype.add=function(){
+Tree.prototype.add=function(node,toNode){
+    var title=document.createElement("span");
+    title.textContent=node;
+    title.className="title";
+    var add=document.createElement("span");
+    add.textContent="添加";
+    add.className="addicon";
+    var deleteicon=document.createElement("span");
+    deleteicon.textContent="删除";
+    deleteicon.className="deleteicon";
+    var labelNode=document.createElement("label");
+    labelNode.appendChild(title);
+    labelNode.appendChild(add);
+    labelNode.appendChild(deleteicon);
+    var divNode=document.createElement("div");
+    divNode.appendChild(labelNode);
+    divNode.className="nodevisible";
+    toNode.appendChild(divNode);
+    AddEvent(add,"click",function () {
+        var parent=add.parentNode.parentNode;
+        var userInput=prompt("请输入子节点的内容");
+        if(userInput){
+            if(userInput==""){
+                alert("节点名称不能为空");
+            }
+            tree.add(userInput,parent);
+            if(parent.firstElementChild.firstElementChild.className=="closemenu"){
+                parent.firstElementChild.firstElementChild.className="openmenu";
+                Array.prototype.map.call(parent.children,function (ele) {
+                    if(ele.tagName=="DIV"){
+                        ele.className="nodevisible";
+                    }
+                })
+            }else if(parent.firstElementChild.firstElementChild.className=="title"){
+                var menuNode=document.createElement("span");
+                menuNode.className="openmenu";
+                parent.firstElementChild.insertBefore(menuNode,parent.firstElementChild.firstElementChild);
+            }
+        }
+    });
+    AddEvent(deleteicon,"click",function () {
+        tree.delete(deleteicon);
+    })
 
+};
+Tree.prototype.delete=function (node) {
+    var deletediv=node.parentNode.parentNode;
+    var deleteparent=deletediv.parentNode;
+    deleteparent.removeChild(deletediv);
+    var divnode=deleteparent.getElementsByTagName("div");
+    if(divnode.length==0){
+        deleteparent.firstElementChild.removeChild(deleteparent.firstElementChild.firstElementChild);
+    }
 };
 
 //定义构造函数Queue
@@ -81,7 +132,7 @@ function init(){
                             });
                             while(parent.parentNode!=tree.root){
                                 parent.className="nodvisible";
-                                parent.firstElementChild.className="openmenu";
+                                parent.firstElementChild.firstElementChild.className="openmenu";
                                 parent=parent.parentNode;
                             }
                         }
@@ -121,6 +172,37 @@ function init(){
                 }
             }
 
+        })
+    });
+    var addnodes=tree.root.getElementsByClassName("addicon");
+    Array.prototype.map.call(addnodes,function (ele) {
+        AddEvent(ele,"click",function(){
+            var parent=ele.parentNode.parentNode;
+            var userInput=prompt("请输入子节点的内容");
+            if(userInput){
+
+                tree.add(userInput,parent);
+                if(parent.firstElementChild.firstElementChild.className=="closemenu"){
+                    parent.firstElementChild.firstElementChild.className="openmenu";
+                    Array.prototype.map.call(parent.children,function (ele) {
+                        if(ele.tagName=="DIV"){
+                            ele.className="nodevisible";
+                        }
+                    })
+                }else if(parent.firstElementChild.firstElementChild.className=="title"){
+                    var menuNode=document.createElement("span");
+                    menuNode.className="openmenu";
+                    parent.firstElementChild.insertBefore(menuNode,parent.firstElementChild.firstElementChild);
+                }
+            }else if(userInput==""){
+                alert("节点名称不能为空");
+            }
+        })
+    });
+    var deletenodes=tree.root.getElementsByClassName("deleteicon");
+    Array.prototype.map.call(deletenodes,function (ele) {
+        AddEvent(ele,"click",function(){
+           tree.delete(ele);
         })
     })
 }

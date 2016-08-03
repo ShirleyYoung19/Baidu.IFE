@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task29</title>
+    <style type="text/css">
+        label{
+
+            width: 50px;
+            text-align: left;
+            display: inline-block;
+        }
+        #name{
+            width: 200px;
+            height: 20px;
+        }
+        .valid{
+            border:1px solid green;
+        }
+        .invalid{
+            border:1px solid red;
+        }
+        form{
+            margin: 20% 20%;
+            height: 80px;
+
+        }
+        .confirmbutton{
+            font-size: 16px;
+            background-color: #2F79BA;
+            border-radius: 5px;
+            border:1px solid white;
+            color: white;
+        }
+        .message{
+            color: #aaaaaa;
+            margin-left: 50px;
+        }
+
+
+    </style>
+</head>
+<body>
+<form>
+    <label for="name">名称</label>
+    <input name="username" id="name" type="text" required>
+    <input type="button" class="confirmbutton" value="验证">
+    <p class="message">必填,长度为4-16个字符</p>
+</form>
+<script>
+    var btn=document.getElementsByClassName("confirmbutton")[0];
+    var input=document.getElementById("name");
+    var output=document.getElementsByClassName("message")[0];
+    var outputText;
+    btn.addEventListener("click",function () {
+        var inputText=input.value;
+        if(inputText){
+            var length=inputText.length;
+            if(length<4 || length>16){
+                outputText="请输入4到16个字符";
+                input.className='invalid';
+                output.style.color="red";
+            }else{
+                outputText="格式正确";
+                output.style.color="green";
+                input.className="valid";
+            }
+        }else{
+            outputText="姓名不能为空";
+            input.className='invalid';
+            output.style.color="red";
+        }
+        output.textContent=outputText;
+    })
+</script>
+</body>
+</html>
