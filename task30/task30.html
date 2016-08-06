@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task30</title>
+    <style type="text/css">
+        label{
+
+            width: 100px;
+            text-align: right;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        input{
+            display: inline-block;
+            width: 400px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid #aaaaaa;
+        }
+        .valid{
+            border:1px solid green;
+        }
+        .invalid{
+            border:1px solid red;
+        }
+        form{
+            margin: 20% 20%;
+
+        }
+        .confirmbutton{
+            font-size: 16px;
+            background-color: #2F79BA;
+            border-radius: 5px;
+            border:1px solid white;
+            color: white;
+        }
+        .message{
+            color: #aaaaaa;
+            margin-left: 115px;
+            font-size: 0.8em;
+            display: none;
+        }
+        input:focus+p{
+            display: block;
+        }
+        input.confirmbutton{
+            margin-left: 420px;
+            width: 100px;
+
+        }
+        div{
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+<form>
+    <div class="username">
+        <label for="username">名称</label>
+        <input name="username" id="username" type="text" required>
+        <p class="message">必填,长度为4-16个字符</p>
+    </div>
+    <div class="password">
+        <label for="password">密码</label>
+        <input name="password" id="password" type="password" required>
+        <p class="message">必填,长度为6-16个字符,字母或数字</p>
+    </div>
+    <div class="passwordconfirm">
+        <label for="passwordconfirm">密码确认</label>
+        <input name="passwordconfirm" id="passwordconfirm" type="password" required>
+        <p class="message">必填,与密码一致</p>
+    </div>
+    <div class="email">
+        <label for="email">邮箱</label>
+        <input name="email" id="email" type="email" required>
+        <p class="message">请输入正确格式的邮箱地址</p>
+    </div>
+    <div class="phonenumber">
+        <label for="phonenumber">手机</label>
+        <input name="phonenumber" id="phonenumber" type="text" required>
+        <p class="message">请填写正确的手机号码</p>
+    </div>
+    <input type="button" class="confirmbutton" value="验证">
+</form>
+<script src="task30.js"></script>
+</body>
+</html>
