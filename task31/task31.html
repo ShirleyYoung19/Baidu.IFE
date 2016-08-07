@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task31</title>
+    <style type="text/css">
+        form{
+            margin:20% 20%;
+        }
+        #student{
+            margin-left: 100px;
+        }
+        #nonstudent{
+            margin-left: 150px;
+        }
+        div.school,div.company{
+            height: 60px;
+            line-height: 60px;
+        }
+        div.school>label,div.company>label{
+            display: inline-block;
+            width: 80px;
+            text-align: right;
+            padding-right: 20px;
+        }
+        .select{
+            height: 100px;
+            width: 160px;
+            margin-right: 30px;
+            line-height: 30px;
+            font-size: 30px;
+            padding:10px;
+        }
+        #company{
+            height: 25px;
+            width: 400px;
+            border-radius: 5px;
+        }
+        .company{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<form action="#">
+    <div class="student">
+        <input type="radio" name="career" id="student" checked>
+        <label for="student">在校生</label>
+        <input type="radio" name="career" id="nonstudent">
+        <label for="nonstudent">非在校生</label>
+    </div>
+    <div class="school">
+        <label for="city">学校</label>
+        <select name="city" id="city" class="select">
+            <option value="beijing">北京</option>
+            <option value="shanghai">上海</option>
+            <option value="shandong">山东</option>
+        </select>
+        <select name="university" id="university" class="select">
+            <option value="PeakingUniversity">北京大学</option>
+            <option value="TsinghuaUniversity">清华大学</option>
+        </select>
+    </div>
+    <div class="company">
+        <label for="company">就业单位</label>
+        <input type="text" id="company">
+    </div>
+</form>
+<script src="task31.js"></script>
+</body>
+</html>
