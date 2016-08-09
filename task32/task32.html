@@ -64,6 +64,20 @@
         .option{
             display: none;
         }
+        /*添加选项的样式控制*/
+        .optiondiv{
+            /*background-color: #75b86b;*/
+            font-size: 14px;
+            width: 70%;
+            margin: 10px auto;
+        }
+        .deleteicon{
+            font-size: 14px;
+            display: none;
+            margin-left: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -124,7 +138,7 @@
             <!--单选、多选和下拉框的选项设置-->
             <fieldset class="option">
                 <legend>选项</legend>
-                <input type="text" name="option" placeholder="可用空格,逗号,回车来分隔选项" id="option">
+                <input type="text" name="option" placeholder="可用空格或回车来分隔选项" id="option">
                 <div class="optiondisplay"></div>
             </fieldset>
 

@@ -11,7 +11,7 @@ function $(id) {
         console.log(id+"is not exit");
     }
 }
-//对元素注册时间
+//对元素注册事件
 function AddEvent(element,event,listener) {
     if(element.addEventListener){
         element.addEventListener(event, listener);
@@ -25,6 +25,8 @@ var formConfig=document.getElementsByClassName("config")[0];
 var rule=document.getElementsByClassName("rule")[0];
 var formLength=document.getElementsByClassName("length")[0];
 var formOption=document.getElementsByClassName("option")[0];
+var optionDisplay=document.getElementsByClassName("optiondisplay")[0];
+var optionArray=[];
 // 表单生成区域的控制
 function init() {
 
@@ -73,5 +75,56 @@ function init() {
     });
 
     //控制选项结果的输出,并将结果保存到一个全局作用域中
+    AddEvent($("option"),"keyup",function (e) {
+        if(e.keyCode==13||(/ /.test(e.target.value))){
+            addOption(e.target.value);
+            e.target.value="";
+            }
+    });
+    //添加选项的函数
+    function addOption(text) {
+        var optionText = text.trim();
+        // 将其添加到数组optionArray中
+        if (optionArray[0]) {
+            var judge = optionArray.some(function (txt) {
+                return txt == optionText;
+            });
+            if (judge == false) {
+                optionArray.push(optionText);
+                render();
+            }
+        } else {
+            optionArray.push(optionText);
+            render();
+        }
+    }
+    //对新添加的选项进行渲染
+    function render() {
+        var optionText=optionArray[optionArray.length-1];
+        var optionNode=document.createElement("div");
+        var deleteIcon=document.createElement("span");
+        optionNode.textContent=optionText;
+        deleteIcon.textContent="删除";
+        optionNode.className="optiondiv";
+        deleteIcon.className="deleteicon";
+        optionNode.appendChild(deleteIcon);
+        optionDisplay.appendChild(optionNode);
+        //对新添加的选项设置鼠标事件
+        AddEvent(optionNode,"mouseover",function () {
+            deleteIcon.style.display="inline-block";
+        });
+        AddEvent(optionNode,"mouseout",function () {
+            deleteIcon.style.display="none";
+        });
+        AddEvent(deleteIcon,"click",function () {
+            optionDisplay.removeChild(optionNode);
+            optionArray.splice(optionArray.indexOf(optionText),1);
+        })
+
+
+    }
+
+
+
 }
 init();
