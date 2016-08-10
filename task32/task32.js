@@ -19,6 +19,25 @@ function AddEvent(element,event,listener) {
         element.attachEvent('on'+event,listener);
     }
 }
+//获取单选选中的选项
+function checkedItem(className) {
+    var filedSet=document.getElementsByClassName(className)[0];
+    var inputArr=filedSet.getElementsByTagName("input");
+    for(var i=0;i<inputArr.length;i++){
+        if(inputArr[i].checked){
+            return inputArr[i].value;
+        }
+    }
+}
+//获取下拉框选中的选项
+function selectedItem(id) {
+    var selected=$(id);
+    for(var i=0;i<selected.options.length;i++){
+        if(selected.options[i].selected){
+            return selected.options[i].value;
+        }
+    }
+}
 //定义全局变量
 var formType=document.getElementsByClassName("type")[0];
 var formConfig=document.getElementsByClassName("config")[0];
@@ -27,9 +46,11 @@ var formLength=document.getElementsByClassName("length")[0];
 var formOption=document.getElementsByClassName("option")[0];
 var optionDisplay=document.getElementsByClassName("optiondisplay")[0];
 var optionArray=[];
+var addbtn=document.getElementsByClassName("addbtn")[0];
+var formData={};
+var formDisplay=document.getElementsByClassName("formdisplay")[0];
 // 表单生成区域的控制
 function init() {
-
     var typeInput=formType.getElementsByTagName("input");
     var name=$("name");
     var ruleInput=rule.getElementsByTagName('input');
@@ -85,18 +106,21 @@ function init() {
     function addOption(text) {
         var optionText = text.trim();
         // 将其添加到数组optionArray中
-        if (optionArray[0]) {
-            var judge = optionArray.some(function (txt) {
-                return txt == optionText;
-            });
-            if (judge == false) {
+        if(optionText){
+            if (optionArray[0]) {
+                var judge = optionArray.some(function (txt) {
+                    return txt == optionText;
+                });
+                if (judge == false) {
+                    optionArray.push(optionText);
+                    render();
+                }
+            } else {
                 optionArray.push(optionText);
                 render();
             }
-        } else {
-            optionArray.push(optionText);
-            render();
         }
+
     }
     //对新添加的选项进行渲染
     function render() {
@@ -121,10 +145,147 @@ function init() {
             optionArray.splice(optionArray.indexOf(optionText),1);
         })
 
-
     }
-
-
-
 }
 init();
+AddEvent(addbtn,"click",function () {
+    if(!$("name").value){
+        alert("请输入名称");
+    }
+    getFormData();
+    if(createFormElement()){
+        renderFormElement();
+    }
+    optionArray=[];
+    optionDisplay.innerHTML='';
+
+});
+//定义获取表单数据的函数
+function getFormData() {
+    formData={};
+    formData.type=checkedItem('type');
+    formData.name=$("name").value;
+    formData.necesarry=checkedItem('config');
+    formData.cssStyle=selectedItem('css');
+    formData.rule=checkedItem('rule');
+    formData.minLength=$('minlength').value;
+    formData.maxLength=$('maxlength').value;
+    formData.option=optionArray;
+
+}
+//生成表格元素
+function createFormElement() {
+    var formDIV=document.createElement("div");
+    var formName=document.createElement("span");
+    var form,formMessage,br;
+    formName.textContent=formData.name;
+    formDIV.appendChild(formName);
+    switch (formData.type){
+        case 'inputtext':
+            form=document.createElement("input");
+            formMessage=document.createElement("p");
+            formDIV.appendChild(form);
+            formDIV.appendChild(formMessage);
+            switch(formData.rule){
+                case "text":
+                    form.type="text";
+                    if(!formData.minLength){
+                        alert("请输入字符数目下限");
+                        return false;
+                    }
+                    if(!formData.maxLength){
+                        alert("请输入字符数目上限");
+                        return false;
+                    }
+                    formMessage.textContent="请输入"+formData.minLength+"-"+formData.maxLength+"位字符";
+                    break;
+                case "email":
+                    form.type="email";
+                    formMessage.textContent="请输入email地址";
+                    break;
+                case "phonenumber":
+                    form.type="text";
+                    formMessage.textContent="请输入11位手机号码";
+                    break;
+                case "password":
+                    form.type="password";
+                    if(!formData.minLength){
+                        alert("请输入字符数目下限");
+                        return false;
+                    }
+                    if(!formData.maxLength){
+                        alert("请输入字符数目上限");
+                        return false;
+                    }
+                    formMessage.textContent="请输入"+formData.minLength+"-"+formData.maxLength+"位字符(英文或数字)";
+                    break;
+            }
+        break;
+        case 'textarea':
+            form=document.createElement("textarea");
+            formMessage=document.createElement("p");
+            formDIV.appendChild(form);
+            formDIV.appendChild(formMessage);
+            if(!formData.minLength){
+                alert("请输入字符数目下限");
+                return false;
+            }
+            if(!formData.maxLength){
+                alert("请输入字符数目上限");
+                return false;
+            }
+            formMessage.textContent="请输入"+formData.minLength+"-"+formData.maxLength+"位字符";
+        break;
+        case 'radio':
+            if(!optionArray[0]){
+                alert("请先输入选项");
+                return false;
+            }
+            br=formDIV.innerHTML;
+            br+="<br/>";
+            formDIV.innerHTML=br;
+            optionArray.forEach(function (option) {
+                form=document.createElement("input");
+                form.type="radio";
+                var label=document.createElement("label");
+                label.textContent=option;
+                formDIV.appendChild(form);
+                formDIV.appendChild(label);
+
+            });
+            break;
+        case 'checkbox':
+            if(!optionArray[0]){
+                alert("请先输入选项");
+                return false;
+            }
+            br=formDIV.innerHTML;
+            br+="<br/>";
+            formDIV.innerHTML=br;
+            optionArray.forEach(function (option) {
+                form=document.createElement("input");
+                form.type="checkbox";
+                var label=document.createElement("label");
+                label.textContent=option;
+                formDIV.appendChild(form);
+                formDIV.appendChild(label);
+
+            });
+            break;
+        case 'select':
+            if(!optionArray[0]){
+                alert("请先输入选项");
+                return false;
+            }
+            form=document.createElement("select");
+            optionArray.forEach(function (option) {
+                var label=document.createElement("option");
+                label.textContent=option;
+                form.appendChild(label);
+            });
+            formDIV.appendChild(form);
+            break;
+    }
+    formDisplay.appendChild(formDIV);
+
+}
