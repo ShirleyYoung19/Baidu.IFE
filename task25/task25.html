@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task25</title>
+    <style type="text/css">
+        #tree-model{
+            width: 400px;
+            margin:10px auto;
+        }
+        .searchtxt{
+            display: inline-block;
+            margin:10px 10px 10px 10px;
+        }
+        .openmenu{
+            background-image: url(image/triangle_down.png);
+            background-repeat: no-repeat;
+            background-size: 16px;
+            background-position: 0 center;
+            padding-left:20px;
+
+        }
+        .closemenu{
+            background-image: url(image/triangle_right.png);
+            background-repeat: no-repeat;
+            background-size: 10.5px 14px;
+            background-position: 0 center;
+            padding-left:20px;
+
+        }
+        label{
+            display: block;
+            padding:5px;
+        }
+        div{
+            margin:0px 18px;
+            font-size: 16px;
+        }
+        .nodeinvisible{
+            display: none;
+        }
+        .nodevisible{
+            display: block;
+        }
+        .output{
+            height:30px;
+            text-align: center;
+        }
+        .addicon{
+            background-image: url(image/plus.png);
+            background-repeat: no-repeat;
+            background-size: 14px;
+            background-position: left center;
+            padding-left:20px;
+            font-size: 14px;
+            cursor: pointer;
+            vertical-align: top;
+            display:none;
+        }
+        .deleteicon{
+            background-image: url(image/delete.png);
+            background-repeat: no-repeat;
+            background-size: 14px;
+            background-position: left center;
+            padding-left:20px;
+            font-size: 14px;
+            cursor: pointer;
+            vertical-align: top;
+            display:none;
+        }
+        label:hover>.addicon,label:hover>.deleteicon{
+            display:inline;
+        }
+    </style>
+</head>
+<body>
+<fieldset id="tree-model">
+    <legend>树形组件</legend>
+    <input type="text" class="searchtxt">
+    <input class="searchbtn" type="button" value="搜索">
+    <div class="output"></div>
+    <section class="catalog">
+        <div class="nodevisible">
+            <label>
+                <span class="openmenu"> </span>
+                <span class="title">目录</span>
+                <span class="addicon">添加</span>
+            </label>
+            <div class="nodevisible">
+                <label for="">
+                    <sapn class="closemenu"></sapn>
+                    <span class="title">电影</span>
+                    <span class="addicon">添加</span>
+                    <span class="deleteicon">删除</span>
+                </label>
+                <div class="nodeinvisible">
+                    <label for="">
+                        <span class="title">完美陌生人</span>
+                        <span class="addicon">添加</span>
+                        <span class="deleteicon">删除</span>
+                    </label>
+                </div>
+            </div>
+            <div class="nodevisible">
+                <label for="">
+                    <sapn class="closemenu"></sapn>
+                    <span class="title">电视剧</span>
+                    <span class="addicon">添加</span>
+                    <span class="deleteicon">删除</span>
+                </label>
+                <div class="nodeinvisible">
+                    <label for="">
+                        <span class="title">请回答1988</span>
+                        <span class="addicon">添加</span>
+                        <span class="deleteicon">删除</span>
+                    </label>
+                </div>
+                <div class="nodeinvisible">
+                    <label for="">
+                        <span class="title">权力的游戏</span>
+                        <span class="addicon">添加</span>
+                        <span class="deleteicon">删除</span>
+                    </label>
+                </div>
+            </div>
+            <div class="nodevisible">
+                <label for="">
+                    <sapn class="closemenu"></sapn>
+                    <span class="title">动画片</span>
+                    <span class="addicon">添加</span>
+                    <span class="deleteicon">删除</span>
+                </label>
+                <div class="nodeinvisible">
+                    <label for="">
+                        <span class="title">进击的巨人</span>
+                        <span class="addicon">添加</span>
+                        <span class="deleteicon">删除</span>
+                    </label>
+                </div>
+            </div>
+            <div class="nodevisible">
+                <label for="">
+                    <sapn class="openmenu"></sapn>
+                    <span class="title">游戏</span>
+                    <span class="addicon">添加</span>
+                    <span class="deleteicon">删除</span>
+                </label>
+                <div class="nodevisible">
+                    <label for="">
+                        <span class="title">巫师三</span>
+                        <span class="addicon">添加</span>
+                        <span class="deleteicon">删除</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</fieldset>
+
+<script src="task25.js"></script>
+</body>
+</html>
+
