@@ -112,7 +112,7 @@
             border-radius: 5px;
             border: 1px #aaaaaa solid;
         }
-        .formdisplay input[type="radio"]{
+        .formdisplay div input[type="radio"]{
             margin-left: 10%;
             height: 30px;
             border-radius: 5px;
@@ -145,43 +145,51 @@
         .formdisplay p{
             display: none;
         }
+
         /*样式一*/
         .formdisplay div.one{
             padding-left: 20%;
         }
 
-        .formdisplay input:hover+p.one{
+        .formdisplay p.one{
             margin-left: 20%;
             font-size: 12px;
             color: #aaaaaa;
             display: block;
         }
-        .formdisplay textarea:hover+p.one{
+        .formdisplay textarea+p.one{
             margin-left: 20%;
             font-size: 12px;
             color: #aaaaaa;
             display: block;
         }
-        .formdisplay input[type="checkbox"]~p.one{
+        .formdisplay div input[type="checkbox"]~p.one{
             display: block;
             margin-left: 10%;
+            font-size: 12px;
+            color: #aaaaaa;
+            margin-top:0px;
+
         }
-        .formdisplay input[type="radio"]~p.one{
+        .formdisplay div input[type="radio"]~p.one{
             display: block;
             margin-left: 10%;
+            font-size: 12px;
+            color: #aaaaaa;
+            margin-top:0px;
         }
         /*样式二*/
         .formdisplay div.two{
             padding-left: 0;
         }
 
-        .formdisplay input:hover+p.two{
+        .formdisplay p.two{
             margin-left: 5%;
             font-size: 12px;
             color: #aaaaaa;
             display: inline-block;
         }
-        .formdisplay textarea:hover+p.two{
+        .formdisplay textarea+p.two{
             margin-left: 5%;
             font-size: 12px;
             color: #aaaaaa;
@@ -190,12 +198,34 @@
         .formdisplay input[type="checkbox"]~p.two{
             display: inline-block;
             margin-left: 5%;
+            font-size: 12px;
+            color: #aaaaaa;
         }
         .formdisplay input[type="radio"]~p.two{
             display: inline-block;
             margin-left: 5%;
+            font-size: 12px;
+            color: #aaaaaa;
         }
+        .formdisplay #submitbtn{
+            margin-left: 80%;
+            margin-bottom: 30px;
+        }
+        /*验证正确*/
+        .formdisplay p.right{
+            color: green;
 
+        }
+        .formdisplay input.right{
+            border: 1px solid green;
+        }
+        .formdisplay p.wrong{
+            color: red;
+
+        }
+        .formdisplay input.wrong{
+            border: 1px solid red;
+        }
     </style>
 </head>
 <body>

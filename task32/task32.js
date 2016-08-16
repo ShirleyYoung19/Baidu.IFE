@@ -42,15 +42,35 @@ function selectedItem(id) {
 }
 //定义全局变量
 var formType=document.getElementsByClassName("type")[0];
-var formConfig=document.getElementsByClassName("config")[0];
 var rule=document.getElementsByClassName("rule")[0];
 var formLength=document.getElementsByClassName("length")[0];
 var formOption=document.getElementsByClassName("option")[0];
 var optionDisplay=document.getElementsByClassName("optiondisplay")[0];
 var optionArray=[];
 var addbtn=document.getElementsByClassName("addbtn")[0];
-var formData={};
+var formData=[];
 var formDisplay=document.getElementsByClassName("formdisplay")[0];
+var formID=0;
+
+init();
+AddEvent(addbtn,"click",function () {
+    if(!$("name").value){
+        alert("请输入名称");
+    }
+    getFormData();
+    if(createFormElement()){
+        formElementCSS();
+    }
+    formValidation();
+    optionArray=[];
+    optionDisplay.innerHTML='';
+    formID++;
+
+});
+AddEvent($("css"),"change",formElementCSS);
+
+
+
 // 表单生成区域的控制
 function init() {
     var typeInput=formType.getElementsByTagName("input");
@@ -102,7 +122,7 @@ function init() {
         if(e.keyCode==13||(/ /.test(e.target.value))){
             addOption(e.target.value);
             e.target.value="";
-            }
+        }
     });
     //添加选项的函数
     function addOption(text) {
@@ -150,67 +170,64 @@ function init() {
     }
 
 }
-init();
-AddEvent(addbtn,"click",function () {
-    if(!$("name").value){
-        alert("请输入名称");
-    }
-    getFormData();
-    if(createFormElement()){
-        formElementCSS();
-    }
-    optionArray=[];
-    optionDisplay.innerHTML='';
-
-});
-AddEvent($("css"),"change",formElementCSS);
 //定义获取表单数据的函数
 function getFormData() {
-    formData={};
-    formData.type=checkedItem('type');
-    formData.name=$("name").value;
-    formData.necessary=checkedItem('config');
-    formData.cssStyle=selectedItem('css');
-    formData.rule=checkedItem('rule');
-    formData.minLength=$('minlength').value;
-    formData.maxLength=$('maxlength').value;
-    formData.option=optionArray;
+    formData[formID]={};
+    formData[formID].type=checkedItem('type');
+    formData[formID].name=$("name").value;
+    formData[formID].necessary=checkedItem('config');
+    formData[formID].cssStyle=selectedItem('css');
+    formData[formID].rule=checkedItem('rule');
+    formData[formID].minLength=$('minlength').value;
+    formData[formID].maxLength=$('maxlength').value;
+    formData[formID].option=optionArray;
+    formData[formID].id=formID;
+    alertMessage = [];
 
 }
 //生成表格元素
 function createFormElement() {
     var formDIV=document.createElement("div");
     var formName=document.createElement("span");
-    var necessary=formData.necessary;
+    var necessary=formData[formID].necessary;
     var form,formMessage,br;
-    formName.textContent=formData.name;
+    var submitBtn=document.getElementById("submitbtn");
+    if(submitBtn==null){
+        submitBtn=document.createElement("button");
+        submitBtn.id="submitbtn";
+        submitBtn.textContent="SUBMIT";
+        submitBtn.className+="addbtn";
+        formDisplay.appendChild(submitBtn);
+    }
+    formName.textContent=formData[formID].name;
     formDIV.appendChild(formName);
-    switch (formData.type){
+    switch (formData[formID].type){
         case 'inputtext':
             form=document.createElement("input");
             formMessage=document.createElement("p");
             formDIV.appendChild(form);
             formDIV.appendChild(formMessage);
-            switch(formData.rule){
+            form.id=formID;
+            switch(formData[formID].rule){
                 case "text":
                     form.type="text";
-                    if(!formData.minLength){
+                    if(!formData[formID].minLength){
                         alert("请输入字符数目下限");
                         return false;
                     }
-                    if(!formData.maxLength){
+                    if(!formData[formID].maxLength){
                         alert("请输入字符数目上限");
                         return false;
                     }
-                    if(necessary="must"){
-                        formMessage.textContent="必填,请输入"+formData.minLength+"-"+formData.maxLength+"位字符";
+                    if(necessary=="must"){
+                        formMessage.textContent="必填,请输入"+formData[formID].minLength+"-"+formData[formID].maxLength+"位字符";
                     }else{
-                        formMessage.textContent="选填,请输入"+formData.minLength+"-"+formData.maxLength+"位字符";
+                        formMessage.textContent="选填,请输入"+formData[formID].minLength+"-"+formData[formID].maxLength+"位字符";
                     }
                     break;
                 case "email":
                     form.type="email";
-                    if(necessary="must"){
+                    if(necessary=="must"){
                         formMessage.textContent="必填,请输入email地址";
                     }else {
                         formMessage.textContent="选填,请输入email地址";
@@ -218,7 +235,7 @@ function createFormElement() {
                     break;
                 case "phonenumber":
                     form.type="text";
-                    if(necessary="must"){
+                    if(necessary=="must"){
                         formMessage.textContent="必填,请输入11位手机号码";
                     }else{
                         formMessage.textContent="选填,请输入11位手机号码";
@@ -226,18 +243,18 @@ function createFormElement() {
                     break;
                 case "password":
                     form.type="password";
-                    if(!formData.minLength){
+                    if(!formData[formID].minLength){
                         alert("请输入字符数目下限");
                         return false;
                     }
-                    if(!formData.maxLength){
+                    if(!formData[formID].maxLength){
                         alert("请输入字符数目上限");
                         return false;
                     }
-                    if(necessary="must"){
-                        formMessage.textContent="必填,请输入"+formData.minLength+"-"+formData.maxLength+"位字符(英文或数字)";
+                    if(necessary=="must"){
+                        formMessage.textContent="必填,请输入"+formData[formID].minLength+"-"+formData[formID].maxLength+"位字符(英文或数字)";
                     }else{
-                        formMessage.textContent="必填,请输入"+formData.minLength+"-"+formData.maxLength+"位字符(英文或数字)";
+                        formMessage.textContent="选填,请输入"+formData[formID].minLength+"-"+formData[formID].maxLength+"位字符(英文或数字)";
                     }
 
                     break;
@@ -248,18 +265,19 @@ function createFormElement() {
             formMessage=document.createElement("p");
             formDIV.appendChild(form);
             formDIV.appendChild(formMessage);
-            if(!formData.minLength){
+            form.id=formID;
+            if(!formData[formID].minLength){
                 alert("请输入字符数目下限");
                 return false;
             }
-            if(!formData.maxLength){
+            if(!formData[formID].maxLength){
                 alert("请输入字符数目上限");
                 return false;
             }
-            if(necessary="must"){
-                formMessage.textContent="必填,请输入"+formData.minLength+"-"+formData.maxLength+"位字符";
+            if(necessary=="must"){
+                formMessage.textContent="必填,请输入"+formData[formID].minLength+"-"+formData[formID].maxLength+"位字符";
             }else{
-                formMessage.textContent="选填,请输入"+formData.minLength+"-"+formData.maxLength+"位字符";
+                formMessage.textContent="选填,请输入"+formData[formID].minLength+"-"+formData[formID].maxLength+"位字符";
             }
         break;
         case 'radio':
@@ -272,17 +290,20 @@ function createFormElement() {
             formDIV.innerHTML=br;
 
 
-            optionArray.forEach(function (option) {
+            optionArray.forEach(function (option,index) {
                 form=document.createElement("input");
                 form.type="radio";
+                form.id=formID*10+index;
+                form.name="form"+formID;
                 var label=document.createElement("label");
                 label.textContent=option;
+                label.htmlFor=formID*10+index;
                 formDIV.appendChild(form);
                 formDIV.appendChild(label);
 
             });
             formMessage=document.createElement("p");
-            if(necessary="must"){
+            if(necessary=="must"){
                 formMessage.textContent="必填,请选择一个选项";
             }else{
                 formMessage.textContent="选填,请选择一个选项";
@@ -298,17 +319,20 @@ function createFormElement() {
             br+="<br/>";
             formDIV.innerHTML=br;
 
-            optionArray.forEach(function (option) {
+            optionArray.forEach(function (option,index) {
                 form=document.createElement("input");
                 form.type="checkbox";
+                form.id=formID*10+index;
+                form.name="form"+formID;
                 var label=document.createElement("label");
                 label.textContent=option;
+                label.htmlFor=formID*10+index;
                 formDIV.appendChild(form);
                 formDIV.appendChild(label);
 
             });
             formMessage=document.createElement("p");
-            if(necessary="must"){
+            if(necessary=="must"){
                 formMessage.textContent="必填,请选择一个或多个选项";
             }else{
                 formMessage.textContent="选填,请选择一个或多个选项";
@@ -321,6 +345,7 @@ function createFormElement() {
                 return false;
             }
             form=document.createElement("select");
+            form.id=formID;
             optionArray.forEach(function (option) {
                 var label=document.createElement("option");
                 label.textContent=option;
@@ -329,7 +354,7 @@ function createFormElement() {
             formDIV.appendChild(form);
             break;
     }
-    formDisplay.appendChild(formDIV);
+    formDisplay.insertBefore(formDIV,submitBtn);
     return formDIV;
 
 }
@@ -339,11 +364,100 @@ function formElementCSS() {
     var formDivs=formDisplay.getElementsByTagName("div");
     var message=formDisplay.getElementsByTagName("p");
     Array.prototype.forEach.call(formDivs,function (ele) {
-        ele.className="";
-        ele.className=cssStyle;
+        var text=ele.className;
+        if(!text){
+            text=cssStyle;
+        }
+        if(cssStyle=="two"){
+            text.replace("one","two");
+        }else{
+            text.replace("two","one");
+        }
+        ele.className=text;
     });
     Array.prototype.forEach.call(message,function (ele) {
-        ele.className="";
-        ele.className=cssStyle;
+        var text=ele.className;
+        if(!text){
+            text=cssStyle;
+        }
+        if(cssStyle=="two"){
+            text.replace("one","two");
+        }else{
+            text.replace("two","one");
+        }
+        ele.className=text;
     });
+}
+function formValidation() {
+
+    var formObject=formData[formID];
+    var index=formData[formID].id;
+    var rule = formObject.rule;
+
+    switch (rule){ case "text":
+        var max = formObject.maxLength;
+        var min = formObject.minLength;
+        var input = document.getElementById(index);
+        var message = input.nextElementSibling;
+        var messageText=message.textContent;
+        var className=message.className;
+        var pattern = new RegExp("^.{" + min + "," + max + "}$");
+        AddEvent(input, "blur", function (e) {
+            if (!e.target.value) {
+                message.textContent =messageText+",输入不能为空";
+                var result=className.replace("right","wrong");
+                if(result=="one" || result=="two"){
+                    className += " wrong";
+                }else{
+                    className=result
+                }
+                message.className=className;
+                input.className =className;
+                if (formObject.necessary == "must") {
+                    alertMessage[index] = formObject[name] + "不能为空";
+                }
+            } else {
+                if (pattern.test(input.value)) {
+                    message.textContent = "输入正确!";
+
+                    var result1=className.replace("wrong","right");
+                    if(result1=="one" || result1=="two"){
+                        className += " right";
+                    }else{
+                        className=result1
+                    }
+                    message.className=className;
+                    input.className =className;
+                    alertMessage[index] = "";
+                } else {
+                    message.textContent = messageText+",输入错误";
+                    var result2=className.replace("right","wrong");
+                    if(result2=="one" || result2=="two"){
+                        className += " wrong";
+                    }else{
+                        className=result2
+                    }
+                    message.className=className;
+                    input.className =className;
+                    if (formObject.necessary == "must") {
+                        alertMessage[index] = formObject[name] + "输入不正确";
+                    }
+                }
+
+            }
+
+        });
+        break;
+
+    }
+    // AddEvent($("submitBtn"),"click",function () {
+    //     for(var i=0; i<alertMessage.length; i++){
+    //         if(alertMessage[i]){
+    //             alert(alertMessage[i]);
+    //             return;
+    //         }
+    //     }
+    // });
+
+
 }
