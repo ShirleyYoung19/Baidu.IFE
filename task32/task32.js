@@ -51,6 +51,7 @@ var addbtn=document.getElementsByClassName("addbtn")[0];
 var formData=[];
 var formDisplay=document.getElementsByClassName("formdisplay")[0];
 var formID=0;
+var alertMessage = [];
 
 init();
 AddEvent(addbtn,"click",function () {
@@ -182,7 +183,24 @@ function getFormData() {
     formData[formID].maxLength=$('maxlength').value;
     formData[formID].option=optionArray;
     formData[formID].id=formID;
-    alertMessage = [];
+    switch (formData[formID].rule){
+        case 'text':
+        case 'textarea':
+            formData[formID].pattern = new RegExp("^.{" + formData[formID].minLength + "," + formData[formID].maxLength + "}$");
+            break;
+        case 'email':
+            formData[formID].pattern =new RegExp("^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+$");
+            break;
+        case 'phonenumber':
+            formData[formID].pattern =new RegExp("^(1\\d{10})$");
+            break;
+        case 'password':
+            formData[formID].pattern=new RegExp("^[a-zA-Z0-9]{"+formData[formID].minLength+"," + formData[formID].maxLength+"}$");
+            break;
+        default:
+            formData[formID].pattern='';
+
+    }
 
 }
 //生成表格元素
@@ -393,15 +411,19 @@ function formValidation() {
     var formObject=formData[formID];
     var index=formData[formID].id;
     var rule = formObject.rule;
-
-    switch (rule){ case "text":
-        var max = formObject.maxLength;
-        var min = formObject.minLength;
-        var input = document.getElementById(index);
-        var message = input.nextElementSibling;
-        var messageText=message.textContent;
-        var className=message.className;
-        var pattern = new RegExp("^.{" + min + "," + max + "}$");
+    var max = formObject.maxLength;
+    var min = formObject.minLength;
+    var input = document.getElementById(index);
+    var message = input.nextElementSibling;
+    var messageText=message.textContent;
+    var className=message.className;
+    var pattern=formObject.pattern;
+    switch (rule){
+        case "text":
+        case 'textarea':
+        case "phonenumber":
+        case "password":
+        case "email":
         AddEvent(input, "blur", function (e) {
             if (!e.target.value) {
                 message.textContent =messageText+",输入不能为空";
@@ -448,6 +470,8 @@ function formValidation() {
 
         });
         break;
+
+
 
     }
     // AddEvent($("submitBtn"),"click",function () {
