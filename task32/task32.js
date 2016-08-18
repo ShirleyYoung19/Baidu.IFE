@@ -440,7 +440,7 @@ function formValidation() {
                             message.className = className;
                             input.className = className;
 
-                            alertMessage[index] = formObject[name] + "不能为空";
+                            alertMessage[index] = formObject.name + "不能为空";
                         }else{
                             alertMessage[index] = "输入正确";
                         }
@@ -469,7 +469,7 @@ function formValidation() {
                             message.className = className;
                             input.className = className;
                             if (formObject.necessary == "must") {
-                                alertMessage[index] = formObject[name] + "输入不正确";
+                                alertMessage[index] = formObject.name + "输入不正确";
                             }
                         }
 
@@ -515,11 +515,10 @@ function btnClick() {
         var message='';
 
         for(var i=0;i<formData.length;i++){
-            var index=formData[i].id;
-            var input = document.getElementById(index);
+
             if(alertMessage[i]){//alertMessage不为空说明这个表单已经经过验证的
                 if(alertMessage[i]!=="已选择"&&alertMessage[i]!=="输入正确"){
-                    message +=alertMessage[i]+'/n';//验证不正确的话,不管是不是必须填的都应该填写成正确的格式
+                    message +=alertMessage[i]+'\n';//验证不正确的话,不管是不是必须填的都应该填写成正确的格式
                 }
             }else{//开始执行如果点击提交之前表单尚未进行验证
                 switch (formData[i].type) {
@@ -527,18 +526,24 @@ function btnClick() {
                     case "textarea":
                         formData[i].validation();//先进行验证;
                         if (alertMessage[i] !== "已选择" || alertMessage[i] !== "输入正确") {
-                            message += alertMessage[i] + '/n';//验证不正确的话,不管是不是必须填的都应该填写成正确的格式
+                            message += alertMessage[i] + '\n';//验证不正确的话,不管是不是必须填的都应该填写成正确的格式
                         }
                         break;
                     case 'radio':
                     case 'checkbox':
                         //这两种情况,没有验证过,就说明没有选择任何一个选项
-                        input.style.color = 'red';
-                        input.nextElementSibling.style.color = 'red';
-                        input.nextElementSibling.textContent = "请选择一个选项";
+                        var index=formData[i].id;
+                        var inputs=document.getElementsByName("form"+index);
+                        Array.prototype.forEach.call(inputs,function (ele) {
+                            ele.nextElementSibling.style.color="red";
+                        });
+                        inputs[0].parentNode.lastChild.style.color="red";
+                        inputs[0].parentNode.lastChild.textContent="请选择一个选项";
                         alertMessage[i] = formData[i].name + '未选择';
-                        message += alertMessage[i] + '/n';
+                        message += alertMessage[i] + '\n';
                         break;
+                    case 'select':
+                        formData[i].validation();
                 }
             }
         }
