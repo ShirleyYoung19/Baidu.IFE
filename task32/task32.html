@@ -157,7 +157,7 @@
             color: #aaaaaa;
             display: block;
         }
-        .formdisplay textarea+p.one{
+        .formdisplay textarea p.one{
             margin-left: 20%;
             font-size: 12px;
             color: #aaaaaa;
@@ -189,7 +189,7 @@
             color: #aaaaaa;
             display: inline-block;
         }
-        .formdisplay textarea+p.two{
+        .formdisplay textarea p.two{
             margin-left: 5%;
             font-size: 12px;
             color: #aaaaaa;
@@ -226,12 +226,19 @@
         .formdisplay input.wrong{
             border: 1px solid red;
         }
+        .nodisplay{
+            display: none;
+        }
+        .display{
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <section class="formdisplay">
             <h1>表单展示区</h1>
+            <button id="submitbtn" class="addbtn nodisplay">SUBMIT</button>
         </section>
         <section class="formproduce">
 

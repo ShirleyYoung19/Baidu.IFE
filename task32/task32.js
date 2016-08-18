@@ -47,7 +47,7 @@ var formLength=document.getElementsByClassName("length")[0];
 var formOption=document.getElementsByClassName("option")[0];
 var optionDisplay=document.getElementsByClassName("optiondisplay")[0];
 var optionArray=[];
-var addbtn=document.getElementsByClassName("addbtn")[0];
+var addbtn=document.getElementsByClassName("addbtn")[1];
 var formData=[];
 var formDisplay=document.getElementsByClassName("formdisplay")[0];
 var formID=0;
@@ -67,8 +67,11 @@ AddEvent(addbtn,"click",function () {
     optionDisplay.innerHTML='';
     formID++;
 
+
 });
 AddEvent($("css"),"change",formElementCSS);
+btnClick();
+
 
 
 
@@ -210,12 +213,8 @@ function createFormElement() {
     var necessary=formData[formID].necessary;
     var form,formMessage,br;
     var submitBtn=document.getElementById("submitbtn");
-    if(submitBtn==null){
-        submitBtn=document.createElement("button");
-        submitBtn.id="submitbtn";
-        submitBtn.textContent="SUBMIT";
-        submitBtn.className+="addbtn";
-        formDisplay.appendChild(submitBtn);
+    if(submitBtn.className=='addbtn nodisplay'){
+        submitBtn.className="addbtn display";
     }
     formName.textContent=formData[formID].name;
     formDIV.appendChild(formName);
@@ -369,7 +368,15 @@ function createFormElement() {
                 label.textContent=option;
                 form.appendChild(label);
             });
+            formMessage=document.createElement("p");
+            if(necessary=="must"){
+                formMessage.textContent="必填,请选择一个选项";
+            }else{
+                formMessage.textContent="选填,请选择一个选项";
+            }
+
             formDIV.appendChild(form);
+            formDIV.appendChild(formMessage);
             break;
     }
     formDisplay.insertBefore(formDIV,submitBtn);
@@ -387,9 +394,9 @@ function formElementCSS() {
             text=cssStyle;
         }
         if(cssStyle=="two"){
-            text.replace("one","two");
+            text=text.replace("one","two");
         }else{
-            text.replace("two","one");
+            text=text.replace("two","one");
         }
         ele.className=text;
     });
@@ -399,9 +406,9 @@ function formElementCSS() {
             text=cssStyle;
         }
         if(cssStyle=="two"){
-            text.replace("one","two");
+            text=text.replace("one","two");
         }else{
-            text.replace("two","one");
+            text=text.replace("two","one");
         }
         ele.className=text;
     });
@@ -410,78 +417,137 @@ function formValidation() {
 
     var formObject=formData[formID];
     var index=formData[formID].id;
-    var rule = formObject.rule;
-    var max = formObject.maxLength;
-    var min = formObject.minLength;
+    var type = formObject.type;
     var input = document.getElementById(index);
-    var message = input.nextElementSibling;
-    var messageText=message.textContent;
-    var className=message.className;
-    var pattern=formObject.pattern;
-    switch (rule){
-        case "text":
-        case 'textarea':
-        case "phonenumber":
-        case "password":
-        case "email":
-        AddEvent(input, "blur", function (e) {
-            if (!e.target.value) {
-                message.textContent =messageText+",输入不能为空";
-                var result=className.replace("right","wrong");
-                if(result=="one" || result=="two"){
-                    className += " wrong";
-                }else{
-                    className=result
-                }
-                message.className=className;
-                input.className =className;
-                if (formObject.necessary == "must") {
-                    alertMessage[index] = formObject[name] + "不能为空";
-                }
-            } else {
-                if (pattern.test(input.value)) {
-                    message.textContent = "输入正确!";
+    switch (type){
+        case "inputtext":
+        case "textarea":
+            var message = input.nextElementSibling;
+            var messageText=message.textContent;
+            formData[formID].validation=function () {
+                var className=message.className;
+                var pattern=formObject.pattern;
 
-                    var result1=className.replace("wrong","right");
-                    if(result1=="one" || result1=="two"){
-                        className += " right";
-                    }else{
-                        className=result1
-                    }
-                    message.className=className;
-                    input.className =className;
-                    alertMessage[index] = "";
-                } else {
-                    message.textContent = messageText+",输入错误";
-                    var result2=className.replace("right","wrong");
-                    if(result2=="one" || result2=="two"){
-                        className += " wrong";
-                    }else{
-                        className=result2
-                    }
-                    message.className=className;
-                    input.className =className;
-                    if (formObject.necessary == "must") {
-                        alertMessage[index] = formObject[name] + "输入不正确";
-                    }
-                }
+                    if (!input.value) {
+                        if (formObject.necessary == "must") {
+                            message.textContent = messageText + ",输入不能为空";
+                            var result = className.replace("right", "wrong");
+                            if (result == "one" || result == "two") {
+                                className += " wrong";
+                            } else {
+                                className = result
+                            }
+                            message.className = className;
+                            input.className = className;
 
-            }
+                            alertMessage[index] = formObject[name] + "不能为空";
+                        }else{
+                            alertMessage[index] = "输入正确";
+                        }
+                        // 上面一行表示即使是输入为空,但是如果是选填的话,altermessage依然是显示为输入正确
+                    } else {
+                        if (pattern.test(input.value)) {
+                            message.textContent = "输入正确!";
 
-        });
+                            var result1 = className.replace("wrong", "right");
+                            if (result1 == "one" || result1 == "two") {
+                                className += " right";
+                            } else {
+                                className = result1
+                            }
+                            message.className = className;
+                            input.className = className;
+                            alertMessage[index] = "输入正确";
+                        } else {
+                            message.textContent = messageText + ",输入错误";
+                            var result2 = className.replace("right", "wrong");
+                            if (result2 == "one" || result2 == "two") {
+                                className += " wrong";
+                            } else {
+                                className = result2
+                            }
+                            message.className = className;
+                            input.className = className;
+                            if (formObject.necessary == "must") {
+                                alertMessage[index] = formObject[name] + "输入不正确";
+                            }
+                        }
+
+                    }
+            };
+            AddEvent(input, "blur", formObject.validation);
         break;
+        case "radio":
+        case "checkbox":
+            var inputs=document.getElementsByName("form"+index);
+            formData[formID].validation=function () {
+                Array.prototype.forEach.call(inputs,function (ele) {
+                    ele.nextElementSibling.style.color="green";
+                });
+                inputs[0].parentNode.lastChild.style.color="green";
+                inputs[0].parentNode.lastChild.textContent="已选择";
+                alertMessage[index]="已选择";
+            };
+            Array.prototype.forEach.call(inputs,function (ele){
+                AddEvent(ele,'change',formObject.validation);
+            });
 
+            break;
+        case "select":
+            formData[formID].validation=function () {
+                    input.style.color='green';
+                    input.nextElementSibling.style.color='green';
+                    input.nextElementSibling.textContent="已选择";
+                    alertMessage[index]='已选择';
+
+            };
+            AddEvent(input,'change',formObject.validation);
+            break;
 
 
     }
-    // AddEvent($("submitBtn"),"click",function () {
-    //     for(var i=0; i<alertMessage.length; i++){
-    //         if(alertMessage[i]){
-    //             alert(alertMessage[i]);
-    //             return;
-    //         }
-    //     }
-    // });
+
 
 
 }
+function btnClick() {
+    AddEvent($("submitbtn"),"click",function () {
+        var message='';
+
+        for(var i=0;i<formData.length;i++){
+            var index=formData[i].id;
+            var input = document.getElementById(index);
+            if(alertMessage[i]){//alertMessage不为空说明这个表单已经经过验证的
+                if(alertMessage[i]!=="已选择"&&alertMessage[i]!=="输入正确"){
+                    message +=alertMessage[i]+'/n';//验证不正确的话,不管是不是必须填的都应该填写成正确的格式
+                }
+            }else{//开始执行如果点击提交之前表单尚未进行验证
+                switch (formData[i].type) {
+                    case "inputtext":
+                    case "textarea":
+                        formData[i].validation();//先进行验证;
+                        if (alertMessage[i] !== "已选择" || alertMessage[i] !== "输入正确") {
+                            message += alertMessage[i] + '/n';//验证不正确的话,不管是不是必须填的都应该填写成正确的格式
+                        }
+                        break;
+                    case 'radio':
+                    case 'checkbox':
+                        //这两种情况,没有验证过,就说明没有选择任何一个选项
+                        input.style.color = 'red';
+                        input.nextElementSibling.style.color = 'red';
+                        input.nextElementSibling.textContent = "请选择一个选项";
+                        alertMessage[i] = formData[i].name + '未选择';
+                        message += alertMessage[i] + '/n';
+                        break;
+                }
+            }
+        }
+        if(message){
+            alert(message);
+        }else {
+            alert('提交成功');
+        }
+
+    });
+}
+
