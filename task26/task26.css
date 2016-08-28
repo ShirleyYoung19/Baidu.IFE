@@ -9,11 +9,13 @@ html,body{
     background-color: #02071d;
     min-width: 1280px;
     font-family: "Microsoft YaHei";
+    position: relative;
 }
 /*定义背景内容*/
 .background{
     width: 100%;
-    height: 100%;
+    height: 680px;
+    position: absolute;
 }
 /*四个小星球的大小*/
 .background [class^=planet]{
@@ -89,4 +91,135 @@ html,body{
 @keyframes rotating{
     0% {  transform: rotate(0deg);  }
     100% {  transform: rotate(360deg);  }
+}
+/*layout模块的样式*/
+.layout{
+    margin: 0 auto;
+    width: 800px;
+    height: 680px;
+    top:0;
+    position:relative;
+}
+.planet,.orbite1,.orbite2,.orbite3,.orbite4{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    margin:auto;
+}
+/*定义大星球的样式*/
+.planet{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: #ec5d4a ;
+}
+/*定义星球一上的三个阴影部分*/
+.planet [class|="hole"]{
+    position: absolute;
+    background-color: #c83b38;
+    border-radius: 50%;
+}
+.planet .hole-1{
+    width: 20px;
+    height: 20px;
+    top: 40px;
+    left: 50px;
+}
+.planet .hole-2{
+    width: 60px;
+    height: 60px;
+    top: 140px;
+    left: 120px;
+}
+.planet .hole-3{
+    width: 40px;
+    height: 40px;
+    top: 80px;
+    left: 80px;
+}
+/*定义飞船的轨道*/
+.orbite1{
+    width: 350px;
+    height: 350px;
+}
+.orbite2{
+    width: 450px;
+    height: 450px;
+}
+.orbite3{
+    width: 550px;
+    height: 550px;
+}
+.orbite4{
+    width: 650px;
+    height: 650px;
+}
+.layout [class|="orbite"]{
+    width: 100%;
+    height: 100%;
+    border:2px solid #3e4059;
+    border-radius: 50%;
+    position: relative;
+}
+/*创建飞船的样式*/
+.layout [class^="craft"]{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    position: absolute;
+    top: calc(50% - 20px);
+}
+.layout div.energy{
+    background-color: #2fa06c;
+    width: 20px;
+    height: 40px;
+    border-radius: 10px;
+    position: absolute;
+    right: -10px;
+}
+/*能量百分比的显示*/
+.layout span.energy{
+    position: absolute;
+    bottom: 10px;
+    right: -15px;
+    display: block;
+    font-size: 0.75em;
+    color: #02071d;
+    transform: rotate(-90deg);
+    line-height: 20px;
+    z-index: 2;
+}
+
+
+/*定义控制台和输出*/
+.control-wrapper{
+    display: flex;
+    width: 90%;
+    height: 150px;
+    border:2px dotted #3b3f58;
+    border-radius: 15px;
+    margin: 20px auto;
+
+}
+.control{
+    flex:5;
+    color: #d9e6cd;
+    height: 150px;
+}
+.control div{
+    margin: 10px 20px;
+}
+
+.console{
+    flex:5;
+    height: 100%;
+    border-left:2px dotted #3b3f58;
+    color: #32a39d;
+    font-size: 0.75em;
+    overflow: auto;
+}
+.console .success{
+    color: #d9e6cd;
 }
