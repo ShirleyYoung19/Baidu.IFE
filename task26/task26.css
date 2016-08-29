@@ -171,25 +171,35 @@ html,body{
     position: absolute;
     top: calc(50% - 20px);
 }
-.layout div.energy{
-    background-color: #2fa06c;
+.layout div.inner{
+    background-color: #d9e6cd;
     width: 20px;
     height: 40px;
     border-radius: 10px;
     position: absolute;
     right: -10px;
+    overflow: hidden;
+}
+.layout div.energy{
+    background-color: #2fa06c;
+    width: 100%;
+    height: 100%;
 }
 /*能量百分比的显示*/
 .layout span.energy{
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    right: -10px;
     position: absolute;
     bottom: 10px;
-    right: -15px;
     display: block;
     font-size: 0.75em;
     color: #02071d;
     transform: rotate(-90deg);
     line-height: 20px;
-    z-index: 2;
+    z-index: 1;
+    text-align: center;
 }
 
 
