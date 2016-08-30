@@ -4,7 +4,7 @@
  */
  var mediator={
      craftArray:[],
-
+     num:1,
      getCommand:function (obejct,number) {
          if(number>=0.3){   //如果没有丢包,执行后面的操作
              var id=obejct.id+1;
@@ -13,9 +13,11 @@
                   //如果是创新新的飞船
                      var craftNew=new Craft();
                      this.craftArray.push(craftNew);
+                 var obj=this;
                      setTimeout(function () {
-                         craftNew.create(id)
+                         craftNew.create(id,obj.num)
                      },1000);
+                 this.num++;//这个num代表创建的第几个飞船
              }else{
                  this.sendCommand(id,command);
              }

@@ -171,7 +171,7 @@ html,body{
     position: absolute;
     top: calc(50% - 20px);
 }
-.layout div.inner{
+.layout div[class^="inner"]{
     background-color: #d9e6cd;
     width: 20px;
     height: 40px;
