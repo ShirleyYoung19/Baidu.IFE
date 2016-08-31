@@ -4,7 +4,7 @@ window.onload=function(){
 };
 function _init(){
     var ul = document.getElementById("uldemo4js");
-    for(i=13;i<=20;i++)
+    for(i=13;i<=32;i++)
     {
         var task_name = "task"+i;
         var task_path = "html/"+task_name+".html";
