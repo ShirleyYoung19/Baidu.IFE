@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 27</title>
+    <link rel="stylesheet" href="task27.css">
+</head>
+<body>
+<!--//定义背景模块-->
+<section class="background">
+    <div class="planet-1 rotating">
+        <div class="hole-4"></div>
+        <div class="hole-5"></div>
+    </div>
+    <div class="planet-2 rotating">
+        <div class="hole-4"></div>
+        <div class="hole-5"></div>
+    </div>
+    <div class="planet-3 rotating">
+        <div class="hole-4"></div>
+        <div class="hole-5"></div>
+    </div>
+    <div class="planet-4 rotating">
+        <div class="hole-4"></div>
+        <div class="hole-5"></div>
+    </div>
+</section>
+<section class="layout">
+    <div class="planet">
+        <div class="hole-1"></div>
+        <div class="hole-2"></div>
+        <div class="hole-3"></div>
+    </div>
+    <div class="orbite1">
+        <div class="orbite-1"></div>
+    </div>
+    <div class="orbite2">
+        <div class="orbite-2"></div>
+    </div>
+    <div class="orbite3">
+        <div class="orbite-3"></div>
+    </div>
+    <div class="orbite4">
+        <div class="orbite-4"></div>
+    </div>
+</section>
+<section class="control-wrapper">
+    <section class="craft-type">
+        <form action="#" class="craft-type">
+            <div class="energy-type">
+                <p>动力系统选择</p>
+                <input type="radio" name="powerType" class="power" value="slow" id="power-slow">
+                <label for="power-slow">前进号(速度30px/s,能耗5%/s)</label><br/>
+                <input type="radio" name="powerType" class="power" value="medium" id="power-medium">
+                <label for="power-medium">前进号(速度50px/s,能耗7%/s)</label><br/>
+                <input type="radio" name="powerType" class="power" value="fast" id="power-fast">
+                <label for="power-fast">前进号(速度80px/s,能耗9%/s)</label><br/>
+            </div>
+            <div class="energy-type">
+                <p>能源系统选择</p>
+                <input type="radio" name="energyType" class="energy" value="slow" id="energy-slow">
+                <label for="energy-slow">劲量型(补充能源速度2%/s)</label><br/>
+                <input type="radio" name="energyType" class="energy" value="medium" id="energy-medium">
+                <label for="energy-medium">光能型(补充能源速度3%/s)</label><br/>
+                <input type="radio" name="energyType" class="energy" value="fast" id="energy-fast">
+                <label for="energy-fast">永久型(补充能源速度4%/s)</label><br/>
+            </div>
+            <input type="button" value="创建飞船">
+
+
+        </form>
+    </section>
+    <section class="control">
+        <form action="#">
+            <div class="craft-orbit1">
+                <span>第一轨道</span>
+                <input type="button" value="创建飞船" name="create">
+                <input type="button" value="飞行" name="launch" disabled>
+            </div>
+            <div class="craft-orbit2">
+                <span>第二轨道</span>
+                <input type="button" value="创建飞船" name="create">
+                <input type="button" value="飞行" name="launch" disabled>
+            </div>
+            <div class="craft-orbit3">
+                <span>第三轨道</span>
+                <input type="button" value="创建飞船" name="create">
+                <input type="button" value="飞行" name="launch" disabled>
+            </div>
+            <div class="craft-orbit4">
+                <span>第四轨道</span>
+                <input type="button" value="创建飞船" name="create">
+                <input type="button" value="飞行" name="launch" disabled>
+            </div>
+        </form>
+    </section>
+    <section class="console">
+        <p>准备就绪!请操作</p>
+    </section>
+</section>
+<script src="../jquery.js"></script>
+<script src="craft.js"></script>
+<script src="consoleOut.js"></script>
+<script src="mediator.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
