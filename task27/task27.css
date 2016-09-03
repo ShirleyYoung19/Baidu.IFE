@@ -213,14 +213,8 @@ html,body{
     margin: 20px auto;
 
 }
-.craft-type {
-    flex:4;
-    border-right:2px dotted #3b3f58;
-    color: #d9e6cd;
-    font-size: 0.8em;
-}
 .control{
-    flex:3;
+    flex:5;
     color: #d9e6cd;
     height: 150px;
 }
@@ -229,7 +223,7 @@ html,body{
 }
 
 .console{
-    flex:3;
+    flex:5;
     height: 100%;
     border-left:2px dotted #3b3f58;
     color: #32a39d;

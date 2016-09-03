@@ -2,40 +2,44 @@
  * Created by ShirleyYang on 16/8/27.
  */
 //创建飞船模块
-function Craft() {
+function Craft(id,power,energy) {
     this.energy=100;
-    this.energyAdd=2;
-    this.energyConsume=5;
+    this.energyAdd=energy;
+    this.energyConsume=power[1];
     this.state='';
-    this.id='';
-    this.speed=10;
-    this.timer='';
-    this.number='';
-}
-Craft.prototype.create=function (id,num) {
-    this.number=num;
     this.id=id;
+    this.speed=power[0];
+    this.timer='';//这个timer变量是监视在launch时的时间间隔函数
+}
+Craft.prototype.create=function () {
     this.state="stop";
     var div=$("<div></div>");//创建存放的飞船的div,内部包括span和div(能量条)两个子元素
-    div.addClass("inner"+this.number);
+    div.addClass("inner");
     var span=$("<span></span>");
     span.addClass("energy");
-    $(span).text(this.energy);
+    span.text(this.energy);
     var energyDiv=$("<div></div>");
-    $(energyDiv).addClass("energy");
-    $(div).append(span);
-    $(div).append(energyDiv);
-    var $div=$("<div></div>");//将包含飞船的div再放到一个div中,单纯为了实现样式
-    $div.addClass("craft"+id);
-    $($div).append(div);
-    $($("[class|='orbite']").get(id-1)).append($div);
+    energyDiv.addClass("energy");
+    div.append(span);
+    div.append(energyDiv);
+    var divOuter=$("<div></div>");//将包含飞船的div再放到一个div中,单纯为了实现样式
+    divOuter.addClass("craft"+this.id);
+    divOuter.append(div);
+    var parent=$("[class|='orbite']").get(this.id);
+    $(parent).append(divOuter);
 };
-Craft.prototype.getCommand=function (id,command) {
+Craft.prototype.getCommand=function (BUS) {
+    //首先将命令通过Adapter解码
+    var commandOrder=this.Adapter(BUS);
+    var id=commandOrder[0];
+    var command=commandOrder[1];
     //每一个飞船都会接受下达的指令,先判断命令是不是发给自己的
     if(this.id===id){
-        var orbite=$("[class|='orbite']").get(id-1);
-       // var timer; //这个timer变量是监视在launch时的时间间隔函数
+        var orbite=$("[class|='orbite']").get(this.id);
         switch (command){
+            case "create":
+                this.create();
+                break;
             case "explode":
                 $(orbite).empty();
                 mediator.craftArray.splice(this,1);
@@ -137,6 +141,27 @@ Craft.prototype.getEnergy=function (state) {
 
     }
     return this.energy.toFixed(0);
+};
+
+Craft.prototype.Adapter=function (BUS) {
+    var id=parseInt(BUS.slice(0,2),2);
+    var commandNumber=BUS.slice(2);
+    var command;
+    switch (commandNumber){
+        case "00":
+            command="create";
+            break;
+        case "01":
+            command="explode";
+            break;
+        case "10":
+            command="launch";
+            break;
+        case "11":
+            command="stop";
+            break;
+    }
+    return [id,command];
 };
 
 
