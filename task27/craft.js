@@ -56,25 +56,25 @@ Craft.prototype.getCommand=function (BUS) {
         }
 
     }
+    parseInt()
 };
 Craft.prototype.launch=function (orbite) {
     var deg;
-    var pattern=/\d{1,3}/;  //设定一个正则表达式
-    var speed=this.speed;
-    var craft=$(orbite).children();//获得craft,可能同一个轨道不止一个craft
-    var craftNumber=$(craft).children().filter("[class=inner"+this.number+"]");//获得类为inner+number的单元
-    craft=$(craftNumber).parent();
-    var energyNumber=$(craftNumber).children().first();
-    var energyBar=$(craftNumber).children().last();
+    var pattern=/\d{1,3}[.]\d{3}/;  //设定一个正则表达式
+    var speed=parseFloat((this.speed*0.1*360/(230+this.id*80)/2/Math.PI).toFixed(3));
+    var craft=$(orbite).children();//获得craft
+    var craftInner=$(craft).children();
+    var energyNumber=$(craftInner).children().first();
+    var energyBar=$(craftInner).children().last();
     var obj=this;
     if($(craft).css("transform")=="none"){ //检查一下craft div是不是已经有了transform属性
         deg=0;  //没有的话将角度设置为0
     }else {
-        deg=Number(pattern.exec($(craft).attr("style"))[0]); //若已有transform属性,则将其值提取出来,注意转换成数字
+        deg=parseFloat(pattern.exec($(craft).attr("style"))[0]); //若已有transform属性,则将其值提取出来,注意转换成数字
     }
     var timerLaunch=setInterval(function () {
         $(craft).css("transform","rotate("+deg+"deg)");//设定飞船飞行动画
-        deg=deg+speed*0.1;//每隔0.1s增加一定的角度
+        deg=deg+speed;//每隔0.1s增加一定的角度
         var energyText=obj.getEnergy(obj.state);//获取能量值
         if(energyText=="-0"){
             energyText=0;
@@ -98,9 +98,9 @@ Craft.prototype.stop=function (orbite,timer) {
         clearInterval(timer);
     }
     var craft=$(orbite).children();//获得craft,可能同一个轨道不止一个craft
-    var craftNumber=$(craft).children().filter("[class=inner"+this.number+"]");//获得类为inner+number的单元
-    var energyNumber=$(craftNumber).children().first();
-    var energyBar=$(craftNumber).children().last();
+    var craftInner=$(craft).children();
+    var energyNumber=$(craftInner).children().first();
+    var energyBar=$(craftInner).children().last();
     var obj=this;
     var timerStop=setInterval(function () {
         var energyText=obj.getEnergy(obj.state);//获取能量值
@@ -112,7 +112,7 @@ Craft.prototype.stop=function (orbite,timer) {
         if(energyText<=30){
             $(energyBar).css("background-color","rgb(200,59,56)");//若能量低于30%,能量条变红
         }else {
-            $(energyBar).css("background-color","#2fa06c");//若能量低于30%,提示变红
+            $(energyBar).css("background-color","#2fa06c");
         }
         if(energyText==100){
             clearInterval(timerStop);

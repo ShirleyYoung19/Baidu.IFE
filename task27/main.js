@@ -22,21 +22,17 @@ $().ready(function () {
         commandObject.id=$("input[name='create']").index($(this));
         console.log(randomNumber);
         if($(this).val()==="创建飞船"){
-            $(this).val("自爆飞船");
             commandObject.command="create";
+            $(this).attr("disabled",true);
             // 确定新建飞船的类型
             craftType[0]=$(this).prev().prev().val();
             craftType[1]=$(this).prev().val();
-            $(this).next().attr("disabled",false);
             $(this).prev().attr("disabled",true);
             $(this).prev().prev().attr("disabled",true);
-
         }else{
-            $(this).val("创建飞船");
             commandObject.command="explode";
-            $(this).next().attr("disabled",true);
-            $(this).prev().attr("disabled",false);
-            $(this).prev().prev().attr("disabled",false);
+            $(this).attr("disabled",true);
+
         }
 
         mediator.getCommand(commandObject,craftType);
@@ -48,10 +44,10 @@ $().ready(function () {
     $("input[name='launch']").click(function (){
         commandObject.id=$("input[name='launch']").index($(this));
         if($(this).val()==="飞行"){
-            $(this).val("停止");
+            $(this).attr("disabled",true);
             commandObject.command="launch";
         }else{
-            $(this).val("飞行");
+            $(this).attr("disabled",true);
             commandObject.command="stop";
         }
 
