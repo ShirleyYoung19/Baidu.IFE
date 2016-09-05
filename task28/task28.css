@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    paddding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #02071d;
+    min-width: 1280px;
+    font-family: "Microsoft YaHei";
+    position: relative;
+}
+/*定义背景内容*/
+.background{
+    width: 100%;
+    height: 480px;
+    position: absolute;
+}
+/*四个小星球的大小*/
+.background [class^=planet]{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.background .planet-1{
+    top:350px;
+    left: 20%;
+    background-color: #d9e6cd;
+}
+.background .planet-2{
+    width: 30px;
+    height: 30px;
+    top:80px;
+    right: 20%;
+    background-color: #11a4c6;
+}
+.background .planet-3{
+    top:380px;
+    right: 18%;
+    background-color: #f5a83e;
+}
+.background .planet-4{
+    top:50px;
+    left: 18%;
+    background-color: #f5a83e;
+}
+/*星球上的小洞*/
+.background .hole-4{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #cbd1c6;
+    border-radius: 50%;
+    top:20px;
+    left: 20px;
+}
+.background .hole-5{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #999b8d;
+    border-radius: 50%;
+    top:10px;
+    left: -5px;
+}
+.background .planet-2 .hole-4{
+    background-color: #1068a8;
+}
+.background .planet-2 .hole-5{
+    background-color: #84bde7;
+}
+.background .planet-3 .hole-4{
+    background-color: #e0862e;
+}
+.background .planet-3 .hole-5{
+    background-color: #e0862e;
+}
+.background .planet-4 .hole-4{
+    background-color: #e0862e;
+}
+.background .planet-4 .hole-5{
+    background-color: #e0862e;
+}
+/*定义旋转的动画*/
+.rotating{
+    animation: rotating 50s linear infinite;
+}
+@keyframes rotating{
+    0% {  transform: rotate(0deg);  }
+    100% {  transform: rotate(360deg);  }
+}
+/*layout模块的样式*/
+.layout{
+    margin: 0 auto;
+    width: 800px;
+    height: 480px;
+    top:0;
+    position:relative;
+}
+.planet,.orbite1,.orbite2,.orbite3,.orbite4{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    margin:auto;
+}
+/*定义大星球的样式*/
+.planet{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #ec5d4a ;
+}
+/*定义星球一上的三个阴影部分*/
+.planet [class|="hole"]{
+    position: absolute;
+    background-color: #c83b38;
+    border-radius: 50%;
+}
+.planet .hole-1{
+    width: 15px;
+    height: 15px;
+    top: 20px;
+    left: 30px;
+}
+.planet .hole-2{
+    width: 40px;
+    height: 40px;
+    top: 80px;
+    left: 70px;
+}
+.planet .hole-3{
+    width: 20px;
+    height: 20px;
+    top: 50px;
+    left: 50px;
+}
+/*定义飞船的轨道*/
+.orbite1{
+    width: 230px;
+    height: 230px;
+}
+.orbite2{
+    width: 310px;
+    height: 310px;
+}
+.orbite3{
+    width: 390px;
+    height: 390px;
+}
+.orbite4{
+    width: 470px;
+    height: 470px;
+}
+.layout [class|="orbite"]{
+    width: 100%;
+    height: 100%;
+    border:2px solid #3e4059;
+    border-radius: 50%;
+    position: relative;
+}
+/*创建飞船的样式*/
+.layout [class^="craft"]{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    position: absolute;
+    top: calc(50% - 20px);
+}
+.layout div[class^="inner"]{
+    background-color: #d9e6cd;
+    width: 20px;
+    height: 40px;
+    border-radius: 10px;
+    position: absolute;
+    right: -10px;
+    overflow: hidden;
+}
+.layout div.energy{
+    background-color: #2fa06c;
+    width: 100%;
+    height: 100%;
+}
+select,input {
+    background-color: #ffffff;
+    border-radius: 3px;
+    border:1px solid #2b2e3d;
+}
+select:disabled{
+    color: #000000;
+    background-color: #aaaaaa;
+}
+
+input:disabled{
+    color: #000000;
+    background-color: #aaaaaa;
+}
+/*能量百分比的显示*/
+.layout span.energy{
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    right: -10px;
+    position: absolute;
+    bottom: 10px;
+    display: block;
+    font-size: 0.75em;
+    color: #02071d;
+    transform: rotate(-90deg);
+    line-height: 20px;
+    z-index: 1;
+    text-align: center;
+}
+
+
+/*定义控制台和输出*/
+.control-wrapper{
+    display: flex;
+    width: 90%;
+    height: 150px;
+    border:2px dotted #3b3f58;
+    border-radius: 15px;
+    margin: 20px auto;
+
+}
+.control{
+    flex:6;
+    color: #d9e6cd;
+    height: 150px;
+}
+.control div{
+    margin: 10px 20px;
+}
+
+.console{
+    flex:4;
+    height: 100%;
+    border-left:2px dotted #3b3f58;
+    color: #32a39d;
+    font-size: 0.75em;
+    overflow: auto;
+}
+.console .success{
+    color: #d9e6cd;
+}
+
+/*监控飞船状态的控制面板*/
+.monitor{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    opacity: 0.7;
+    width:500px;
+}
+.monitor p{
+    background-color: #2fa06c;
+    height: 30px;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    width: 498px;
+    /*border: solid 1px #3b3f58;*/
+}
+.monitor table{
+    font-size: 12px;
+
+}
+.monitor thead{
+    background-color: #d9e6cd;
+    font-size: 14px;
+}
+.monitor tbody{
+    background-color: #d9e6cd;
+}
+.monitor td{
+    width: 100px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+}
