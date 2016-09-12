@@ -26,7 +26,7 @@ Craft.prototype.create=function () {
     var divOuter=$("<div></div>");//将包含飞船的div再放到一个div中,单纯为了实现样式
     divOuter.addClass("craft"+this.id);
     divOuter.append(div);
-    var parent=$("[class|='orbite']").get(this.id);
+    var parent=$("[class|='orbit']").get(this.id);
     $(parent).append(divOuter);
 };
 Craft.prototype.getCommand=function (BUS) {
@@ -36,33 +36,33 @@ Craft.prototype.getCommand=function (BUS) {
     var command=commandOrder[1];
     //每一个飞船都会接受下达的指令,先判断命令是不是发给自己的
     if(this.id===id){
-        var orbite=$("[class|='orbite']").get(this.id);
+        var orbit=$("[class|='orbit']").get(this.id);
         switch (command){
             case "create":
                 this.create();
                 break;
             case "explode":
-                $(orbite).empty();
-                mediator.craftArray.splice(this,1);
+                $(orbit).empty();
+                mediator.craftArray.splice(this.id,1);
                 break;
             case "launch":
                 this.state="launch";
-                this.timer=this.launch(orbite);
+                this.timer=this.launch(orbit);
                 break;
             case "stop":
                 this.state='stop';
-                this.timerStop=this.stop(orbite);
+                this.timerStop=this.stop(orbit);
                 break;
 
         }
 
     }
 };
-Craft.prototype.launch=function (orbite) {
+Craft.prototype.launch=function (orbit) {
     var deg;
     var pattern=/\d{1,3}[.]\d{3}/;  //设定一个正则表达式
     var speed=parseFloat((this.speed*0.1*360/(230+this.id*80)/2/Math.PI).toFixed(3));
-    var craft=$(orbite).children();//获得craft
+    var craft=$(orbit).children();//获得craft
     var craftInner=$(craft).children();
     var energyNumber=$(craftInner).children().first();
     var energyBar=$(craftInner).children().last();
@@ -75,7 +75,7 @@ Craft.prototype.launch=function (orbite) {
     if($(craft).css("transform")=="none"){ //检查一下craft div是不是已经有了transform属性
         deg=0;  //没有的话将角度设置为0
     }else {
-        deg=parseFloat(pattern.exec($(craft).attr("style"))[0]); //若已有transform属性,则将其值提取出来,注意转换成数字,如果度数超过4位数就会出错
+        deg=parseFloat(pattern.exec($(craft).attr("style"))[0]); //若已有transform属性,则将其值提取出来,注意转换成数字,如果度数超过4位数就会
         if(deg>360){
             deg -= 360;
         }
@@ -97,19 +97,19 @@ Craft.prototype.launch=function (orbite) {
         if(energyText==0){
             // clearInterval(timerLaunch);
             // $(".craft-orbit"+(obj.id+1)+" input[name='launch']").val("飞行");
-            obj.stop(orbite,timerLaunch);//将状态更改为stop开始调用stop时的命令
+            obj.stop(orbit,timerLaunch);//将状态更改为stop开始调用stop时的命令
         }
     },100);
     return timerLaunch;
 };
 
 // 当飞行状态更改为停止时,有两种情况,一个是能量耗尽,更改为停止;另外一种是本来是在飞行中,更改为停止
-Craft.prototype.stop=function (orbite) {
+Craft.prototype.stop=function (orbit) {
     if(this.timer){//判断是不是原来是正在飞行的飞船
         clearInterval(this.timer);
         this.timer='';
     }
-    var craft=$(orbite).children();//获得craft,可能同一个轨道不止一个craft
+    var craft=$(orbit).children();//获得craft,可能同一个轨道不止一个craft
     var craftInner=$(craft).children();
     var energyNumber=$(craftInner).children().first();
     var energyBar=$(craftInner).children().last();

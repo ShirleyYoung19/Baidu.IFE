@@ -1,7 +1,7 @@
 /**
  * Created by ShirleyYang on 16/8/28.
- * commandObejct{}:用于向mediator传递指挥官下达的命令
- * randomNumer:    用于生成一个随机数,如果大于0.3命令能够传递给mediator,
+ * commandObject{}:用于向mediator传递指挥官下达的命令
+ * randomNumber:    用于生成一个随机数,如果大于0.3命令能够传递给mediator,
  *                 如果小于0.3发生丢包事件
  */
 

@@ -100,7 +100,7 @@ body{
     top:0;
     position:relative;
 }
-.planet,.orbite1,.orbite2,.orbite3,.orbite4{
+.planet,.orbit1,.orbit2,.orbit3,.orbit4{
     position: absolute;
     top:0;
     bottom: 0;
@@ -140,23 +140,23 @@ body{
     left: 50px;
 }
 /*定义飞船的轨道*/
-.orbite1{
+.orbit1{
     width: 230px;
     height: 230px;
 }
-.orbite2{
+.orbit2{
     width: 310px;
     height: 310px;
 }
-.orbite3{
+.orbit3{
     width: 390px;
     height: 390px;
 }
-.orbite4{
+.orbit4{
     width: 470px;
     height: 470px;
 }
-.layout [class|="orbite"]{
+.layout [class|="orbit"]{
     width: 100%;
     height: 100%;
     border:2px solid #3e4059;
