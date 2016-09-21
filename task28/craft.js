@@ -41,7 +41,7 @@ Craft.prototype.getCommand=function (BUS) {
         switch (command){
             case "create":
                 this.create();
-                this.BUStimer=this.busSystem();//创建飞船即开始调用busSystem
+                this.busSystem();
                 break;
             case "explode":
                 $(orbit).empty();
@@ -56,9 +56,7 @@ Craft.prototype.getCommand=function (BUS) {
                 this.state='stop';
                 this.timerStop=this.stop(orbit);
                 break;
-
         }
-
     }
 };
 Craft.prototype.launch=function (orbit) {
@@ -218,11 +216,11 @@ Craft.prototype.Adapter=function (BUS) {
 //定义飞船的BUS系统
 Craft.prototype.busSystem=function () {
     var craft = this;
-    var timer="";
-    timer = setInterval(function () {
-        craft.Adapter();
+    var stateCode="";//用于记录飞船状态的二维码
+    this.BUStimer = setInterval(function () {
+        stateCode=craft.Adapter();
+        mediator.getInfo(stateCode);
     }, 1000);
-    return timer;
 };
 
 
