@@ -34,7 +34,7 @@ var dataControl={
         var id=craft.id+1;
         this["craft"+id].state=craft.state;
         this["craft"+id].energy=craft.energy;
-        this.render(this["craft"+id])
+        this.render(this["craft"+id]);
     },
     render:function (craft) {
         var id=craft.id;
@@ -51,6 +51,8 @@ var dataControl={
                 break;
             case 'explode':
                 $tr.children().eq(3).text("自爆中");
+                $tr.children().filter(":gt(0)").text("");
+                return;
                 break;
             default:
                 break;

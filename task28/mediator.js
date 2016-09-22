@@ -75,6 +75,7 @@
                          orbit.val("自爆飞船");
                          orbit.attr("disabled",false);
                          orbit.next().attr("disabled",false);
+                         orbit.next().val("飞行");
                          break;
                      case "01":
                          orbit.val("创建飞船");
@@ -103,15 +104,15 @@
                  //将间隔300ms尝试发射一次的命令取消
                  clearInterval(timer);
 
-                 if(command==='00'){
-                     var timerInfo=setInterval(function(){
-                         mediator.getInfo(craft.busSystem,craftType);
-                     },1000);
-                 }
-                 if(command==='01'){
-                     mediator.getInfo(craft.busSystem);
-                     clearInterval(timerInfo);
-                 }
+                 // if(command==='00'){
+                 //     var timerInfo=setInterval(function(){
+                 //         mediator.getInfo(craft.busSystem,craftType);
+                 //     },1000);
+                 // }
+                 // if(command==='01'){
+                 //     mediator.getInfo(craft.busSystem);
+                 //     clearInterval(timerInfo);
+                 // }
 
              }else{
                  success=false;

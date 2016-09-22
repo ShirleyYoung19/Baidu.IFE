@@ -38,15 +38,27 @@ Craft.prototype.getCommand=function (BUS) {
     //每一个飞船都会接受下达的指令,先判断命令是不是发给自己的
     if(this.id===id){
         var orbit=$("[class|='orbit']").get(this.id);
+        var orbitTarget=this;
         switch (command){
             case "create":
                 this.create();
                 this.busSystem();
                 break;
             case "explode":
+                this.state='explode';
+                setTimeout(function(){
+                    mediator.getInfo(orbitTarget.Adapter());
+                    mediator.craftArray.splice(index,1);
+                },1000);
                 $(orbit).empty();
-                mediator.craftArray.splice(this.id,1);
+                var index=mediator.craftArray.indexOf(this);
+
                 clearInterval(this.BUStimer);
+                this.BUStimer='';
+                clearInterval(this.timer);
+                this.timer='';
+                clearInterval(this.timerStop);
+                this.timer='';//飞船销毁的时候,所有的时间间隔函数也都随之停止
                 break;
             case "launch":
                 this.state="launch";
@@ -61,7 +73,7 @@ Craft.prototype.getCommand=function (BUS) {
 };
 Craft.prototype.launch=function (orbit) {
     var deg;
-    var pattern=/\d{1,3}[.]\d{3}/;  //设定一个正则表达式
+    var pattern=/\d{1,3}[.]\d{0,3}/;  //设定一个正则表达式
     var speed=parseFloat((this.speed*0.1*360/(230+this.id*80)/2/Math.PI).toFixed(3));
     var craft=$(orbit).children();//获得craft
     var craftInner=$(craft).children();
@@ -129,9 +141,9 @@ Craft.prototype.stop=function (orbit) {
         }else {
             $(energyBar).css("background-color","#2fa06c");
         }
-        if(energyText==100){
-            clearInterval(timerStop);
-        }
+        // if(energyText==100){
+        //     clearInterval(timerStop);
+        // }
     },100);
     return timerStop;
 };
@@ -153,9 +165,9 @@ Craft.prototype.getEnergy=function (state) {
     }else {
         this.energy=this.energy+this.energyAdd*0.1;
         if(this.energy>100){
+            this.energy=100;
             clearInterval(this.timerStop);
             this.timerStop='';
-            this.energy=100;
         }
 
     }
@@ -197,7 +209,7 @@ Craft.prototype.Adapter=function (BUS) {
                 commandNumber='0010';
                 break;
             case 'launch':
-                commandNumber='1100';
+                commandNumber='0001';
                 break;
             default:
                 break;
