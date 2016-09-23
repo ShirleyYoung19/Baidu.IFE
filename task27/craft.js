@@ -43,7 +43,12 @@ Craft.prototype.getCommand=function (BUS) {
                 break;
             case "explode":
                 $(orbit).empty();
-                mediator.craftArray.splice(this.id,1);
+                var index=mediator.craftArray.indexOf(this);
+                mediator.craftArray.splice(index,1);
+                clearInterval(this.timer);
+                this.timer="";
+                clearInterval(this.timerStop);
+                this.timerStop='';
                 break;
             case "launch":
                 this.state="launch";
@@ -60,7 +65,7 @@ Craft.prototype.getCommand=function (BUS) {
 };
 Craft.prototype.launch=function (orbit) {
     var deg;
-    var pattern=/\d{1,3}[.]\d{3}/;  //设定一个正则表达式
+    var pattern=/\d{1,3}[.]\d{0,3}/;  //设定一个正则表达式
     var speed=parseFloat((this.speed*0.1*360/(230+this.id*80)/2/Math.PI).toFixed(3));
     var craft=$(orbit).children();//获得craft
     var craftInner=$(craft).children();
