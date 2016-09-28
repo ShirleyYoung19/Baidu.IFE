@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <title>Task 33</title>
     <style type="text/css">
+        section{
+            width: 341px;
+            height: 341px;
+            margin: 10px auto;
+            position: relative;
+        }
         table{
             margin: auto;
             border-collapse: collapse;
@@ -35,6 +41,13 @@
         tbody tr td:last-child{
             border-right: 2px solid #000;
         }
+        img.head{
+            position: absolute;
+            top:32px;
+            left: 32px;
+            width: 30px;
+            transform: rotate(90deg);
+        }
         div{
             text-align: center;
         }
@@ -44,40 +57,41 @@
             text-align: left;
             margin-left: calc( 50% - 165px);
         }
-        div.left,div.right{
-            width: 6px;
-            height: 100%;
-            background-color: blue;
-            position: absolute;
-            top:0;
-        }
-        div.left{
-            left: 0;
-        }
-        div.right{
-            right: 0;
-        }
-        div.top,div.bottom{
-            width: 100%;
-            height: 6px;
-            background-color: blue;
-            position: absolute;
-            left:0;
-        }
-        div.top{
-            top: 0;
-        }
-        div.bottom{
-            bottom: 0;
-        }
-        td.target{
-            background-color: red;
-        }
+        /*div.left,div.right{*/
+            /*width: 6px;*/
+            /*height: 100%;*/
+            /*background-color: blue;*/
+            /*position: absolute;*/
+            /*top:0;*/
+        /*}*/
+        /*div.left{*/
+            /*left: 0;*/
+        /*}*/
+        /*div.right{*/
+            /*right: 0;*/
+        /*}*/
+        /*div.top,div.bottom{*/
+            /*width: 100%;*/
+            /*height: 6px;*/
+            /*background-color: blue;*/
+            /*position: absolute;*/
+            /*left:0;*/
+        /*}*/
+        /*div.top{*/
+            /*top: 0;*/
+        /*}*/
+        /*div.bottom{*/
+            /*bottom: 0;*/
+        /*}*/
+        /*td.target{*/
+            /*background-color: red;*/
+        /*}*/
     </style>
 </head>
 <body>
-    <table>
-        <thead>
+    <section>
+        <table>
+            <thead>
             <tr>
                 <th></th>
                 <th>1</th>
@@ -91,8 +105,8 @@
                 <th>9</th>
                 <th>10</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             <tr>
                 <th>1</th>
                 <td></td>
@@ -138,7 +152,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td class="target"><div class="left"></div></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -223,8 +237,13 @@
                 <td></td>
                 <td></td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+
+        <img src="head.png" alt="head" class="head">
+
+    </section>
+
     <div>
         <input type="text">
         <button>执行</button><br />
@@ -233,19 +252,11 @@
             TUN LEF:向左转（逆时针旋转90度）<br />
             TUN RIG：向右转（顺时针旋转90度）<br />
             TUN BAC：向右转（旋转180度）<br />
-            TRA LEF：向屏幕的左侧移动一格，方向不变<br />
-            TRA TOP：向屏幕的上面移动一格，方向不变<br />
-            TRA RIG：向屏幕的右侧移动一格，方向不变<br />
-            TRA BOT：向屏幕的下面移动一格，方向不变<br />
-            MOV LEF：方向转向屏幕左侧，并向屏幕的左侧移动一格<br />
-            MOV TOP：方向转向屏幕上面，向屏幕的上面移动一格<br />
-            MOV RIG：方向转向屏幕右侧，向屏幕的右侧移动一格<br />
-            MOV BOT：方向转向屏幕下面，向屏幕的下面移动一格<br />
             移动不能超出格子空间<br />
             其它指令无效<br />
         </p>
     </div>
 
 </body>
-<script src="task33.js"></script>
+<script src="task34.js"></script>
 </html>

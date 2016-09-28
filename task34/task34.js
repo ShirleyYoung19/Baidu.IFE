@@ -16,15 +16,21 @@ function init() {
     var input=document.getElementsByTagName('input')[0];
     //获取提交按钮
     var btn=document.getElementsByTagName('button')[0];
-    //获取表格中tbody元素
-    var tbody=document.getElementsByTagName('tbody')[0];
-    //获取tbody下面的所有tr元素
-    var tr=childElementNode(tbody);
+    // //获取表格中tbody元素
+    // var tbody=document.getElementsByTagName('tbody')[0];
+    // //获取tbody下面的所有tr元素
+    // var tr=childElementNode(tbody);
+    //获取头像元素
+    var head=document.querySelector('img.head');
 
     addHandler(btn,'click',function () {
-        var targetNow=document.getElementsByClassName('target')[0];
+        var position=[];
+        position[0]=head.offsetLeft;
+        position[1]=head.offsetTop;
+        var direction=css(head,'width');
+
         var div=targetNow.firstElementChild;
-        var direction=div.className;
+
         var directionNext='';
         var text=input.value;
         if(text==='GO'){
@@ -44,6 +50,15 @@ function init() {
         }
 
     });
+    //获取元素CSS属性值
+    function css(ele,property) {
+        var ostyle=ele.currentStyle?ele.currentStyle : window.getComputedStyle(ele,null) ;
+        if(ostyle.getPropertyValue){
+            return ostyle.getPropertyValue(property);
+        }else{
+            return ostyle.getAttribute(property);
+        }
+    }
 
 //让小方块前进的函数
     function blockGO(targetNow) {
