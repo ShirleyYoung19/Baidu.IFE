@@ -47,6 +47,7 @@ function init() {
             case "TUN BAC":
                 blockGO(position,direction,180,false);
                 break;
+
         }
 
 
@@ -67,8 +68,9 @@ function init() {
     //@param direction: 蜘蛛侠目前的朝向
     //@param angle: 蜘蛛侠要转的角度
     //@param ifMove：蜘蛛侠是否要移动一格
+    //@param moveDirection：是否指定蜘蛛侠移动的方向
 
-    function blockGO(position,direction,angle,ifMove) {
+    function blockGO(position,direction,angle,ifMove,moveDirection) {
         //当即需要转向又需要移动时
         if( angle !=0 ){
             direction = direction + angle;
