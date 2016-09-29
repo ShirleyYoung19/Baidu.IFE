@@ -25,82 +25,79 @@ function init() {
 
     addHandler(btn,'click',function () {
         var position=[];
+        //蜘蛛侠目前的位置
         position[0]=head.offsetLeft;
         position[1]=head.offsetTop;
-        var direction=css(head,'width');
-
-        var div=targetNow.firstElementChild;
+        var direction=Math.asin(String.prototype.split.call(css(head,'transform'),',')[1]);
+            direction=Math.round(direction/Math.PI*180);
+        //蜘蛛侠目前的朝向，注意因为transform被定义在了外部样式表中，不能直接用ele.transform获取。目前采用的方法获得的是一个矩阵，要再转换一下
 
         var directionNext='';
-        var text=input.value;
-        if(text==='GO'){
-            blockGO(targetNow);
-        }else{
-            if(text==='TUN LEF'){
-                directionNext=changeDirection(direction,-1);
-                div.className=directionNext;
-            }else if(text==='TUN RIG'){
-                directionNext=changeDirection(direction,1);
-                div.className=directionNext;
-            }else if(text==='TUN BAC'){
-                directionNext=changeDirection(direction,2);
-                div.className=directionNext;
-            }
-
+        var text=input.value.toUpperCase();
+        switch (text){
+            case "GO":
+                blockGO(position,direction,0,true);
+                break;
+            case "TUN LEF":
+                blockGO(position,direction,-90,false);
+                break;
+            case "TUN RIG":
+                blockGO(position,direction,90,false);
+                break;
+            case "TUN BAC":
+                blockGO(position,direction,180,false);
+                break;
         }
+
 
     });
     //获取元素CSS属性值
     function css(ele,property) {
-        var ostyle=ele.currentStyle?ele.currentStyle : window.getComputedStyle(ele,null) ;
-        if(ostyle.getPropertyValue){
-            return ostyle.getPropertyValue(property);
+        var oStyle=ele.currentStyle?ele.currentStyle : window.getComputedStyle(ele,null);
+        var deg;
+        if(oStyle.getPropertyValue){
+            return oStyle.getPropertyValue(property);
         }else{
-            return ostyle.getAttribute(property);
+            return oStyle.getAttribute(property);
         }
     }
 
-//让小方块前进的函数
-    function blockGO(targetNow) {
-        var position=index(targetNow);
-        var column=position[0];
-        var row=position[1];
-        var div=targetNow.firstElementChild;
-        var direction=div.className;
-        switch (direction){
-            case 'left' :
-                if( column > 1){
-                    column--;
-                }
-                break;
-            case 'right' :
-                if( column <10 ){
-                    column++;
-                }
-                break;
-            case  'top' :
-                if ( row > 1 ){
-                    row--;
-                }
-                break;
-            case 'bottom' :
-                if ( row < 10){
-                    row ++
-                }
-                break;
-            default:
-                break;
-        }
-        //将原来的td的className去掉
-        targetNow.className='';
-        targetNow.innerHTML='';
+    //蜘蛛侠前进和方向控制的函数
+    //@param position[left,top]:蜘蛛侠目前所在的位置
+    //@param direction: 蜘蛛侠目前的朝向
+    //@param angle: 蜘蛛侠要转的角度
+    //@param ifMove：蜘蛛侠是否要移动一格
 
-        //获得新的td,首先获取新的tr行
-        var trTarget = tr[row-1];
-        // 获取tr行的所有td元素
-        var tdTarget=childElementNode(trTarget)[column];
-        tdTarget.className='target';
-        tdTarget.appendChild(div);
+    function blockGO(position,direction,angle,ifMove) {
+        //当即需要转向又需要移动时
+        if( angle !=0 ){
+            direction = direction + angle;
+            head.style.transform="rotate("+direction+"deg)";
+        }
+        if(ifMove){
+            var moveDirection=direction % 90; //0上，1右，2下，3左
+            switch (moveDirection){
+                case 0:
+                    if(position[1]>32){
+                        head.style.top=(position[1]-32)+'px';
+                    }
+                    break;
+                case 1:
+                    if(position[0]<320){
+                        head.style.left=(position[0]+32)+'px';
+                    }
+                    break;
+                case 2:
+                    if(position[1]<320){
+                        head.style.top=(position[1]+32)+'px';
+                    }
+                    break;
+                case 3:
+                    if (position[0]>32){
+                        head.style.left=(position[0]-32)+'px';
+                    }
+            }
+        }
     }
 
 
