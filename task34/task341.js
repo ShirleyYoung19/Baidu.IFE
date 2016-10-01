@@ -22,18 +22,17 @@ function init() {
     // var tr=childElementNode(tbody);
     //获取头像元素
     var head=document.querySelector('img.head');
-    var angle=[0,270,180,90];
-    var angleRotate;
 
     addHandler(btn,'click',function () {
         var position=[];
         //蜘蛛侠目前的位置
         position[0]=head.offsetLeft;
         position[1]=head.offsetTop;
-        var direction=head.style.transform;
-        direction=parseInt(direction.match(/\d+/)[0],10);
+        var direction=Math.asin(String.prototype.split.call(css(head,'transform'),',')[1]);
+            direction=Math.round(direction/Math.PI*180);
         //蜘蛛侠目前的朝向，注意因为transform被定义在了外部样式表中，不能直接用ele.transform获取。目前采用的方法获得的是一个矩阵，要再转换一下
 
+        var directionNext='';
         var text=input.value.toUpperCase();
         switch (text){
             case "GO":
@@ -50,31 +49,6 @@ function init() {
                 break;
             case "TRA LEF":
                 blockGO(position,direction,0,true,3);
-                break;
-            case "TRA TOP":
-                blockGO(position,direction,0,true,0);
-                break;
-            case "TRA RIG":
-                blockGO(position,direction,0,true,1);
-                break;
-            case "TRA BOT":
-                blockGO(position,direction,0,true,2);
-                break;
-            case "MOV LEF":
-                angleRotate=angle[((direction/90)%4-3)>=0?(direction/90)%4-3:(direction/90)%4+1];
-                blockGO(position,direction,angleRotate,true,3);
-                break;
-            case "MOV TOP":
-                angleRotate=angle[(direction/90)%4];
-                blockGO(position,direction,angleRotate,true,0);
-                break;
-            case "MOV RIG":
-                angleRotate=angle[((direction/90)%4-1)>=0?(direction/90)%4-1:(direction/90)%4+3];
-                blockGO(position,direction,angleRotate,true,1);
-                break;
-            case "MOV BOT":
-                angleRotate=angle[((direction/90)%4-2)>=0?(direction/90)%4-2:(direction/90)%4+2];
-                blockGO(position,direction,angleRotate,true,2);
                 break;
 
         }
@@ -106,7 +80,7 @@ function init() {
             head.style.transform="rotate("+direction1+"deg)";
         }
         if(ifMove){
-            if(moveDirection==null) {
+            if(!moveDirection) {
                 moveDirection=Math.floor(direction / 90); //0上，1右，2下，3左
             }
             switch (moveDirection){
@@ -134,5 +108,34 @@ function init() {
         }
     }
 
+
+
+//确定当前小方块所在位置
+    function index(target) {
+        var tr=target.parentNode;
+        var row=parseInt(tr.firstElementChild.innerText);
+        var td=childElementNode(tr);
+        var column=Array.prototype.indexOf.call(td,target);
+        return [column,row];
+    }
+
+//返回父元素的所有元素类型的子元素
+    function childElementNode(parentNode) {
+        return Array.prototype.filter.call(parentNode.childNodes,function (ele) {
+            return (ele.nodeType==1)
+        });
+    }
+    //确定小方块新的方向
+    function changeDirection(direction,num) {
+        var directionArray=['top','right','bottom','left'];
+        var directionNow=directionArray.indexOf(direction);
+        var directionNext=directionNow+num;
+        if(directionNext>3){
+            directionNext=directionNext-4;
+        }else if(directionNext<0){
+            directionNext=directionNext+4;
+        }
+        return directionArray[directionNext];
+    }
 }
 init();
