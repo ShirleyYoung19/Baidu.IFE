@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 35</title>
+    <style type="text/css">
+        section{
+            width: 341px;
+            height: 341px;
+            margin: 10px auto;
+            position: relative;
+        }
+        table{
+            margin: auto;
+            border-collapse: collapse;
+        }
+        td,th{
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            vertical-align: middle;
+            position: relative;
+            padding: 0;
+
+        }
+        tbody td{
+            border:1px solid #aaa;
+        }
+        tbody tr:nth-child(1) td{
+            border-top: 2px solid #000;
+        }
+        tbody tr td:nth-child(2){
+            border-left: 2px solid #000;
+        }
+        tbody tr td:nth-child(2){
+            border-left: 2px solid #000;
+        }
+        tbody tr:last-child td{
+            border-bottom: 2px solid #000;
+        }
+        tbody tr td:last-child{
+            border-right: 2px solid #000;
+        }
+        img.head{
+            position: absolute;
+            top:32px;
+            left: 32px;
+            width: 30px;
+            transition:all 1s ease;
+        }
+        div{
+            text-align: center;
+            font-size: 20px;
+            line-height: 1.2;
+            position: relative;
+
+        }
+        div.btn{
+            margin: 10px auto;
+        }
+        p{
+            font-size: 12px;
+            line-height: 1.5;
+            text-align: left;
+            margin-left: calc( 50% - 165px);
+        }
+
+        textarea{
+            width: 300px;
+            height: 100px;
+            padding: 0 0 0 22px;
+            font-family: monospace;
+            background: #000;
+            color: green;
+            margin-left: 30px;
+            border-style: none;
+            vertical-align: bottom;
+            font-size: 12px;
+            line-height: 1.5;
+
+
+        }
+        div.index{
+            background: #aaa;
+            color: white;
+            width: 20px;
+            margin-right: 0;
+            border-style: none;
+            display: inline-block;
+            vertical-align: bottom;
+            height: 100px;
+            position: absolute;
+            left: calc( 50% - 146px);
+            font-size: 12px;
+            line-height: 1.5;
+            overflow: auto;
+
+
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>1</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>4</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>5</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>6</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>7</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>8</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>9</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>10</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <img src="head.png" alt="head" class="head" style="transform: rotate(90deg)">
+
+    </section>
+
+    <div>
+        <div class="btn">
+            <input type="button" value="执行">
+            <input type="button" value="Refresh">
+        </div>
+        <div class="index">1<br /></div>
+        <textarea></textarea>
+
+        <p>
+            GO:向蓝色边所面向的方向前进一格（一格等同于正方形的边长）<br />
+            TUN LEF:向左转（逆时针旋转90度）<br />
+            TUN RIG：向右转（顺时针旋转90度）<br />
+            TUN BAC：向右转（旋转180度）<br />
+            TRA LEF：向屏幕的左侧移动一格，方向不变<br />
+            TRA TOP：向屏幕的上面移动一格，方向不变<br />
+            TRA RIG：向屏幕的右侧移动一格，方向不变<br />
+            TRA BOT：向屏幕的下面移动一格，方向不变<br />
+            MOV LEF：方向转向屏幕左侧，并向屏幕的左侧移动一格<br />
+            MOV TOP：方向转向屏幕上面，向屏幕的上面移动一格<br />
+            MOV RIG：方向转向屏幕右侧，向屏幕的右侧移动一格<br />
+            MOV BOT：方向转向屏幕下面，向屏幕的下面移动一格<br />
+
+            移动不能超出格子空间<br />
+            其它指令无效<br />
+        </p>
+    </div>
+
+</body>
+<script src="task35.js"></script>
+</html>
