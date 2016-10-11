@@ -12,22 +12,27 @@ function addHandler( element, type, handler ) {
     }
 }
 function init() {
-    //获取input输入文本框
+    //获取textarea输入文本框
     var text=document.getElementsByTagName('textarea')[0];
-    //获取提交按钮
+    //获取执行按钮
     var btn=document.getElementsByTagName('input')[0];
+    //获取刷新按钮
     var refreshBtn=document.getElementsByTagName('input')[1];
-    // //获取表格中tbody元素
+    // 获取显示代码行的div
     var index=document.querySelector('.index');
     var indexNumber=1;
     //获取头像元素
     var head=document.querySelector('img.head');
     var angle=[0,270,180,90];
     var angleRotate;
+    var correctOrders=["GO","TUN LEF","TUN RIG","TUN BAC","TRA LEF","TRA TOP","TRA RIG","TRA BOT",
+    "MOV LEF","MOV TOP","MOV RIG","MOV BOT"];
+
+    //为显示代码行的div和textarea区域绑定在一起，有新的一行就会相应的有新的代码行数组，而且两者是一同滚动的
     addHandler(text,'keyup',function (e) {
         if(e.keyCode=='13'){
             indexNumber++;
-            index.innerHTML += indexNumber + '<br />';
+            index.innerHTML += '<span>'+indexNumber +'</span><br />';
             index.scrollTop=text.scrollTop;
         }
     });
@@ -37,7 +42,11 @@ function init() {
     addHandler(index,'mousewheel',function () {
         text.scrollTop=index.scrollTop;
     });
+
+    addHandler(btn,'click',orders);
+
     addHandler(btn,'click',function () {
+
         var position=[];
         //蜘蛛侠目前的位置
         position[0]=head.offsetLeft;
@@ -103,7 +112,55 @@ function init() {
             return oStyle.getAttribute(property);
         }
     }
+    //对textarea输入指令的分析函数
+    //@param inputOrders:用户输入的指令
+    //@param orderArray: 用户输入的指令按照行拆分开
+    //@param itemNew:对输入项进行除去无用空格之后的得到的命令
+    //@param correct: 判断这一行指令输入是否正确
+    //@param orderList：蜘蛛侠最终执行的命令合集
 
+    function orders() {
+        var inputOrders=text.value;
+        var orderArray=inputOrders.split('\n');
+        var orderList=[];
+        orderArray.forEach(function (item,index) {
+            if(item){
+                var itemNew=item.trim().toUpperCase().replace(/\s{2,}/g,' ');
+                var correct=false;
+                correctOrders.forEach(function (item) {
+                    if(itemNew.indexOf(item)>-1){
+                        var itemNumber=itemNew.slice(item.length).trim();
+                        if(itemNumber){
+                            if(/^\d+$/.test(str)){
+                                correct=true;
+                                for(var i=0; i<itemNumber; i++){
+                                    orderList.push(item);
+                                }
+                            }else{
+                                correct=false;
+                                errorRender(index);
+                                return;
+
+                            }
+                        }else{
+                            correct=true;
+                            orderList.push(item);
+                        }
+                    }
+                });
+                if(!correct){
+                    errorRender(index);
+                    return;
+                }
+            }
+        });
+    }
+
+    //标注出改行指令错误
+    function errorRender(indexNumber) {
+        var indexSpans=index.getElementsByTagName('span');
+        indexSpans[indexNumber].className='error';
+    }
     //蜘蛛侠前进和方向控制的函数
     //@param position[left,top]:蜘蛛侠目前所在的位置
     //@param direction: 蜘蛛侠目前的朝向
