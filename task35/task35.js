@@ -70,7 +70,13 @@ function init() {
         position[0]=head.offsetLeft;
         position[1]=head.offsetTop;
         var direction=head.style.transform;
-        direction=parseInt(direction.match(/\d+/)[0],10);
+        direction=parseInt(direction.match(/\-?\d+/)[0],10);
+        // if(direction>=360){
+        //     direction -=360;
+        //     head.style.transform="rotate("+direction+"deg)";
+        // }
+
+
         //蜘蛛侠目前的朝向，注意因为transform被定义在了外部样式表中，不能直接用ele.transform获取。目前采用的方法获得的是一个矩阵，要再转换一下
 
         var text=order;
@@ -194,14 +200,16 @@ function init() {
         //当即需要转向又需要移动时
         if( angle !=0 ){
             var direction1 = direction + angle;
-            if(direction1>=360){
-                direction1 -=360;
-            }
+            // if(direction1<=-360){
+            //     direction1 +=360;
+            // }
             head.style.transform="rotate("+direction1+"deg)";
+
         }
         if(ifMove){
             if(moveDirection==null) {
-                moveDirection=Math.floor(direction / 90); //0上，1右，2下，3左
+                moveDirection=(direction % 360) /90 ;
+                moveDirection=moveDirection>=0 ? moveDirection : moveDirection+4;//0上，1右，2下，3左
             }
             switch (moveDirection){
                 case 0:
