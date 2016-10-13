@@ -43,9 +43,27 @@ function init() {
         text.scrollTop=index.scrollTop;
     });
 
-    addHandler(btn,'click',orders);
-
     addHandler(btn,'click',function () {
+        var spanIndex=document.querySelectorAll(".error");
+        Array.prototype.forEach.call(spanIndex,function (item) {
+            item.className='';
+        });
+        var orderList=orders();
+
+        var i=0;
+        function goGo() {
+            spiderGO(orderList[i]);
+            i++;
+            if(i<orderList.length){
+                setTimeout(goGo,500)
+            }
+        }
+        setTimeout(goGo,500);
+
+
+    });
+
+    function spiderGO(order) {
 
         var position=[];
         //蜘蛛侠目前的位置
@@ -55,7 +73,7 @@ function init() {
         direction=parseInt(direction.match(/\d+/)[0],10);
         //蜘蛛侠目前的朝向，注意因为transform被定义在了外部样式表中，不能直接用ele.transform获取。目前采用的方法获得的是一个矩阵，要再转换一下
 
-        var text=input.value.toUpperCase();
+        var text=order;
         switch (text){
             case "GO":
                 blockGO(position,direction,0,true,null);
@@ -101,7 +119,8 @@ function init() {
         }
 
 
-    });
+    }
+
     //获取元素CSS属性值
     function css(ele,property) {
         var oStyle=ele.currentStyle?ele.currentStyle : window.getComputedStyle(ele,null);
@@ -127,15 +146,17 @@ function init() {
             if(item){
                 var itemNew=item.trim().toUpperCase().replace(/\s{2,}/g,' ');
                 var correct=false;
-                correctOrders.forEach(function (item) {
-                    if(itemNew.indexOf(item)>-1){
+                for(var i=0; i<correctOrders.length; i++){
+                    var item=correctOrders[i];
+                    if(itemNew.indexOf(item)==0){
                         var itemNumber=itemNew.slice(item.length).trim();
                         if(itemNumber){
-                            if(/^\d+$/.test(str)){
+                            if(/^\d+$/.test(itemNumber)){
                                 correct=true;
-                                for(var i=0; i<itemNumber; i++){
+                                for(var j=0; j<itemNumber; j++){
                                     orderList.push(item);
                                 }
+                                break;
                             }else{
                                 correct=false;
                                 errorRender(index);
@@ -145,15 +166,16 @@ function init() {
                         }else{
                             correct=true;
                             orderList.push(item);
+                            break;
                         }
                     }
-                });
+                }
                 if(!correct){
                     errorRender(index);
-                    return;
                 }
             }
         });
+        return orderList;
     }
 
     //标注出改行指令错误
@@ -172,6 +194,9 @@ function init() {
         //当即需要转向又需要移动时
         if( angle !=0 ){
             var direction1 = direction + angle;
+            if(direction1>=360){
+                direction1 -=360;
+            }
             head.style.transform="rotate("+direction1+"deg)";
         }
         if(ifMove){
