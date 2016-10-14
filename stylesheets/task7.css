@@ -358,7 +358,6 @@ div.partc>div.part2>p{
 	width: 70%;
 	margin:20px auto;
 	color: #aaaaaa;
-	display: left;
 	font-weight: normal;
 }
 div.partc>div.part2>p.more{
@@ -487,7 +486,7 @@ div.partc div.part5 div{
 	border-width: 20px 0px 20px 20px;
 	border-style: solid;
 	position: absolute;
-};
+}
 /*成为我们的志愿者*/
 div.partd{
 	height: 690px;
@@ -667,5 +666,4 @@ footer p.right a{
 	font-size: 12px;
 	color: #ffffff;
 	height: 56px;
-	margin:;
 }

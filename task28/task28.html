@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Task 27</title>
-    <link rel="stylesheet" href="task27.css">
+    <title>Task 28</title>
+    <link rel="stylesheet" href="task28.css">
 </head>
 <body>
 <!--//定义背景模块-->
@@ -81,8 +81,8 @@
                 <span>第三轨道</span>
                 <select name="powerType"  class="energy">
                     <option value="powerSlow">前进号(速度30px/s,能耗5%/s)</option>
-                    <option value="powerMedium">前进号(速度50px/s,能耗7%/s)</option>
-                    <option value="powerFast">前进号(速度80px/s,能耗9%/s)</option>
+                    <option value="powerMedium">奔腾号(速度50px/s,能耗7%/s)</option>
+                    <option value="powerFast">超越号(速度80px/s,能耗9%/s)</option>
                 </select>
                 <select name="energyType"  class="energy">
                     <option value="energySlow">劲量型(补充能源速度2%/s)</option>
@@ -113,7 +113,23 @@
         <p>准备就绪!请操作</p>
     </section>
 </section>
+<section class="monitor">
+    <p>飞船实时监控</p>
+    <table>
+        <thead>
+        <tr><td>飞船</td><td>动力系统</td><td>能源系统</td><td>当前飞行状态</td><td>剩余能耗</td></tr>
+        </thead>
+        <tbody>
+        <tr><td>一号飞船</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>二号飞船</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>三号飞船</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>四号飞船</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+
+    </table>
+</section>
 <script src="../jquery.js"></script>
+<script src="DC.js"></script>
 <script src="craft.js"></script>
 <script src="consoleOut.js"></script>
 <script src="mediator.js"></script>

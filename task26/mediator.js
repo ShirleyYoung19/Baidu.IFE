@@ -1,14 +1,14 @@
 /**
  * Created by ShirleyYang on 16/8/28.
- * 创建一个mediator,处理传递过来的commandObejct
+ * 创建一个mediator,处理传递过来的commandObject
  */
  var mediator={
      craftArray:[],
      num:1,
-     getCommand:function (obejct,number) {
+     getCommand:function (object,number) {
          if(number>=0.3){   //如果没有丢包,执行后面的操作
-             var id=obejct.id+1;
-             var command=obejct.command;
+             var id=object.id+1;
+             var command=object.command;
              if (command=="create"){
                   //如果是创新新的飞船
                      var craftNew=new Craft();

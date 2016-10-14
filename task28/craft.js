@@ -11,6 +11,7 @@ function Craft(id,power,energy) {
     this.speed=power[0];
     this.timer='';
     this.timerStop='';//这个timer变量是监视在launch时的时间间隔函数
+    this.BUStimer='';//用于检查是否正在调用busSystem函数
 }
 Craft.prototype.create=function () {
     this.state="stop";
@@ -37,18 +38,27 @@ Craft.prototype.getCommand=function (BUS) {
     //每一个飞船都会接受下达的指令,先判断命令是不是发给自己的
     if(this.id===id){
         var orbit=$("[class|='orbit']").get(this.id);
+        var orbitTarget=this;
         switch (command){
             case "create":
                 this.create();
+                this.busSystem();
                 break;
             case "explode":
+                this.state='explode';
+                setTimeout(function(){
+                    mediator.getInfo(orbitTarget.Adapter());
+                    mediator.craftArray.splice(index,1);
+                },1000);
                 $(orbit).empty();
                 var index=mediator.craftArray.indexOf(this);
-                mediator.craftArray.splice(index,1);
+
+                clearInterval(this.BUStimer);
+                this.BUStimer='';
                 clearInterval(this.timer);
-                this.timer="";
+                this.timer='';
                 clearInterval(this.timerStop);
-                this.timerStop='';
+                this.timer='';//飞船销毁的时候,所有的时间间隔函数也都随之停止
                 break;
             case "launch":
                 this.state="launch";
@@ -58,9 +68,7 @@ Craft.prototype.getCommand=function (BUS) {
                 this.state='stop';
                 this.timerStop=this.stop(orbit);
                 break;
-
         }
-
     }
 };
 Craft.prototype.launch=function (orbit) {
@@ -133,9 +141,9 @@ Craft.prototype.stop=function (orbit) {
         }else {
             $(energyBar).css("background-color","#2fa06c");
         }
-        if(energyText==100){
-            clearInterval(timerStop);
-        }
+        // if(energyText==100){
+        //     clearInterval(timerStop);
+        // }
     },100);
     return timerStop;
 };
@@ -157,37 +165,74 @@ Craft.prototype.getEnergy=function (state) {
     }else {
         this.energy=this.energy+this.energyAdd*0.1;
         if(this.energy>100){
+            this.energy=100;
             clearInterval(this.timerStop);
             this.timerStop='';
-            this.energy=100;
         }
 
     }
     return this.energy.toFixed(0);
 
 };
-
+//调用的时候不添加BUS说明是要生成二进制代码,如果加BUS说明是要解码
 Craft.prototype.Adapter=function (BUS) {
-    var id=parseInt(BUS.slice(0,2),2);
-    var commandNumber=BUS.slice(2);
-    var command;
-    switch (commandNumber){
-        case "00":
-            command="create";
-            break;
-        case "01":
-            command="explode";
-            break;
-        case "10":
-            command="launch";
-            break;
-        case "11":
-            command="stop";
-            break;
+    var returnData;
+    if(BUS){
+        var id=parseInt(BUS.slice(0,2),2);
+        var commandNumber=BUS.slice(2);
+        var command;
+        switch (commandNumber){
+            case "00":
+                command="create";
+                break;
+            case "01":
+                command="explode";
+                break;
+            case "10":
+                command="launch";
+                break;
+            case "11":
+                command="stop";
+                break;
+        }
+        return [id,command];
+    }else{
+        var idNumber=this.id.toString(2);
+        if(idNumber.length===1){
+            idNumber = '0' + idNumber;
+        }
+        switch (this.state){
+            case 'explode':
+                commandNumber='1100';
+                break;
+            case 'stop':
+                commandNumber='0010';
+                break;
+            case 'launch':
+                commandNumber='0001';
+                break;
+            default:
+                break;
+        }
+        var energy=parseInt(this.energy).toString(2);
+        if(energy.length<8){
+            for(var i=8-energy.length;i>0;i--){
+                energy = '0'+energy;
+            }
+        }
+        returnData='00'+idNumber+commandNumber+energy;
+        return returnData;
     }
-    return [id,command];
+
 };
-
-
+//定义飞船的BUS系统
+Craft.prototype.busSystem=function () {
+    var craft = this;
+    var stateCode="";//用于记录飞船状态的二维码
+    this.BUStimer = setInterval(function () {
+        stateCode=craft.Adapter();
+        mediator.getInfo(stateCode);
+    }, 1000);
+};
 
 

@@ -44,6 +44,7 @@
                          orbit.val("自爆飞船");
                          orbit.attr("disabled",false);
                          orbit.next().attr("disabled",false);
+                         orbit.next().val("飞行");
                          break;
                      case "01":
                          orbit.val("创建飞船");

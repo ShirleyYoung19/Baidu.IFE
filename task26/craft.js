@@ -10,6 +10,7 @@ function Craft() {
     this.id='';
     this.speed=10;
     this.timer='';
+    this.timerStop='';
     this.number='';
 }
 Craft.prototype.create=function (id,num) {
@@ -28,47 +29,59 @@ Craft.prototype.create=function (id,num) {
     var $div=$("<div></div>");//将包含飞船的div再放到一个div中,单纯为了实现样式
     $div.addClass("craft"+id);
     $($div).append(div);
-    $($("[class|='orbite']").get(id-1)).append($div);
+    $($("[class|='orbit']").get(id-1)).append($div);
 };
 Craft.prototype.getCommand=function (id,command) {
     //每一个飞船都会接受下达的指令,先判断命令是不是发给自己的
     if(this.id===id){
-        var orbite=$("[class|='orbite']").get(id-1);
+        var orbit=$("[class|='orbit']").get(id-1);
        // var timer; //这个timer变量是监视在launch时的时间间隔函数
         switch (command){
             case "explode":
-                $(orbite).empty();
-                mediator.craftArray.splice(this,1);
+                $(orbit).empty();
+                mediator.craftArray.splice(this.id,1);
                 break;
             case "launch":
                 this.state="launch";
-                this.timer=this.launch(orbite);
+                this.launch(orbit);
                 break;
             case "stop":
                 this.state='stop';
-                this.stop(orbite,this.timer);
+                this.stop(orbit);
                 break;
 
         }
 
     }
 };
-Craft.prototype.launch=function (orbite) {
+Craft.prototype.launch=function (orbit) {
     var deg;
     var pattern=/\d{1,3}/;  //设定一个正则表达式
     var speed=this.speed;
-    var craft=$(orbite).children();//获得craft,可能同一个轨道不止一个craft
+    var craft=$(orbit).children();//获得craft,可能同一个轨道不止一个craft
     var craftNumber=$(craft).children().filter("[class=inner"+this.number+"]");//获得类为inner+number的单元
     craft=$(craftNumber).parent();
     var energyNumber=$(craftNumber).children().first();
     var energyBar=$(craftNumber).children().last();
     var obj=this;
+    if(this.timer){//判断是不是原来是正在飞行的飞船
+        clearInterval(this.timer);
+        this.timer='';
+    }
+    if(this.timerStop){
+        clearInterval(this.timerStop);
+        this.timerStop='';
+    }
     if($(craft).css("transform")=="none"){ //检查一下craft div是不是已经有了transform属性
         deg=0;  //没有的话将角度设置为0
     }else {
         deg=Number(pattern.exec($(craft).attr("style"))[0]); //若已有transform属性,则将其值提取出来,注意转换成数字
+        if(deg>360){
+            deg -= 360;
+        }
     }
     var timerLaunch=setInterval(function () {
+        obj.timer=timerLaunch;
         $(craft).css("transform","rotate("+deg+"deg)");//设定飞船飞行动画
         deg=deg+speed*0.1;//每隔0.1s增加一定的角度
         var energyText=obj.getEnergy(obj.state);//获取能量值
@@ -81,24 +94,29 @@ Craft.prototype.launch=function (orbite) {
             $(energyBar).css("background-color","rgb(200,59,56)");//若能量低于30%,提示变红
         }
         if(energyText==0){
-            clearInterval(timerLaunch);
-            obj.stop(orbite);//将状态更改为stop开始调用stop时的命令
+            // clearInterval(timerLaunch);
+            obj.stop(orbit);//将状态更改为stop开始调用stop时的命令
         }
     },100);
-    return timerLaunch;
 };
 
 // 当飞行状态更改为停止时,有两种情况,一个是能量耗尽,更改为停止;另外一种是本来是在飞行中,更改为停止
-Craft.prototype.stop=function (orbite,timer) {
-    if(timer){//判断是不是原来是正在飞行的飞船
-        clearInterval(timer);
+Craft.prototype.stop=function (orbit) {
+    if(this.timer){//判断是不是原来是正在飞行的飞船
+        clearInterval(this.timer);
+        this.timer='';
     }
-    var craft=$(orbite).children();//获得craft,可能同一个轨道不止一个craft
+    if(this.timerStop){
+        clearInterval(this.timerStop);
+        this.timerStop='';
+    }
+    var craft=$(orbit).children();//获得craft,可能同一个轨道不止一个craft
     var craftNumber=$(craft).children().filter("[class=inner"+this.number+"]");//获得类为inner+number的单元
     var energyNumber=$(craftNumber).children().first();
     var energyBar=$(craftNumber).children().last();
     var obj=this;
     var timerStop=setInterval(function () {
+        obj.timerStop=timerStop;
         var energyText=obj.getEnergy(obj.state);//获取能量值
         if(energyText=="-0"){
             energyText=0;
@@ -110,9 +128,9 @@ Craft.prototype.stop=function (orbite,timer) {
         }else {
             $(energyBar).css("background-color","#2fa06c");//若能量低于30%,提示变红
         }
-        if(energyText==100){
-            clearInterval(timerStop);
-        }
+        // if(energyText==100){
+        //     clearInterval(timerStop);
+        // }
     },100)
 };
 
@@ -124,15 +142,18 @@ Craft.prototype.getEnergy=function (state) {
             this.energy=this.energy-(this.energyConsume-this.energyAdd)*0.1
         }else{
             this.energy=0;
+            clearInterval(this.timer);
+            this.timer='';
             this.state='stop';
             var launchBtn=$("[class|='craft']").get(this.id-1);//获得这个飞船对应的飞行按钮
             $(launchBtn.lastElementChild).val("飞行");
         }
     }else {
-        if(this.energy<100){
-            this.energy=this.energy+this.energyAdd*0.1;
-        }else {
+        this.energy=this.energy+this.energyAdd*0.1;
+        if(this.energy>100){
             this.energy=100;
+            clearInterval(this.timerStop);
+            this.timerStop='';
         }
 
     }

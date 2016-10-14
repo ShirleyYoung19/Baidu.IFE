@@ -247,3 +247,39 @@ input:disabled{
 .console .success{
     color: #d9e6cd;
 }
+
+/*监控飞船状态的控制面板*/
+.monitor{
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    opacity: 0.7;
+    width:500px;
+}
+.monitor p{
+    background-color: #2fa06c;
+    height: 30px;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    width: 498px;
+    /*border: solid 1px #3b3f58;*/
+}
+.monitor table{
+    font-size: 12px;
+
+}
+.monitor thead{
+    background-color: #d9e6cd;
+    font-size: 14px;
+}
+.monitor tbody{
+    background-color: #d9e6cd;
+}
+.monitor td{
+    width: 100px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+}
