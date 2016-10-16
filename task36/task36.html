@@ -1,0 +1,65 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>听指令的小方块</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="task36.css">
+</head>
+<body>
+<section class="spider clearfix">
+    <table class="spider-map"></table>
+    <div class="spider-man spider-box">
+        <img src="head.png" alt="spiderMan" class="spider-box">
+    </div>
+    <section class="spider-controls">
+        <section class="spider-buttons clearfix">
+            <select name="网格数量" id="resolution">
+                <option value="20" selected>20X20</option>
+                <option value="30">30X30</option>
+            </select>
+            <select name="速度" id="duration">
+                <option value="500">慢速</option>
+                <option value="250">常速</option>
+                <option value="100">快速</option>
+                <option value="0">极速</option>
+            </select>
+            <!--<button id="run" type="button"></button>-->
+            <!--<label for="run">运行</label>-->
+            <!--<button id="reset" type="button"></button>-->
+            <!--<label for="reset">重置</label>-->
+            <!--<button id="random" type="button"></button>-->
+            <!--<label for="random">随机修墙</label>-->
+            <button id="run" type="button">运行</button>
+
+            <button id="reset" type="button">重置</button>
+
+            <button id="random" type="button">随机修墙</button>
+
+            <input type="file" id="image" title="选择图片文件">
+        </section>
+        <section class="spider-commander">
+            <div class="commander-lines-wrapper">
+                <div class="commander-lines">
+                    <div class="commander-lines-item">1</div>
+                </div>
+            </div>
+            <textarea name="命令编辑器" class="commander-editor" spellcheck="false">
+
+                </textarea>
+        </section>
+    </section>
+</section>
+<p class="note">注：选择图片文件后，程序会读取图片并生成绘图命令，接着运行命令，机器人将一步一步将图形画出来</p>
+
+</body>
+<script src="spidermap.js"></script>
+<script src="spiderman.js"></script>
+<script src="spider.js"></script>
+<script src="app.js"></script>
+
+
+</html>

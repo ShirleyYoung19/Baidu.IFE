@@ -26,21 +26,34 @@ function init() {
     var angle=[0,270,180,90];
     var angleRotate;
     var correctOrders=["GO","TUN LEF","TUN RIG","TUN BAC","TRA LEF","TRA TOP","TRA RIG","TRA BOT",
-    "MOV LEF","MOV TOP","MOV RIG","MOV BOT"];
+        "MOV LEF","MOV TOP","MOV RIG","MOV BOT"];
 
     //为显示代码行的div和textarea区域绑定在一起，有新的一行就会相应的有新的代码行数组，而且两者是一同滚动的
     addHandler(text,'keyup',function (e) {
-        if(e.keyCode=='13'){
-            indexNumber++;
-            index.innerHTML += '<span>'+indexNumber +'</span><br />';
+        // if(e.keyCode=='13'){
+        //     indexNumber++;
+        //     index.innerHTML += '<span>'+indexNumber +'</span><br />';
+        //     index.scrollTop=text.scrollTop;
+        // }
+        var length=e.target.value.split(/\r?\n/g).length;
+        index.innerHTML='';
+        // if(length>indexNumber){
+        for (var i=1; i<=length;i++){
+            index.innerHTML += '<span>'+i +'</span><br />';
             index.scrollTop=text.scrollTop;
         }
+        orders();
+        // }
     });
     addHandler(text,'mousewheel',function () {
         index.scrollTop=text.scrollTop;
     });
     addHandler(index,'mousewheel',function () {
         text.scrollTop=index.scrollTop;
+    });
+    addHandler(refreshBtn,'click',function () {
+        index.innerHTML='';
+        text.value='';
     });
 
     addHandler(btn,'click',function () {
@@ -218,12 +231,12 @@ function init() {
                     }
                     break;
                 case 1:
-                    if(position[0]<320){
+                    if(position[0]+31<320){
                         head.style.left=(position[0]+31)+'px';
                     }
                     break;
                 case 2:
-                    if(position[1]<320){
+                    if(position[1]+31<320){
                         head.style.top=(position[1]+31)+'px';
                     }
                     break;
