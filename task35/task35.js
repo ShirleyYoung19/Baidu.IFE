@@ -18,6 +18,7 @@ function init() {
     var btn=document.getElementsByTagName('input')[0];
     //获取刷新按钮
     var refreshBtn=document.getElementsByTagName('input')[1];
+    var randomBtn=document.getElementsByTagName('input')[2];
     // 获取显示代码行的div
     var index=document.querySelector('.index');
     var indexNumber=1;
@@ -30,9 +31,11 @@ function init() {
 
     //为显示代码行的div和textarea区域绑定在一起，有新的一行就会相应的有新的代码行数组，而且两者是一同滚动的
     addHandler(text,'keyup',function (e) {
-        if(e.keyCode=='13'){
-            indexNumber++;
-            index.innerHTML += '<span>'+indexNumber +'</span><br />';
+        console.log("keyup");
+        var length=e.target.value.split(/\r?\n/g).length;
+        index.innerHTML='';
+        for (var i=1; i<=length;i++){
+            index.innerHTML += '<span>'+i +'</span><br />';
             index.scrollTop=text.scrollTop;
         }
     });
@@ -59,8 +62,20 @@ function init() {
             }
         }
         setTimeout(goGo,500);
-
-
+    });
+    addHandler(refreshBtn,'click',function () {
+        index.innerHTML = "";
+        text.value = "";
+    });
+    addHandler(randomBtn,'click',function () {
+        text.value = _generateRandomActions();
+        //As set value doesn't trigger the "key up", so trigger it manually.
+        var length=text.value.split(/\r?\n/g).length;
+        index.innerHTML='';
+        for (var i=1; i<=length;i++){
+            index.innerHTML += '<span>'+i +'</span><br />';
+            index.scrollTop=text.scrollTop;
+        }
     });
 
     function spiderGO(order) {
@@ -234,6 +249,27 @@ function init() {
                     break;
             }
         }
+    }
+
+    function _generateRandomActions(){
+        var MAX_STEP = 3;
+        var ACTION_ROW = 3;
+        var actionArr = [
+            "GO",
+            "TUN LEF","TUN RIG","TUN BAC",
+            "TRA LEF","TRA TOP","TRA RIG","TRA BOT",
+            "MOV LEF","MOV TOP","MOV RIG","MOV BOT"
+        ];
+        var finalAction="",action = "";
+        var step = 0;
+        for(var i = 0 ; i < ACTION_ROW ; i++){
+            step = Math.floor(Math.random()*MAX_STEP)+1;
+            action = actionArr[Math.floor(Math.random()*actionArr.length)]+" "+ step + "\n";
+            // console.log(`N.O.${i+1}: ${action}`);
+            finalAction += action;
+        }
+        console.log(`Final actions is:\n${finalAction}`);
+        return finalAction;
     }
 
 }
