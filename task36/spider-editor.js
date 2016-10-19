@@ -6,13 +6,13 @@ function SpiderEditor(selector) {
     this.$line=this.element.querySelector('.commander-lines');
     this.$textarea=this.element.querySelector('.commander-editor');
 
-    this.$textarea.addEventListener('input',this.update.bind(this));
+    this.$textarea.addEventListener('keyup',this.update.bind(this));
     this.$textarea.addEventListener('scroll',this.scroll.bind(this));
 
     this.update();
 }
 SpiderEditor.prototype.update=function () {
-    var codes = this.$textarea.value;
+    var codes = this.getCode();
 
     var length=codes.length;
     var html='';
@@ -38,4 +38,9 @@ SpiderEditor.prototype.getCode=function () {
         item.trim();
     });
     return codesList;
+};
+
+SpiderEditor.prototype.warning=function (index) {
+    var indexDIV=this.$line.getElementsByTagName('div');
+    indexDIV[index].className += ' warning';
 };

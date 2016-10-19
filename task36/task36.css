@@ -106,6 +106,9 @@ section.spider-controls{
     font-size: 16px;
     border: 0;
 }
+.commander-lines .warning{
+    background-color: #cd4a58;
+}
 .commander-editor, .commander-lines-wrapper{
     font-family: Menlo,Consolas,monospace;
     line-height: 20px;
