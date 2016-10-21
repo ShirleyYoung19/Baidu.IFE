@@ -24,16 +24,20 @@ Application.prototype.run=function () {
     var codeStates = true;//判断是否有格式不正确的代码
     for (var i = 0; i < codes.length; i++){
         //依次检测textarea中的代码，如果不正确会返回false
-        if(!this.spider.spiderMan.parse(codes[i])){
+        if(!this.spider.parse(codes[i])){
             //将不正确的代码行标红
             this.spiderEditor.warning(i);
             codeStates = false;
         }
     }
     if(codeStates){
-        for (var j = 0; j < codes.length; j++){
-            this.spider.spiderMan.conduct(codes[j]);
-        }
+        var self = this;
+        codes.forEach(function (code,i) {
+            if(code){
+                self.spider.exec(code);
+            }
+        })
+
 
     }
 };

@@ -46,12 +46,12 @@ td.spider-box[data-type='y-axis']{
 }
 .spider-man{
     position: absolute;
-    padding-top: 1px;
-    padding-left: 2px;
+    /*padding-top: 1px;*/
+    /*padding-left: 2px;*/
 }
 .spider-man img{
-    width: 36px;
-    height: 36px;
+    width: 37px;
+    height: 37px;
 }
 
 section.spider-controls{
