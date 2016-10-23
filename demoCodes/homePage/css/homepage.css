@@ -1,0 +1,616 @@
+
+body{
+	min-width: 1280px;
+	margin: 0;
+	font-family: 'Microsoft YaHei',sans-serif;
+	font-size: 14px;
+}
+/*导航栏样式*/
+header{
+	height:56px;
+	position: relative;
+}
+.top-logo{
+	float: left;
+}
+.top-logo img.logo{
+	margin-left: 60px;
+	vertical-align: -8px;
+}
+.top-logo span{
+	font-family: 'SimHei',sans-serif;
+	font-size: 21px;
+	line-height: 56px;
+	padding-left: 10px;
+}
+
+.top .navigator{
+	float: right;
+}
+.navigator ul{
+	text-align: right;
+	margin-right: 60px;
+}
+.navigator ul li{
+	display: inline-block;
+}
+.navigator a.nav{
+	display: inline-block;
+	color: #787b83;
+	text-decoration: none;
+	padding-left: 12px;
+	padding-right: 12px;
+	margin-right: 10px;
+	line-height: 56px;
+	height: 56px;
+	box-sizing: border-box;
+}
+
+a.nav:hover{
+	color: #e9605e;
+	border-bottom: solid 4px #e9605e;
+}
+.login {
+	vertical-align: -3px;
+}
+.login + span{
+	color: #e74f4d;
+}
+
+
+
+/*开始体验部分*/
+.part-a{
+	position: relative;
+	height: 939px;
+	background-image: url(../image/homepage/figure3.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.part-a .begin{
+	position: absolute;
+	top: 190px;
+	left: 116px;
+}
+.part-a .begin h1{
+	font-size: 60px;
+	color: #fff;
+}
+.part-a .begin p{
+	font-size: 21px;
+	color: #fff;
+	line-height: 28px;
+}
+.part-a .begin button{
+	width: 330px;
+	height: 65px;
+	background-color: #e74f4d;
+	color: #fff;
+	font-size: 30px;
+	text-align: center;
+	margin-left: 10px;
+	margin-top: 45px;
+	border:none;
+	cursor: pointer;
+}
+
+.part-a .introduce{
+	width: 100%;
+	height: 250px;
+	position: absolute;
+	top: 691px;
+	background-color: #fff;
+}
+.part-a .introduce div{
+	width:25%;
+	float: left;
+	margin-top: 45px;
+}
+.part-a .introduce  img{
+	display: block;
+	margin: auto;
+}
+.part-a .introduce  p{
+	font-family: 'SimHei',sans-serif;
+	color: #767777;
+	text-align: center;
+	line-height: 18px;
+	margin-top: 42px;
+	height: 60px;
+	border-right:solid 2px #bbbbbb ;
+}
+
+.part-a .introduce .part4 p{
+	border-style: none;
+}
+
+/*关于新世界,你不知道的还有什么*/
+.part-b{
+	position: relative;
+}
+.about-nw{
+	width: 100%;
+	background-image: url(../image/homepage/gray_light.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 270px;
+	padding-top: 90px;
+}
+.about-nw img{
+	display: block;
+	margin: auto;
+}
+.about-nw p{
+	font-family: 'SimHei',sans-serif;
+	font-size: 56px;
+	text-align: center;
+	color: #a1a1a1;
+}
+/*查找新世界城市活动信息*/
+.find-city{
+	position: relative;
+	height: 340px;
+	background-image: url(../image/homepage/figure10.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.find-city h3{
+	font-size: 21px;
+	line-height: 42px;
+	color: #fff;
+	display: block;
+	margin: 0;
+	text-align: center;
+	padding-top: 50px;
+	font-weight: normal;
+}
+.find-city hr{
+	width:30px;
+	border-top:1px #fff solid;
+	margin:0 auto;
+}
+.find-city p{
+	font-size: 12px;
+	line-height: 30px;
+	color: #fff;
+	text-align: center;
+}
+.find-city form{
+	margin-top:30px;
+	text-align: center;
+}
+.find-city form select{
+	width: 236px;
+	height: 36px;
+	font-size: 12px;
+	line-height: 27px;
+	color: #a8aaaa;
+	padding-left: 12px;
+	appearance:none;
+	-moz-appearance:none; /* Firefox */
+	-webkit-appearance:none; /* Safari 和 Chrome */
+	background-image: url(../image/homepage/droplist.png);
+	background-repeat: no-repeat;
+	background-position: center right 10px;
+	cursor: pointer;
+	margin-right: 30px;
+}
+.find-city form button{
+	width: 236px;
+	height: 36px;
+	font-size: 14px;
+	line-height: 27px;
+	color: #fff;
+	background-color: #bf4f49;
+	border-style: none;
+}
+
+/*城市活动*/
+.city-activity {
+	background-color: #f7f7f7;
+	height: 505px;
+	padding:100px 148px 0 148px;
+	display: flex;
+	flex-flow:row;
+	justify-content:space-around;
+}
+
+.city-activity p{
+	font-size:13px;
+	color: #a2a2a2;
+	text-align: center;
+}
+.city-activity .city-name{
+	font-size:15px;
+	text-align: center;
+	color: #000;
+	font-weight: bold;
+}
+div.city #shanghai{
+	font-size:25px;
+	letter-spacing: 20px;
+	text-align: center;
+	color: #000;
+	font-weight: 200;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+div.city-activity img{
+	padding:10px;
+	background-color: #fff;
+	box-shadow: 0 0 2px #777;
+}
+
+/*新世界介绍*/
+.part-c{
+	height: 1085px;
+}
+.part-c .part1{
+	height: 565px;
+	float: left;
+	width: 67%;
+	background-image: url(../image/homepage/figure12.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.part-c .part1 h3{
+	font-size: 50px;
+	line-height: 75px;
+	margin-top: 119px;
+	margin-bottom: 0;
+	color: #fff;
+	text-align: center;
+	font-weight: normal;
+}
+.part-c .part1 h1{
+	font-size: 158px;
+	margin-top: 0;
+	margin-bottom: 0;
+	color: #fff;
+	text-align: center;
+	font-weight: normal;
+	line-height: 158px;
+}
+.part-c .part1 p{
+	font-size: 22px;
+	line-height: 43px;
+	color: #ffffff;
+	text-align: center;
+	font-weight: normal;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.part-c .part2{
+	height: 565px;
+	float: right;
+	width: 33%;
+	background-color: #fff;
+}
+.part-c .part2 h3{
+	font-family: 'SimHei',sans-serif;
+	font-size: 20px;
+	line-height: 30px;
+	margin-top: 134px;
+	color: #000;
+	text-align: center;
+}
+.part-c .part2 span{
+	color: #e7504d;
+}
+.part-c .part2 p{
+	font-family: 'SimSong',sans-serif;
+	font-size: 12px;
+	line-height: 30px;
+	width: 70%;
+	margin:10px auto;
+	color: #aaa;
+	font-weight: normal;
+}
+.part-c .part2 .more{
+	font-size: 12px;
+	line-height: 32px;
+	margin:50px auto 24px auto;
+	color: #e25c60;
+	text-align: center;
+	font-weight: normal;
+	width: 105px;
+	height: 32px;
+	border:solid 1px #e25c60;
+	display: block;
+	background-color: #fff;
+	cursor: pointer;
+}
+.part-c .part2 ul{
+	text-align: center;
+	padding-left: 0;
+}
+.part-c .part2 li{
+	border:solid #aaa 1px;
+	width: 12px;
+	height: 12px;
+	border-radius: 12px;
+	display: inline-block;
+}
+.part-c .part2 .active{
+	background-color: #aaa;
+}
+.part-c .part3{
+	float: left;
+	clear: left;
+	width: 33%;
+	height: 370px;
+	background-color: #e74f4d;
+	padding-top: 150px;
+}
+.part-c .part3 p{
+	margin:0;
+	color: #fff;
+	font-family: 'SimHei',sans-serif;
+	line-height: 30px;
+	text-align: center;
+	font-size: 21px;
+}
+.part-c .part3 hr{
+	width: 30px;
+	margin:24px auto;
+	border:solid 1px #fff;
+}
+.part-c .part3 a {
+	line-height: 44px;
+	font-family: 'SimHei',sans-serif;
+	font-size: 21px;
+	background-color: #e74f4d;
+	border:solid 1px #fff;
+	display: block;
+	margin:0 auto;
+	width: 170px;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+}
+
+.part-c .part3 a:hover{
+	background-color: #fff;
+	color: #e74f4d;
+}
+.part-c .part4{
+	float: left;
+	width: 34%;
+	height: 370px;
+	background-color: #fff;
+	padding-top: 150px;
+	position: relative;
+}
+.part-c .part4 p{
+	margin:0;
+	font-family: 'SimHei',sans-serif;
+	line-height: 30px;
+	text-align: center;
+	font-size: 21px;
+}
+.part-c .part4 hr{
+	width: 30px;
+	margin:24px auto;
+	border:solid 1px #ababab;
+}
+.part-c .part4 a {
+	line-height: 44px;
+	font-family: 'SimHei',sans-serif;
+	font-size: 21px;
+	background-color: #fff;
+	border:solid 1px #e74f4d;
+	display: block;
+	margin:0 auto;
+	width: 170px;
+	text-align: center;
+	color: #e74f4d;
+	text-decoration: none;
+}
+
+.part-c div.part4 a:hover{
+	background-color: #e74f4d;
+	color: #fff;
+}
+.part-c div.part5{
+	float: left;
+	width: 33%;
+	height: 520px;
+	filter:brightness(.6);
+	-webkit-filter:brightness(.6);
+}
+.part-c .part4 .white{
+	top: 50%;
+	margin-top: -20px;
+	margin-left: 100%;
+	border-color: transparent transparent transparent #fff;
+	border-width: 20px 0 20px 20px;
+	border-style: solid;
+	position: absolute;
+	z-index: 1;
+}
+/*成为我们的志愿者*/
+.part-d{
+	height: 690px;
+}
+.part-d .being-volunteer{
+	height: 305px;
+}
+.part-d .being-volunteer h3{
+	font-family: 'SimHei',sans-serif;
+	font-size: 21px;
+	text-align: center;
+	font-weight: normal;
+	padding-top: 118px;
+	margin:0;
+}
+.part-d .being-volunteer hr{
+	width: 30px;
+	border:1px solid #ea6562;
+	margin:12px auto 15px ;
+}
+.part-d .being-volunteer p{
+	font-size: 12px;
+	color: #aaa;
+	text-align: center;
+}
+
+/*志愿者协议*/
+.part-d .volunteer_note{
+	width: 40%;
+	height:285px;
+	float: left;
+}
+.part-d .volunteer_note div{
+	margin-left: 25%;
+	width: 60%;
+}
+.part-d div h3{
+	font-family: 'SimHei',sans-serif;
+	font-weight: normal;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+.part-d  p{
+	font-family: 'SimSong',sans-serif;
+	font-size: 12px;
+	line-height: 21px;
+	color: #bcbbba;
+}
+.part-d p.more:before {
+	display: inline-block;
+	content: url(../image/homepage/more.png);
+	vertical-align: middle;
+}
+.part-d div.volunteer_note p.more{
+	font-family: 'SimSong',sans-serif;
+	font-size: 12px;
+	color: #a5a3a2;
+	text-align: right;
+}
+.part-d form{
+	width:49%;
+	float: right;
+	display: block;
+	height: 285px;
+	margin-right: 10%;
+}
+.part-d form input{
+	width: 48%;
+	height: 40px;
+	margin-bottom: 12px;
+	background-color: #ededee;
+	border-style: none;
+	font-size: 12px;
+	font-family: 'SimSong',sans-serif;
+	padding-left: 16px;
+}
+.part-d form textarea{
+	height: 120px;
+	background-color: #ededee;
+	width: 97%;
+	font-size: 12px;
+	font-family: 'SimSong',sans-serif;
+	text-align: left;
+	color: #231815;
+	margin-bottom: 15px;
+	border-style: none;
+	padding-left: 16px;
+}
+.part-d form button{
+	width: 97%;
+	height: 40px;
+	background-color: #ededee;
+	border-style: none;
+	font-family: 'SimHei',sans-serif;
+	font-size: 14px;
+	cursor: pointer;
+}
+/*联系我们*/
+.contact_us{
+	height: 360px;
+	background-color:#32363e; 
+}
+.contact_us h3{
+	padding-top: 90px;
+	font-family: 'SimHei',sans-serif;
+	font-size: 21px;
+	color: #fff;
+	text-align: center;
+}
+.contact_us p{
+	font-family: 'SimSong',sans-serif;
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+}
+.contact_us form{
+	text-align: center;
+	margin: 30px;
+	height: 40px;
+}
+.contact_us input[type='email']{
+	width: 430px;
+	height: 40px;
+	background-color: #fff;
+	padding: 0 0 0 10px;
+	border-width: 0;
+	box-sizing: border-box;
+	font-size: 15px;
+
+}
+.contact_us input[type='submit']{
+	width: 80px;
+	height: 40px;
+	padding: 0;
+	background-color: #6f7178;
+	color: #fff;
+	font-size: 15px;
+	border: 0;
+	cursor: pointer;
+
+}
+
+.contact_us .icon{
+	margin:0 auto;
+	width: 260px;
+	display: flex;
+	flex-flow:row;
+	justify-content:space-around;
+
+}
+.contact_us  a{
+	margin-right: 28px;
+}
+.contact_us div a:last-child{
+	margin-right: 0;
+}
+/*脚注*/
+footer{
+	height: 56px;
+	background-color: #303039;
+}
+footer p.left{
+	padding-left:100px;
+	font-family: 'SimSong',sans-serif;
+	font-size: 12px;
+	margin: 0;
+	color: #fff;
+	float: left;
+	line-height: 56px;
+}
+footer p.right{
+	float: right;
+	margin: 0;
+	margin-right: 40px;
+	height: 56px;
+	line-height: 56px;
+}
+footer p.right a{
+	text-decoration: none;
+	font-family: 'SimSong',sans-serif;
+	font-size: 12px;
+	color: #fff;
+	padding: 0;
+}

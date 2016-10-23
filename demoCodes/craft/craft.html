@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 28</title>
+    <link rel="stylesheet" href="craft.css">
+</head>
+<body>
+<!--//定义背景模块-->
+<section class="background">
+    <div class="planet-1 rotating">
+        <div class="hole-4"></div>
+        <div class="hole-5"></div>
+    </div>
+    <div class="planet-2 rotating">
+        <div class="hole-4"></div>
+        <div class="hole-5"></div>
+    </div>
+    <div class="planet-3 rotating">
+        <div class="hole-4"></div>
+        <div class="hole-5"></div>
+    </div>
+    <div class="planet-4 rotating">
+        <div class="hole-4"></div>
+        <div class="hole-5"></div>
+    </div>
+</section>
+<section class="layout">
+    <div class="planet">
+        <div class="hole-1"></div>
+        <div class="hole-2"></div>
+        <div class="hole-3"></div>
+    </div>
+    <div class="orbit1">
+        <div class="orbit-1"></div>
+    </div>
+    <div class="orbit2">
+        <div class="orbit-2"></div>
+    </div>
+    <div class="orbit3">
+        <div class="orbit-3"></div>
+    </div>
+    <div class="orbit4">
+        <div class="orbit-4"></div>
+    </div>
+</section>
+<section class="control-wrapper">
+    <section class="control">
+        <form action="#">
+            <div class="craft-orbit1">
+                <span>第一轨道</span>
+                <select name="powerType"  class="energy">
+                    <option value="powerSlow">前进号(速度30px/s,能耗5%/s)</option>
+                    <option value="powerMedium">前进号(速度50px/s,能耗7%/s)</option>
+                    <option value="powerFast">前进号(速度80px/s,能耗9%/s)</option>
+                </select>
+                <select name="energyType"  class="energy">
+                    <option value="energySlow">劲量型(补充能源速度2%/s)</option>
+                    <option value="energyMedium">光能型(补充能源速度3%/s)</option>
+                    <option value="energyFast">永久型(补充能源速度4%/s)</option>
+                </select>
+                <input type="button" value="创建飞船" name="create">
+                <input type="button" value="飞行" name="launch" disabled>
+            </div>
+            <div class="craft-orbit2">
+                <span>第二轨道</span>
+                <select name="powerType"  class="energy">
+                    <option value="powerSlow">前进号(速度30px/s,能耗5%/s)</option>
+                    <option value="powerMedium">前进号(速度50px/s,能耗7%/s)</option>
+                    <option value="powerFast">前进号(速度80px/s,能耗9%/s)</option>
+                </select>
+                <select name="energyType"  class="energy">
+                    <option value="energySlow">劲量型(补充能源速度2%/s)</option>
+                    <option value="energyMedium">光能型(补充能源速度3%/s)</option>
+                    <option value="energyFast">永久型(补充能源速度4%/s)</option>
+                </select>
+                <input type="button" value="创建飞船" name="create">
+                <input type="button" value="飞行" name="launch" disabled>
+            </div>
+            <div class="craft-orbit3">
+                <span>第三轨道</span>
+                <select name="powerType"  class="energy">
+                    <option value="powerSlow">前进号(速度30px/s,能耗5%/s)</option>
+                    <option value="powerMedium">奔腾号(速度50px/s,能耗7%/s)</option>
+                    <option value="powerFast">超越号(速度80px/s,能耗9%/s)</option>
+                </select>
+                <select name="energyType"  class="energy">
+                    <option value="energySlow">劲量型(补充能源速度2%/s)</option>
+                    <option value="energyMedium">光能型(补充能源速度3%/s)</option>
+                    <option value="energyFast">永久型(补充能源速度4%/s)</option>
+                </select>
+                <input type="button" value="创建飞船" name="create">
+                <input type="button" value="飞行" name="launch" disabled>
+            </div>
+            <div class="craft-orbit4">
+                <span>第四轨道</span>
+                <select name="powerType"  class="energy">
+                    <option value="powerSlow">前进号(速度30px/s,能耗5%/s)</option>
+                    <option value="powerMedium">前进号(速度50px/s,能耗7%/s)</option>
+                    <option value="powerFast">前进号(速度80px/s,能耗9%/s)</option>
+                </select>
+                <select name="energyType"  class="energy">
+                    <option value="energySlow">劲量型(补充能源速度2%/s)</option>
+                    <option value="energyMedium">光能型(补充能源速度3%/s)</option>
+                    <option value="energyFast">永久型(补充能源速度4%/s)</option>
+                </select>
+                <input type="button" value="创建飞船" name="create">
+                <input type="button" value="飞行" name="launch" disabled>
+            </div>
+        </form>
+    </section>
+    <section class="console">
+        <p>准备就绪!请操作</p>
+    </section>
+</section>
+<section class="monitor">
+    <p>飞船实时监控</p>
+    <table>
+        <thead>
+        <tr><td>飞船</td><td>动力系统</td><td>能源系统</td><td>当前飞行状态</td><td>剩余能耗</td></tr>
+        </thead>
+        <tbody>
+        <tr><td>一号飞船</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>二号飞船</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>三号飞船</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>四号飞船</td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+
+    </table>
+</section>
+<script src="jquery.js"></script>
+<script src="DC.js"></script>
+<script src="craft.js"></script>
+<script src="consoleOut.js"></script>
+<script src="mediator.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

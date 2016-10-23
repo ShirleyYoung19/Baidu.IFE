@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task32</title>
+    <style type="text/css">
+        *{
+            font-size: 14px;
+            font-family: 'Microsoft YaHei';
+        }
+        .container{
+            min-width: 800px;
+        }
+        .formproduce{
+            width: 300px;
+            margin-left: 10px;
+        }
+        .formdisplay{
+            border:1px solid #000000;
+            border-radius: 5px;
+            margin-right: 5%;
+            float: right;
+            width: calc(90% - 300px);
+        }
+        .formdisplay h1{
+            text-align: center;
+            color: #228abf;
+            font-size: 2.5em;
+        }
+        .type,.config,.rule,.option,.length{
+            line-height: 25px;
+            margin-bottom: 20px;
+        }
+        #css{
+            margin-left: 10px;
+        }
+        legend{
+            font-size: 16px;
+        }
+        /*长度限制中的输入框宽度调小*/
+        .length input{
+            width: 30px;
+            margin: auto 5px;
+        }
+        /*选项中放大输入框宽度*/
+        .option input{
+            width: 90%;
+            margin: auto;
+            display: block;
+        }
+        /*选项中输入的选项的展示框*/
+        .optiondisplay{
+            min-height:30px;
+        }
+        /*ADD按钮的样式*/
+        .addbtn{
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #2F79BA;
+            border: 1px solid #2F79BA;
+            border-radius: 4px;
+        }
+        .option{
+            display: none;
+        }
+        /*添加选项的样式控制*/
+        .optiondiv{
+            /*background-color: #75b86b;*/
+            font-size: 14px;
+            width: 70%;
+            margin: 10px auto;
+        }
+        .deleteicon{
+            font-size: 14px;
+            display: none;
+            margin-left: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        /*定义生成的表格的样式*/
+        /*通用*/
+        .formdisplay div{
+            width: 85%;
+            margin: 15px auto;
+        }
+        .formdisplay span{
+            display: inline-block;
+            width: 15%;
+            text-align: right;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .formdisplay input[type="text"]{
+            width: 40%;
+            margin-left: 5%;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px #aaaaaa solid;
+        }
+        .formdisplay input[type="email"]{
+            width: 40%;
+            margin-left: 5%;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px #aaaaaa solid;
+        }
+        .formdisplay input[type="password"]{
+            width: 40%;
+            margin-left: 5%;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px #aaaaaa solid;
+        }
+        .formdisplay div input[type="radio"]{
+            margin-left: 10%;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px #aaaaaa solid;
+            vertical-align: middle;
+        }
+        .formdisplay input[type="checkbox"]{
+            margin-left: 10%;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px #aaaaaa solid;
+            vertical-align: middle;
+        }
+        .formdisplay textarea{
+            width: 40%;
+            margin-left: 5%;
+            height: 60px;
+            border-radius: 5px;
+            border: 1px #aaaaaa solid;
+            vertical-align:middle;
+        }
+        .formdisplay select{
+            width: 10%;
+            margin-left: 5%;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px #aaaaaa solid;
+            vertical-align:middle;
+        }
+        .formdisplay p{
+            display: none;
+        }
+
+        /*样式一*/
+        .formdisplay div.one{
+            padding-left: 20%;
+        }
+
+        .formdisplay p.one{
+            margin-left: 20%;
+            font-size: 12px;
+            color: #aaa;
+            display: block;
+        }
+        .formdisplay textarea p.one{
+            margin-left: 20%;
+            font-size: 12px;
+            color: #aaa;
+            display: block;
+        }
+        .formdisplay div input[type="checkbox"]~p.one{
+            display: block;
+            margin-left: 10%;
+            font-size: 12px;
+            color: #aaa;
+            margin-top:0;
+
+        }
+        .formdisplay div input[type="radio"]~p.one{
+            display: block;
+            margin-left: 10%;
+            font-size: 12px;
+            color: #aaa;
+            margin-top:0;
+        }
+        /*样式二*/
+        .formdisplay div.two{
+            padding-left: 0;
+        }
+
+        .formdisplay p.two{
+            margin-left: 5%;
+            font-size: 12px;
+            color: #aaa;
+            display: inline-block;
+        }
+        .formdisplay textarea p.two{
+            margin-left: 5%;
+            font-size: 12px;
+            color: #aaa;
+            display: inline-block;
+        }
+        .formdisplay input[type="checkbox"]~p.two{
+            display: inline-block;
+            margin-left: 5%;
+            font-size: 12px;
+            color: #aaa;
+        }
+        .formdisplay input[type="radio"]~p.two{
+            display: inline-block;
+            margin-left: 5%;
+            font-size: 12px;
+            color: #aaa;
+        }
+        .formdisplay #submitbtn{
+            margin-left: 80%;
+            margin-bottom: 30px;
+        }
+        /*验证正确*/
+        .formdisplay p.right{
+            color: green;
+
+        }
+        .formdisplay input.right{
+            border: 1px solid green;
+        }
+        .formdisplay p.wrong{
+            color: red;
+
+        }
+        .formdisplay input.wrong{
+            border: 1px solid red;
+        }
+        .nodisplay{
+            display: none;
+        }
+        .display{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="formdisplay">
+            <h1>表单展示区</h1>
+            <button id="submitbtn" class="addbtn nodisplay">SUBMIT</button>
+        </section>
+        <section class="formproduce">
+
+            <fieldset class="type">
+                <legend>类型</legend>
+                <input type="radio" name="type" value="inputtext" id="inputtext" checked>
+                <label for="inputtext">输入框</label>
+                <input type="radio" name="type" value="textarea" id="textarea">
+                <label for="textarea">文本域</label><br/>
+                <input type="radio" name="type" value="radio" id="radio">
+                <label for="radio">单选框</label>
+                <input type="radio" name="type" value="checkbox" id="checkbox">
+                <label for="checkbox">多选框</label>
+                <input type="radio" name="type" value="select" id="select">
+                <label for="select">下拉框</label>
+            </fieldset>
+
+            <fieldset class="config">
+                <legend>配置</legend>
+                <label for="name">名称:</label>
+                <input type="text" name="config" value="输入框" id="name"><br/>
+                <input type="radio" name="config" value="must" id="must" checked>
+                <label for="must">必填</label>
+                <input type="radio" name="config" value="maybe" id="maybe">
+                <label for="maybe">选填</label>
+                <select name="config" id="css">
+                    <option value="one">样式一</option>
+                    <option value="two">样式二</option>
+                </select>
+            </fieldset>
+
+            <fieldset class="rule">
+                <legend>规则</legend>
+                <input type="radio" name="rule" value="text" id="text" checked>
+                <label for="text">文字</label>
+                <input type="radio" name="rule" value="email" id="email">
+                <label for="email">邮箱</label>
+                <input type="radio" name="rule" value="phonenumber" id="phonenumber">
+                <label for="phonenumber">电话号码</label><br/>
+                <input type="radio" name="rule" value="password" id="password">
+                <label for="password">密码</label>
+            </fieldset>
+
+            <fieldset class="length">
+                <legend>长度限制</legend>
+                <span>字符范围:</span><input type="number" name="length" value="4" id="minlength">
+                <span>--</span><input type="number" name="length" value="16" id="maxlength">
+            </fieldset>
+
+            <!--单选、多选和下拉框的选项设置-->
+            <fieldset class="option">
+                <legend>选项</legend>
+                <input type="text" name="option" placeholder="可用空格或回车来分隔选项" id="option">
+                <div class="optiondisplay"></div>
+            </fieldset>
+
+            <!--添加按钮-->
+            <input type="button" class="addbtn" value="ADD">
+        </section>
+
+
+
+    </div>
+
+</body>
+<script src="formFactory.js"></script>
+</html>
