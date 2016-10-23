@@ -17,7 +17,7 @@ SpiderMap.prototype.create=function (row,column) {
             }else if(j == 0){
                 html += '<td class="spider-box" data-type="y-axis">'+i+'</td>'
             }else {
-                html += '<td class="spider-box"></td>'
+                html += '<td class="spider-box" data-type="null"></td>'
             }
         }
         html +='</tr>';
@@ -25,4 +25,18 @@ SpiderMap.prototype.create=function (row,column) {
     this.column = column;
     this.row = row;
     this.element.innerHTML = html;
+    this.boxes = this.element.getElementsByTagName('td');
+};
+SpiderMap.prototype.getType=function (position) {
+    var spiderBox = this.get(position);
+    return spiderBox && spiderBox.dataset.type;
+};
+
+/**
+ *
+ * @param position
+ * @returns {*}
+ */
+SpiderMap.prototype.get = function (position) {
+   return this.boxes[ position[1]  * (this.column + 1)+ position[0] ]
 };

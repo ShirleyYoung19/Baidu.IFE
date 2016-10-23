@@ -46,12 +46,21 @@ SpiderMan.prototype.getPosition = function (direction, offset) {
 
 SpiderMan.prototype.getCurrentPosition = function () {
     var position=[];
-    position[0]=Math.round(this.element.style.left/this.element.clientWidth);
-    position[1]=Math.round(this.element.style.top/this.element.clientHeight);
+    position[0]=Math.round(this.getCurrentOffset('left')/this.element.clientWidth);
+    position[1]=Math.round(this.getCurrentOffset('top')/this.element.clientHeight);
     return position;
 };
 
 SpiderMan.prototype.goto= function (position, turn) {
-    this.element.style.left = position[0]*this.element.clientWidth;
-    this.element.style.top = position[1]*this.element.clientHeight;
+    this.element.style.left = position[0]*this.element.clientWidth + 'px';
+    this.element.style.top = position[1]*this.element.clientHeight + 'px';
+};
+
+SpiderMan.prototype.getCurrentOffset = function (direction) {
+    var offset = this.element.style[direction];
+    if(offset){
+        return parseInt(offset);
+    }else{
+        return 0;
+    }
 };

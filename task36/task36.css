@@ -48,6 +48,8 @@ td.spider-box[data-type='y-axis']{
     position: absolute;
     /*padding-top: 1px;*/
     /*padding-left: 2px;*/
+    transition-property: left, top, transform;
+    transition-duration: .25s;
 }
 .spider-man img{
     width: 37px;

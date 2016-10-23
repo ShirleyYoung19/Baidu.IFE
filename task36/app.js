@@ -2,9 +2,13 @@ function Application() {
     this.spider = new Spider('.spider');
     this.spiderEditor = new SpiderEditor('.spider-commander');
 
+    //获得运行速度
+    this.$duration=document.getElementById('duration');
 
     this.$resolution=document.getElementById('resolution');
     this.$run=document.getElementById('run');
+    this.duration=250;
+
 
 
     this.initial()
@@ -13,10 +17,16 @@ function Application() {
 Application.prototype.initial = function () {
     this.$resolution.addEventListener('change',this.setResolution.bind(this));
     this.$run.addEventListener('click', this.run.bind(this));
+    this.$duration.addEventListener('change',this.setDuration.bind(this));
 };
 
 Application.prototype.setResolution = function () {
     this.spider.setResolution(parseInt(this.$resolution.value));
+};
+
+Application.prototype.setDuration = function () {
+    var index = this.$duration.selectedIndex;
+    this.duration=parseInt(this.$duration[index].value);
 };
 
 Application.prototype.run=function () {
@@ -31,14 +41,22 @@ Application.prototype.run=function () {
         }
     }
     if(codeStates){
+        // var self = this;
+        // codes.forEach(function (code,i) {
+        //     if(code){
+        //         self.spider.exec(code);
+        //     }
+        // })
         var self = this;
-        codes.forEach(function (code,i) {
-            if(code){
-                self.spider.exec(code);
+        var j = 0;
+        function runCode(){
+            self.spider.exec(codes[j]);
+            j++;
+            if( j < codes.length ){
+                setTimeout(runCode,self.duration);
             }
-        })
-
-
+        }
+        runCode();
     }
 };
 

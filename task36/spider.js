@@ -111,8 +111,13 @@ Spider.prototype.taskLoop = function () {
     this.running = true;
     var task=this.queue.shift();
     if(task){
-        task.func.apply(this,task.params);
-        setTimeout(this.taskLoop().bind(this),this.duration)
+       try{
+           task.func.apply(this,task.params);
+           setTimeout(this.taskLoop().bind(this),this.duration)
+       } catch (e) {
+           this.running = false;
+           this.queue=[];
+       }
     }else{
         this.running = false;
     }
@@ -131,22 +136,20 @@ Spider.prototype.setDuration = function () {
 };
 
 Spider.prototype.checkPath=function(direction,step){
-    var displacement = this.spiderMan.getDisplacement(direction,step);
-    var currentPosition = this.spiderMan.getCurrentPosition(direction,step);
+    var displacement = this.spiderMan.getDisplacement(direction,1);
+    var currentPosition = this.spiderMan.getCurrentPosition();
 
     for( var i = 1; i <=step; i++){
         var x = currentPosition[0] + displacement[0]*i;
         var y = currentPosition[1] + displacement[1]*i;
-        if(this.map.getType())
+
+        if(this.spiderMap.getType([x,y]) != 'null'){
+            throw '无法移动到[' + x + ',' + y +']';
+        }
     }
 };
 
 
-Spider.prototype.getPosition=function () {
-    this.position[0]=parseInt(this.element.style.left.slice(0,-2));
-    this.position[1]=parseInt(this.element.style.left.slice(0,-2));
-    var rotate = this.element.style.transform;
-    this.position[2]=(/(\d+)/).exec(rotate)[0];
-};
+
 
 

@@ -32,12 +32,11 @@ SpiderEditor.prototype.scroll=function () {
 };
 
 SpiderEditor.prototype.getCode=function () {
-    var codes = this.$textarea.value;
-    var codesList=codes.split(/\r?\n/g);
-    codesList.forEach(function (item) {
-        item.trim();
+    var codes = [];
+    this.$textarea.value.split(/\r?\n/g).forEach(function (code) {
+        codes.push(code.trim())
     });
-    return codesList;
+    return codes;
 };
 
 SpiderEditor.prototype.warning=function (index) {
